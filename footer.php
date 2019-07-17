@@ -1,3 +1,4 @@
+			</main>
 			<?php if(have_rows('affiliates', 'options')): ?>
 				<footer id="affiliates">
 					<h3><?php the_field('affiliates_heading', 'options'); ?></h3>
@@ -52,6 +53,15 @@
 				</section>
 			</footer>
 		</div>
+		<nav id="responsive-nav">
+			<?php
+				wp_nav_menu(array(
+					'container' => false,
+					'theme_location' => 'menu-responsive',
+					'depth' => 1,
+				));
+			?>
+		</nav>
 		<?php wp_footer(); ?>
 	</body>
 </html>

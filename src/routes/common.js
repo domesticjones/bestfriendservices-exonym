@@ -8,8 +8,10 @@ export default {
 
   	// HEADER: Responsive Nav Toggle
   	$('#responsive-nav-toggle').click(e => {
+      e.preventDefault();
   		const $this = $(e.currentTarget);
   		$this.toggleClass('is-active');
+      $('body').toggleClass('nav-active');
   	});
   },
   finalize() {

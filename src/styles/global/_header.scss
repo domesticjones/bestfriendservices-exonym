@@ -21,6 +21,7 @@
   color: $white;
   font-size: 0.85rem;
   @include fontBold();
+  @include transition();
 
   a {
     color: $white;
@@ -194,7 +195,9 @@
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     .menu,
     .header-login {
       max-height: 20rem;
@@ -228,7 +231,8 @@
     width: auto;
     height: 100%;
 
-    &.logo-dark {
+    &.logo-dark,
+    &.logo-emblem {
       display: none;
     }
   }
@@ -236,8 +240,70 @@
 
 #responsive-nav-toggle {
   display: none;
+  margin-right: 0.5rem;
 }
 
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+  .nav-header a {
+    padding: 1em;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nav-header a {
+    font-size: 0.85em;
+  }
+
+  #logo {
+    min-width: 30%;
+  }
+
+  #header button {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-header {
+    display: none;
+  }
+
+  #responsive-nav-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    padding: 0.5rem 1rem;
+    height: 4rem;
+
+    nav button {
+      font-size: 0px;
+      height: 2.5rem;
+
+      &::before {
+        width: 2.5rem;
+      }
+    }
+  }
+
+  #logo img{
+    &.logo-light {
+      display: none;
+    }
+
+    &.logo-emblem {
+      display: block;
+      height: 3rem;
+      top: 1rem;
+    }
+  }
+
+  .nav-account .menu {
+    display: none;
+  }
+}

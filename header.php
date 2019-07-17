@@ -15,6 +15,7 @@
         <a href="<?php echo get_home_url(); ?>" id="logo">
 					<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-dark" />
 					<img src="<?php ex_logo('primary', 'light'); ?>" alt="Light-colored Logo for <?php ex_brand(); ?>" class="logo-light" />
+					<img src="<?php ex_logo('alternate', 'light'); ?>" alt="Emblem for <?php ex_brand(); ?>" class="logo-emblem" />
 				</a>
         <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
           <?php
@@ -28,7 +29,7 @@
 	      <nav class="nav-account" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					<?php
 						if(is_user_logged_in()) {
-							echo '<button>Account</button>';
+							echo '<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '"><button type="button">Account</button></a>';
 							wp_nav_menu(array(
 		            'container' => false,
 		            'theme_location' => 'menu-account',
@@ -57,3 +58,4 @@
           <span class="line"></span>
 				</a>
       </header>
+			<main id="content">

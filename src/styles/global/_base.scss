@@ -9,6 +9,9 @@ body {
 
 #container {
   padding-top: 7rem;
+}
+
+#content {
   background-color: $white;
 }
 
@@ -37,3 +40,8 @@ a {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #container {
+    padding-top: 5rem;
+  }
+}
