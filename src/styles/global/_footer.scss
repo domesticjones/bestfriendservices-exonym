@@ -52,7 +52,7 @@
   display: block;
   height: 4rem;
   width: auto;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto;
 }
 
 .footer-heading {
@@ -118,6 +118,20 @@
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+  .footer-column {
+    @include grid(flex-start, flex-start, column);
+
+    .nav-social {
+      margin: auto 0;
+    }
+  }
+
+  .footer-heading {
+    margin-bottom: 2em;
+  }
+}
+
 @media (max-width: 1024px) {
   #affiliates {
     @include grid(center, center, column);
@@ -130,10 +144,69 @@
       margin: 1rem 2vw;
     }
   }
+
+  #footer {
+    @include grid(flex-start, center, row, wrap);
+  }
+
+  .footer-column {
+    min-width: 50%;
+
+    &-logo {
+      width: 100%;
+      order: 1;
+
+      .copyright {
+        display: none;
+      }
+    }
+
+    &-contact {
+      display: none;
+    }
+
+    &-social {
+      width: 100%;
+      order: 3;
+      margin-bottom: 3em;
+
+      .nav-social {
+        margin: 0 auto;
+      }
+    }
+
+    &-services {
+      order: 4;
+    }
+
+    &-info {
+      order: 5;
+    }
+
+    &-services,
+    &-info {
+      @include grid(center, center, column);
+      text-align: center;
+
+      .footer-heading {
+        padding: 0;
+        opacity: 0.666;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .footer-affiliates {
     @include grid(center, center, column);
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-column {
+    &-services,
+    &-info {
+      display: none;
+    }
   }
 }

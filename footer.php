@@ -17,13 +17,13 @@
 					<img src="<?php ex_logo('primary', 'light'); ?>" alt="Logo for <?php ex_brand(); ?>" class="footer-logo" />
 					<p class="copyright">&copy;<?php echo date('Y') . ' '; ex_brand('legal'); ?></p>
 				</section>
-				<section class="footer-column">
+				<section class="footer-column footer-column-contact">
 					<h3 class="footer-heading">Contact</h3>
 					<p class="footer-address">
 						<?php ex_brand(); echo '<br /><span>'; ex_contact('address'); echo '</span>'; ?>
 					</p>
 				</section>
-				<section class="footer-column">
+				<section class="footer-column footer-column-services">
 					<h3 class="footer-heading">Services</h3>
 					<nav class="nav-footer" role="navigation">
 						<?php
@@ -35,7 +35,7 @@
 						?>
 					</nav>
 				</section>
-				<section class="footer-column">
+				<section class="footer-column footer-column-info">
 					<h3 class="footer-heading">Information</h3>
 					<nav class="nav-footer" role="navigation">
 						<?php
@@ -47,7 +47,7 @@
 						?>
 					</nav>
 				</section>
-				<section class="footer-column">
+				<section class="footer-column footer-column-social">
 					<?php ex_social(); ?>
 				</section>
 			</footer>
