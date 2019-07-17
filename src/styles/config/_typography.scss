@@ -1,17 +1,15 @@
 /**
   Font Families & Settings
   ---------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i");
+@import url('https://fonts.googleapis.com/css?family=Cantata+One|Nunito+Sans:400,400i,700,700i&display=swap');
 
-$font-default: "Lato", sans-serif;
-$font-heading: "Lato", sans-serif;
+$font-default: 'Nunito Sans', sans-serif;
+$font-heading: 'Cantata One', serif;
 
 $font-size: 16px;
 
-$font-light: 300;
 $font-normal: 400;
 $font-bold: 700;
-$font-ultra-bold: 900;
 
 $font-italic: italic;
 

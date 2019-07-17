@@ -1,38 +1,4 @@
 /**
-  Link Coloring in all States
-  ---------------------------------------------------------------------- */
-@mixin linkArrayStatic($color: inherit, $el: a) {
-  #{$el},
-  #{$el}:link,
-  #{$el}:visited {
-    color: $color;
-  }
-}
-
-@mixin linkArrayHover($color: inherit, $el: a) {
-  #{$el}:hover,
-  #{$el}:focus,
-  #{$el}:active {
-    color: $color;
-  }
-}
-
-@mixin linkColor($color: inherit, $state: all, $el: a) {
-  @if $state == all {
-    @include linkArrayStatic();
-    @include linkArrayHover();
-  }
-
-  @else if $state == static {
-    @include linkArrayStatic();
-  }
-
-  @else if $state == hover {
-    @include linkArrayHover();
-  }
-}
-
-/**
   Strip lists to use semantically, but without the styles
   ---------------------------------------------------------------------- */
 @mixin listStripped($display: block, $margin: 0, $padding: 0) {

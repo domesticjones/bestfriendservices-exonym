@@ -11,8 +11,10 @@ add_theme_support('menus');
 // Define the nav bars
 register_nav_menus(
   array(
-    'header-menu' => __('Header', 'exonym'),
-    'footer-menu' => __('Footer', 'exonym'),
-    'responsive-menu' => __('Responsinve', 'exonym')
+    'menu-header' => __('Header', 'exonym'),
+    'menu-responsive' => __('Responsinve', 'exonym'),
+    'menu-account' => __('Account', 'exonym'),
+    'menu-services' => __('Services', 'exonym'),
+    'menu-info' => __('Information', 'exonym'),
   )
 );
