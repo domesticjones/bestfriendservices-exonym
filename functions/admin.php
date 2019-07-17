@@ -19,7 +19,7 @@ function custom_login_logo() { ?>
   <style type="text/css">
     #login h1 a,
     .login h1 a {
-      background-image: url(<?php echo ex_logo('alternate', 'dark'); ?>);
+      background-image: url(<?php ex_logo('alternate', 'dark'); ?>);
     }
   </style>
 <?php }
@@ -34,7 +34,20 @@ function wpcontent_svg_mime_type($mimes = array()) {
 add_filter('upload_mimes', 'wpcontent_svg_mime_type');
 
 // Allow Editors to edit Menus
-$roleObject = get_role( 'editor' );
+$roleObject = get_role('editor');
 if (!$roleObject->has_cap('edit_theme_options')) {
   $roleObject->add_cap('edit_theme_options');
+}
+
+// Create Website Options
+if (function_exists('acf_add_options_page')) {
+  acf_add_options_page(array(
+    'page_title' 	=> 'Website Settings',
+    'menu_title'	=> 'Website Settings',
+    'menu_slug' 	=> 'ex-settings',
+    'capability'	=> 'edit_posts',
+    'redirect'		=> true,
+    'icon_url'    => 'dashicons-screenoptions',
+    'position'    => 3
+  ));
 }

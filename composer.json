@@ -28,6 +28,7 @@
     "wpackagist-plugin/ari-adminer": "*",
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
     "wpackagist-plugin/admin-menu-editor": "*",
+    "wpackagist-plugin/aryo-activity-log": "*",
     "wpackagist-plugin/woocommerce": "3.6.5",
     "wpackagist-plugin/woocommerce-admin": "0.15.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
