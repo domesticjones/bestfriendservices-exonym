@@ -114,22 +114,24 @@
   text-align: center;
   margin-left: 1.5em;
 
-  ul,
-  form {
+  .menu,
+  .header-login {
+    position: absolute;
+    top: 3rem;
+    right: 0;
     overflow: hidden;
     max-height: 0px;
     opacity: 0;
+    background-color: $white;
+    outline: 1px solid $violet;
     @include transition(all 350ms ease-in);
     transition-delay: 0;
+    color: $violet;
   }
 
   .menu {
-    position: absolute;
-    background-color: $white;
     min-width: 100%;
-    top: 3rem;
     font-size: 1rem;
-    outline: 1px solid $violet;
 
     a {
       display: block;
@@ -139,6 +141,42 @@
       &:hover {
         color: $orchid !important;
       }
+    }
+  }
+
+  .header-login {
+    padding: 1rem;
+    min-width: 200%;
+
+    label {
+      white-space: nowrap;
+      display: block;
+      text-align: left;
+      margin: 0;
+      font-size: 0.85em;
+    }
+
+    input {
+      margin: 0;
+    }
+
+    p {
+      padding-bottom: 0;
+      margin-bottom: 0.5em;
+    }
+
+    a {
+      display: block;
+      text-align: right;
+      color: $orchid !important;
+      @include fontItalic();
+      @include fontBold(false);
+      margin-top: 1.5em;
+    }
+
+    input[type="submit"] {
+      background-color: $violet;
+      margin-top: 1rem;
     }
   }
 
@@ -155,8 +193,8 @@
   }
 
   &:hover {
-    ul,
-    form {
+    .menu,
+    .header-login {
       max-height: 20rem;
       opacity: 1;
       transition-delay: 150ms;

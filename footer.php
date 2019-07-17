@@ -1,3 +1,12 @@
+			<?php if(have_rows('affiliates', 'options')): ?>
+				<footer id="affiliates">
+					<?php the_field('affillates_heading', 'options'); ?>
+					<?php while(have_rows('affiliates', 'options')): the_row(); ?>
+						<?php var_dump(get_sub_field('logo')); ?>
+						<?php var_dump(get_sub_field('link')); ?>
+					<?php endwhile; ?>
+				</footer>
+			<?php endif; ?>
 			<footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 				<div class="wrap">
 					<p class="copyright">&copy; Copyright <?php ex_brand('legal'); ?></p>
