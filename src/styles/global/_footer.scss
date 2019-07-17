@@ -1,10 +1,139 @@
 /**
   Global Website Footer
   ---------------------------------------------------------------------- */
-.nav-footer {
-  @include navMenu(vertical);
+#affiliates {
+  @include grid(space-between, center);
+  background-color: $white;
+  padding: 3rem 7vw;
+
+  h3 {
+    font-size: 1rem;
+    font-family: $font-default;
+    color: $violet;
+    @include fontItalic();
+  }
+}
+
+.footer-affiliates{
+  @include listStripped(inline-block);
+
+  a {
+    display: block;
+  }
+
+  li {
+    margin-left: 4vw;
+  }
+
+  img {
+    display: block;
+    height: 3rem;
+    width: auto;
+  }
+}
+
+#footer {
+  @include grid(space-between, stretch);
+  background-color: $violet;
+  color: $white;
+  padding: 3rem 4vw;
+  font-size: 0.75rem;
+
+  a {
+    color: $white;
+  }
+
+  .copyright {
+    padding: 0;
+  }
+}
+
+.footer-logo {
+  display: block;
+  height: 4rem;
+  width: auto;
+  margin-bottom: 2rem;
+}
+
+.footer-heading {
+  font-family: $font-default;
+  @include fontBold(false);
+  text-transform: uppercase;
+  font-size: 1em;
+  padding-right: 2em;
+}
+
+.footer-column {
+  @include grid();
+
+  &-logo {
+    display: block;
+  }
+
+  nav {
+    @include navMenu(vertical);
+
+    ul li {
+      line-height: 1;
+      margin-bottom: 1em;
+    }
+
+    a {
+      @include transition();
+
+      &:hover {
+        opacity: 0.666;
+      }
+    }
+  }
+
+  .nav-social {
+    @include navMenu(horizontal);
+    margin-top: auto;
+
+    span {
+      display: none;
+    }
+
+    a {
+      padding: 1em;
+    }
+
+    img {
+      height: 1.5em;
+    }
+  }
+}
+
+.footer-address {
+  text-align: left;
+  line-height: 2;
+  margin-top: -0.5em;
+
+  span {
+    white-space: pre;
+  }
 }
 
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  #affiliates {
+    @include grid(center, center, column);
+  }
+
+  .footer-affiliates {
+    margin-top: 0.5rem;
+
+    li {
+      margin: 1rem 2vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-affiliates {
+    @include grid(center, center, column);
+  }
+}
