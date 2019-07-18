@@ -16,7 +16,7 @@
 			<footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 				<section class="footer-column footer-column-logo">
 					<img src="<?php ex_logo('primary', 'light'); ?>" alt="Logo for <?php ex_brand(); ?>" class="footer-logo" />
-					<p class="copyright">&copy;<?php echo date('Y') . ' '; ex_brand('legal'); ?></p>
+					<?php get_template_part('modules/copyright'); ?>
 				</section>
 				<section class="footer-column footer-column-contact">
 					<h3 class="footer-heading">Contact</h3>
@@ -53,15 +53,9 @@
 				</section>
 			</footer>
 		</div>
-		<nav id="responsive-nav">
-			<?php
-				wp_nav_menu(array(
-					'container' => false,
-					'theme_location' => 'menu-responsive',
-					'depth' => 1,
-				));
-			?>
-		</nav>
-		<?php wp_footer(); ?>
+		<?php
+			get_template_part('modules/navigation');
+			wp_footer();
+		?>
 	</body>
 </html>

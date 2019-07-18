@@ -31,24 +31,52 @@
 }
 
 #responsive-nav {
+  @include grid(space-between, flex-start, column);
   position: fixed;
   z-index: 1000;
   top: 0;
   right: 0;
-  width: 50vw;
-  background-color: $violet;
+  width: 75vw;
+  height: 100vh;
+  padding: 2rem;
+  background-color: $tan;
+  color: $violet;
+  overflow: auto;
   @include navMenu(vertical);
   transform: translateX(100%);
   @include transition();
 
   a {
-    color: $white;
+    display: block;
+    padding: 0.5rem 0;
+    color: $violet;
+    @include fontItalic();
+    opacity: 0.666;
   }
+
+  .copyright {
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  .sub-menu {
+    font-size: 0.85em;
+    padding-left: 1rem;
+    margin: 0.5rem;
+    border-left: 1px dotted transparentize($orchid, 0.777);
+
+    li:first-child a { padding-top: 0; }
+    li:last-child a { padding-bottom: 0; }
+  }
+}
+
+.responsive-logo {
+  margin-bottom: 2rem;
 }
 
 .nav-active {
   #header {
-    transform: translateX(-50vw);
+    transform: translateX(-75vw);
   }
 
   #content,

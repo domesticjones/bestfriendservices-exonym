@@ -36,7 +36,7 @@
 		            'depth' => 1,
 		          ));
 						} else {
-							echo '<button>Log In</button>';
+							echo '<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '"><button type="button">Log In</button></a>';
 							echo
 								'<section class="header-login">' .
 									wp_login_form(array(
@@ -45,7 +45,7 @@
 										'label_remember' 	=> 'Stay Logged in',
 										'value_remember'	=> true,
 									)) .
-									'<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '">Create an Account</a>
+									'<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '#register">Create an Account</a>
 								</section>';
 						}
 					?>

@@ -15,10 +15,11 @@ export default {
   	});
   },
   finalize() {
-  	// MODULES: Parallax
   	$(window).on('load resize scroll', () => {
   		const d_scroll = $(window).scrollTop();
   		const w_height = $(window).height();
+  		const w_width = $(window).width();
+      // MODULES: Parallax
   		$('.animate-parallax').each((i, e) => {
   			const $this = $(e);
   			const $thisBg = $this.find('.module-bg');
@@ -36,6 +37,11 @@ export default {
   				$thisBg.css('transform', `translateY(-${offset}px)`);
   			}
   		});
+      // MODULES: Responsive Cleanup
+      if(w_width >= 768) {
+    		$('#responsive-nav-toggle').removeClass('is-active');
+        $('body').removeClass('nav-active');
+      }
   	});
 
   	// MODULES: Animate onScreen
