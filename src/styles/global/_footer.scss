@@ -4,7 +4,7 @@
 #affiliates {
   @include grid(space-between, center);
   background-color: $white;
-  padding: 3rem 7vw;
+  padding: 3rem 9vw;
 
   h3 {
     font-size: 1rem;
@@ -130,6 +130,12 @@
 
   .footer-heading {
     margin-bottom: 2em;
+  }
+}
+
+@media (max-width: 1200px) {
+  #affiliates {
+    padding: 3rem;
   }
 }
 
