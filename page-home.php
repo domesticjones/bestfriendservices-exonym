@@ -24,7 +24,7 @@
       echo '</nav>';
     ex_wrap('end');
     ex_wrap('start', 'funnel', get_field('funnel_module_id'));
-      echo 'funnel area';
+      get_template_part('modules/funnel');
     ex_wrap('end');
     ex_wrap('start', 'testimonials', get_field('testimonials_settings')['module_id']);
       echo 'testimonials';

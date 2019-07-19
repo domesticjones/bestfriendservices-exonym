@@ -8,9 +8,9 @@
 @import "styles/config/reset";
 @import "styles/config/colors";
 @import "styles/config/typography";
+@import "styles/config/icons";
 @import "styles/config/forms";
 @import "styles/config/hamburger";
-@import "styles/config/icons";
 @import "~slick-carousel/slick/slick";
 
 /**
@@ -27,6 +27,7 @@
   ---------------------------------------------------------------------- */
 @import "styles/modules/cta";
 @import "styles/modules/hero";
+@import "styles/modules/funnel";
 
 /**
   Templates

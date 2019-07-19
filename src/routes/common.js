@@ -36,6 +36,15 @@ export default {
       pauseOnHover: false,
       pauseOnFocus: false,
     });
+
+    // MODULE: Funnel Slider
+    $('#funnel-products').slick({
+      arrows: false,
+      fade: true,
+      speed: 3666,
+      autoplay: true,
+      autoplaySpeed: 5555,
+    });
   },
   finalize() {
   	$(window).on('load resize scroll', () => {
@@ -82,5 +91,36 @@ export default {
   			}
   		});
   	});
+
+    // MODULE: Sales Funnel
+    $(window).on('load', () => {
+      const petname = localStorage.getItem('petname');
+      const pettype = localStorage.getItem('pettype');
+      const petweight = localStorage.getItem('petweight');
+      if(petname) { $('#pet-name').val(petname); $('#pet-name-display span').text(petname); }
+      if(pettype) { $('#pet-type').val(pettype); $('#pet-type-display span').text(pettype); }
+      if(petweight) { $('#pet-weight').val(petweight); $('#pet-weight-display span').text(petweight); }
+    });
+    $('#funnel').on('submit', (e) => {
+      const $this = $(e.currentTarget);
+      const name = $('#pet-name').val();
+      const type = $('#pet-type').val();
+      const weight = $('#pet-weight').val();
+      localStorage.setItem('petname', name);
+      localStorage.setItem('pettype', type);
+      localStorage.setItem('petweight', weight);
+    });
+    $('.numcontrol').on('click', (e) => {
+      const $this = $(e.currentTarget);
+      let math = '';
+      if($this.hasClass('down')) {
+        math = -1;
+      } else {
+        math = 1;
+      }
+      $('#pet-weight').val((i, val) => {
+        return parseInt(val, 10) + math;
+      });
+    });
   },
 };

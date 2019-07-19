@@ -1,0 +1,162 @@
+.module-funnel {
+  @include grid(center, center, row, wrap);
+}
+
+.funnel-info {
+  width: 50%;
+}
+
+#funnel-products {
+  width: 50%;
+
+  .slick-slide {
+    position: relative;
+    height: 80vh;
+  }
+}
+
+.funnel-product {
+  @include grid(flex-end, flex-end);
+  display: flex !important;
+  position: absolute;
+  height: 100%;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  color: $white;
+
+  span {
+    display: inline-block;
+    padding: 1em 2em;
+    background-color: $violet-trans;
+  }
+}
+
+.funnel-heading-strip {
+  width: 100%;
+  background-color: $violet;
+  padding: 1em;
+  text-align: center;
+  font-family: $font-default;
+  color: $white;
+  font-size: 1.66em;
+  margin: 0;
+}
+
+.funnel-info {
+  width: 50%;
+  padding: 3rem 7vw;
+}
+
+.funnel-heading {
+  color: $orchid;
+  margin-bottom: 2em;
+}
+
+#funnel {
+  input {
+    margin: 0;
+  }
+}
+
+.funnel-bottom-row {
+  @include grid(flex-start, stretch);
+
+  .cta-button {
+    margin: 0 0 0 0.5em;
+    border: none;
+  }
+}
+
+.funnel-weight {
+  border: 1px solid $grey;
+  position: relative;
+
+  &::before {
+      content: 'lbs';
+      position: absolute;
+      top: 1em;
+      right: 5ex;
+      @include fontItalic(false);
+      color: $violet;
+  }
+
+  i.numcontrol {
+    position: absolute;
+    right: 0.5em;
+    display: block;
+    width: 0.75em;
+    height: 0.75em;
+    @include icon(arrow-purple);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: hand;
+    cursor: pointer;
+    @include transition();
+
+    &:hover {
+      opacity: 0.666;
+    }
+
+    &.up {
+      top: 0.6em;
+      transform: rotate(180deg);
+    }
+
+    &.down {
+      bottom: 0.6em;
+    }
+  }
+}
+
+input#pet-weight {
+  max-width: 13ex;
+  appearance: none;
+  border: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 1200px) {
+  .funnel-info {
+    padding: 2rem;
+  }
+}
+
+@media(max-width: 1024px) {
+  .funnel-heading-strip {
+    order: 1;
+  }
+
+  #funnel-products {
+    order: 2;
+    width: 100%;
+
+    .slick-slide {
+      height: 50vw;
+    }
+  }
+
+  .funnel-info {
+    order: 3;
+    width: 80%;
+  }
+}
+
+@media(max-width: 768px) {
+    #funnel-products .slick-slide {
+      height: 100vw;
+    }
+
+    .funnel-info {
+      width: 100%;
+    }
+}
