@@ -17,7 +17,7 @@ export default {
   	});
 
     // HEADER: Notify when scrolling from top
-    $(window).on('scroll', () => {
+    $(window).on('load scroll', () => {
       const scrollPosition = $(window).scrollTop();
       if (scrollPosition >= 123) {
         $('#header').removeClass('is-top');

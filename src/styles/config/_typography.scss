@@ -85,31 +85,6 @@ body {
 }
 
 /**
-  Exonym Module Text Sizes
-  ---------------------------------------------------------------------- */
-.module-text-size {
-  &-xsmall {
-    font-size: 0.75em;
-  }
-
-  &-small {
-    font-size: 0.85em;
-  }
-
-  &-normal {
-    font-size: 1em;
-  }
-
-  &-large {
-    font-size: 1.25em;
-  }
-
-  &-xlarge {
-    font-size: 1.5em;
-  }
-}
-
-/**
   Global Website Headings
   ---------------------------------------------------------------------- */
 h1,
@@ -125,8 +100,7 @@ h6 {
   margin: 0;
   line-height: 1;
   font-family: $font-heading;
-
-  @include fontBold();
+  @include fontBold(false);
 }
 
 h1 {

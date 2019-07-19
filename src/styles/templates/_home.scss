@@ -19,9 +19,67 @@
   }
 }
 
+.module-cats {
+  padding: 3rem 7vw;
+}
+
+.cats-heading {
+  text-align: center;
+  font-size: 1.35rem;
+  color: $orchid;
+  margin-bottom: 1.5em;
+}
+
+.cats-list {
+  @include grid(space-around, flex-end);
+  text-align: center;
+
+  a,
+  img,
+  span {
+    display: block;
+    margin: 0 auto
+  }
+
+  a {
+    @include fontBold();
+    @include transition();
+    color: $black;
+    padding: 2rem;
+    flex: 1 0 0;
+
+    &:hover {
+      color: $orchid;
+      transform: scale(1.05);
+    }
+  }
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  .module-cats {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cats-list a {
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 1024px) {
+  .cats-list {
+    @include grid(space-around, flex-end, row, wrap);
+
+    a {
+      min-width: 30%;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .page-template-page-home #header.is-top {
     .logo-dark {
@@ -30,5 +88,16 @@
     .logo-emblem-dark {
       display: block;
     }
+  }
+}
+
+@media (max-width: 660px) {
+  .module-cats {
+    padding: 2rem 1rem;
+  }
+
+  .cats-list a {
+    min-width: 50%;
+    margin-bottom: 2rem;
   }
 }
