@@ -15,7 +15,8 @@
         <a href="<?php echo get_home_url(); ?>" id="logo">
 					<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-dark" />
 					<img src="<?php ex_logo('primary', 'light'); ?>" alt="Light-colored Logo for <?php ex_brand(); ?>" class="logo-light" />
-					<img src="<?php ex_logo('alternate', 'light'); ?>" alt="Emblem for <?php ex_brand(); ?>" class="logo-emblem" />
+					<img src="<?php ex_logo('alternate', 'light'); ?>" alt="Emblem for <?php ex_brand(); ?>" class="logo-emblem-light" />
+					<img src="<?php ex_logo('alternate', 'dark'); ?>" alt="Dark-colored Emblem for <?php ex_brand(); ?>" class="logo-emblem-dark" />
 				</a>
         <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
           <?php

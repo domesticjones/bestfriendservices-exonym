@@ -19,3 +19,12 @@
     height: 12rem;
   }
 }
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-content img {
+    max-width: 100%;
+  }
+}

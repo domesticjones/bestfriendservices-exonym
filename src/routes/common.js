@@ -32,6 +32,7 @@ export default {
       fade: true,
       speed: 2000,
       autoplay: true,
+      autoplaySpeed: 6669,
       pauseOnHover: false,
       pauseOnFocus: false,
     });

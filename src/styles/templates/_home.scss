@@ -7,9 +7,28 @@
     background-color: transparent;
 
     a { color: $violet; }
-    .logo-light { display: none; }
+    .logo-light, .logo-emblem-light { display: none; }
     .logo-dark { display: block; }
     nav button { color: $violet; border-color: $violet; }
     nav button::before { @include icon(avatar-purple); }
+    nav button::after { background-color: $violet; }
+    nav.nav-account:hover button { color: $white; }
+    nav.nav-account:hover button::before { @include icon(avatar-white); }
+    #responsive-nav-toggle .line { background-color: $violet; }
+    #responsive-nav-toggle::after { border-color: $violet; }
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .page-template-page-home #header.is-top {
+    .logo-dark {
+      display: none;
+    }
+    .logo-emblem-dark {
+      display: block;
+    }
   }
 }

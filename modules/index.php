@@ -28,7 +28,7 @@
 
   function ex_cta($parent, $print = true) {
     $cta = $parent['call_to_action'];
-    $output = '<a href="' . $cta['link']['url'] . '" target="' . $cta['link']['target'] . '" class="cta-button cta-color-' . $cta['color'] . ' cta-arrow-' . $cta['arrow_direction'] . '">' . $cta['link']['title'] . '</a>';
+    $output = '<a href="' . $cta['link']['url'] . '" target="' . $cta['link']['target'] . '" class="cta-button cta-color-' . $cta['color'] . ' cta-arrow-' . $cta['arrow_direction'] . '"><span>' . $cta['link']['title'] . '</span></a>';
     if($print == true) {
       echo $output;
     } else {
