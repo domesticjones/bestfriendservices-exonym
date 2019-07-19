@@ -6,3 +6,16 @@
   background-color: $white;
   position: relative;
 }
+
+.hero-content {
+  @include grid(center, flex-start, column);
+  padding: 9rem 3rem 2rem 3rem;
+  position: relative;
+  z-index: 1;
+
+  img {
+    display: block;
+    max-width: 50%;
+    height: 12rem;
+  }
+}

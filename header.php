@@ -11,7 +11,7 @@
 			<header id="tagline">
 				<?php echo get_bloginfo('description'); ex_social(); ?>
 			</header>
-      <header id="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+      <header id="header" class="is-top" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <a href="<?php echo get_home_url(); ?>" id="logo">
 					<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-dark" />
 					<img src="<?php ex_logo('primary', 'light'); ?>" alt="Light-colored Logo for <?php ex_brand(); ?>" class="logo-light" />

@@ -16,10 +16,24 @@ export default {
       $('body').toggleClass('nav-active');
   	});
 
+    // HEADER: Notify when scrolling from top
+    $(window).on('scroll', () => {
+      const scrollPosition = $(window).scrollTop();
+      if (scrollPosition >= 123) {
+        $('#header').removeClass('is-top');
+      } else {
+        $('#header').addClass('is-top');
+      }
+    });
+
     // MODULE: Hero Image Slider
     $('#hero-slider').slick({
       arrows: false,
       fade: true,
+      speed: 2000,
+      autoplay: true,
+      pauseOnHover: false,
+      pauseOnFocus: false,
     });
   },
   finalize() {

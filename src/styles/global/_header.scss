@@ -21,7 +21,7 @@
   color: $white;
   font-size: 0.85rem;
   @include fontBold();
-  @include transition();
+  @include transition(all 500ms ease-in-out);
 
   a {
     color: $white;

@@ -1,0 +1,15 @@
+.page-template-page-home {
+  #container {
+    padding-top: 0;
+  }
+
+  #header.is-top {
+    background-color: transparent;
+
+    a { color: $violet; }
+    .logo-light { display: none; }
+    .logo-dark { display: block; }
+    nav button { color: $violet; border-color: $violet; }
+    nav button::before { @include icon(avatar-purple); }
+  }
+}
