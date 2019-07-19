@@ -1,0 +1,8 @@
+#hero-slider {
+  @include listStripped();
+}
+
+.hero-wrap {
+  background-color: $white;
+  position: relative;
+}

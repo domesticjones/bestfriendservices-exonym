@@ -1,5 +1,7 @@
+import $ from 'jquery';
+window.jQuery = $;
 require('jquery-visible');
-const $ = jQuery;
+require('slick-carousel');
 
 export default {
   init() {
@@ -13,6 +15,12 @@ export default {
   		$this.toggleClass('is-active');
       $('body').toggleClass('nav-active');
   	});
+
+    // MODULE: Hero Image Slider
+    $('#hero-slider').slick({
+      arrows: false,
+      fade: true,
+    });
   },
   finalize() {
   	$(window).on('load resize scroll', () => {

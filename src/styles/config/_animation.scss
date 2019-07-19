@@ -1,13 +1,7 @@
 /**
   Animation Settings
   ---------------------------------------------------------------------- */
-.animate-parallax {
-  .module-bg {
-    top: 0;
-    left: auto;
-    right: auto;
-  }
-}
+
 
 .animate-on-enter,
 .animate-on-leave {
@@ -25,6 +19,25 @@
 /**
   Parallax Animation
   ---------------------------------------------------------------------- */
+.animate-parallax {
+  overflow: hidden;
+  position: relative;
+
+  .module-bg {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    top: 0;
+    left: auto;
+    right: auto;
+
+    img {
+      display: none;
+    }
+  }
+}
+
 .animate-z-subtle .module-bg {
   height: calc(100% + 4rem);
 }

@@ -11,6 +11,7 @@
 @import "styles/config/forms";
 @import "styles/config/hamburger";
 @import "styles/config/icons";
+@import "~slick-carousel/slick/slick";
 
 /**
   Global Elements
@@ -20,3 +21,8 @@
 @import "styles/global/header";
 @import "styles/global/footer";
 @import "styles/global/login";
+
+/**
+  Modules
+  ---------------------------------------------------------------------- */
+@import "styles/modules/hero";
