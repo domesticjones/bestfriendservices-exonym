@@ -33,7 +33,7 @@
       echo 'top sellers';
     ex_wrap('end');
     ex_wrap('start', 'about', get_field('about_settings')['module_id']);
-      echo 'about';
+      get_template_part('modules/about');
     ex_wrap('end');
     ex_wrap('start', 'trending', 'trending');
       echo 'trending';

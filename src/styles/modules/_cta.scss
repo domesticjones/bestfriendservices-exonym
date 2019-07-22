@@ -31,11 +31,19 @@
 @each $ctaColor in $colorCodes {
   $i: index($colorCodes, $ctaColor);
   .cta-color-#{nth($colorNames, $i)} {
-    background-color: $ctaColor;
+    @if nth($colorNames, $i) == white {
+      background-color: transparent;
+    } @else {
+      background-color: $ctaColor;
+    }
     border-color: $ctaColor;
 
     &:hover {
-      background-color: darken($ctaColor, 13%);
+      @if nth($colorNames, $i) == white {
+        background-color: transparentize($white, 0.87);
+      } @else {
+        background-color: darken($ctaColor, 13%);
+      }
       border-color: darken($ctaColor, 13%);
     }
   }

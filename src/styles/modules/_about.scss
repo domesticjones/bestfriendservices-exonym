@@ -1,0 +1,58 @@
+.module-about {
+  @include grid(center, flex-start, row, wrap);
+  padding: 10rem 10vw 6rem;
+
+  .cta-button {
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+  }
+}
+
+.about-left {
+  position: relative;
+  z-index: 1;
+  padding-right: 2rem;
+  font-size: 1.25em;
+}
+
+.about-right {
+  position: relative;
+  z-index: 1;
+  padding-left: 2rem;
+}
+
+@each $aboutColor in $colorCodes {
+  $i: index($colorCodes, $aboutColor);
+  .about-color-#{nth($colorNames, $i)} {
+    color: $aboutColor;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 1200px) {
+  .module-about {
+    padding: 6rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .module-about {
+    padding: 3rem;
+  }
+
+  .about-left,
+  .about-right {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-left,
+  .about-right {
+    min-width: 100%;
+    padding: 0;
+  }
+}
