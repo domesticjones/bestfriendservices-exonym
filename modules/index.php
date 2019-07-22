@@ -28,10 +28,14 @@
 
   function ex_cta($field, $print = true) {
     $cta = $field;
-    $output = '<a href="' . $cta['link']['url'] . '" target="' . $cta['link']['target'] . '" class="cta-button cta-color-' . $cta['color'] . ' cta-arrow-' . $cta['arrow_direction'] . '"><span>' . $cta['link']['title'] . '</span></a>';
-    if($print == true) {
-      echo $output;
+    if(empty($cta['link']['title'])) {
+      return false;
     } else {
-      return $output;
+      $output = '<a href="' . $cta['link']['url'] . '" target="' . $cta['link']['target'] . '" class="cta-button cta-color-' . $cta['color'] . ' cta-arrow-' . $cta['arrow_direction'] . '"><span>' . $cta['link']['title'] . '</span></a>';
+      if($print == true) {
+        echo $output;
+      } else {
+        return $output;
+      }
     }
   }

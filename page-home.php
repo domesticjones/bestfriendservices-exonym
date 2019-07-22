@@ -36,7 +36,7 @@
       get_template_part('modules/about');
     ex_wrap('end');
     ex_wrap('start', 'trending', 'trending');
-      echo 'trending';
+      get_template_part('modules/trending');
     ex_wrap('end');
     ex_wrap('start', 'quote', get_field('quote_settings')['module_id']);
       get_template_part('modules/quote');

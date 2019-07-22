@@ -1,0 +1,122 @@
+.module-trending {
+  padding: 3rem 7vw;
+}
+
+.trending-content {
+  @include grid(center, center);
+}
+
+.trending-heading {
+  font-size: 2.5em;
+  text-align: center;
+  color: $violet;
+  border-bottom: 1px solid $green;
+  line-height: 2em;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}
+
+.trending-data {
+  width: 50%;
+  padding: 2rem;
+
+  h2 {
+    color: $orchid;
+    font-size: 2em;
+    margin-bottom: 1em;
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    color: $green;
+    font-family: $font-default;
+    margin-bottom: 2em;
+  }
+
+  p {
+    line-height: 2;
+  }
+
+  footer {
+    @include grid(flex-end, center);
+
+    .cta-button {
+      margin: 0 0 0 2rem;
+    }
+  }
+}
+
+.trending-price {
+  font-size: 1.5em;
+  color: $violet;
+  font-family: $font-heading;
+}
+
+.trending-photo {
+  width: 50%;
+  padding: 2rem;
+}
+
+#trending-thumbs {
+  .slick-slide {
+    @include transition();
+  }
+
+  .slick-current {
+    opacity: 0.13;
+
+    img {
+      border-color: $black;
+    }
+  }
+}
+
+.trending-thumb {
+  padding: 2rem;
+  cursor: hand;
+  cursor: pointer;
+
+  img {
+    border: 1px solid $green;
+    border-radius: 2px;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 1024px) {
+  .trending-content {
+    @include grid(center, center, column-reverse);
+  }
+
+  .trending-data,
+  .trending-photo {
+    width: 100%;
+    padding: 2rem 0;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .trending-thumb {
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 660px) {
+  .trending-data footer {
+    @include grid(flex-start, flex-start, column);
+
+    .cta-button {
+      margin: 1rem 0 0 0;
+    }
+  }
+
+  .trending-thumb {
+    padding: 0.25rem;
+  }
+}

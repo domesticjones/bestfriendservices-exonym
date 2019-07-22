@@ -58,6 +58,23 @@ export default {
       pauseOnFocus: false,
       dots: true,
     });
+
+    // MODULE: Trending Slider
+    $('#trending-slider').slick({
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 6666,
+      adaptiveHeight: true,
+      pauseOnHover: false,
+      asNavFor: '#trending-thumbs',
+    });
+    $('#trending-thumbs').slick({
+      arrows: false,
+      asNavFor: '#trending-slider',
+      slidesToScroll: 1,
+      centerMode: true,
+      focusOnSelect: true,
+    });
   },
   finalize() {
   	$(window).on('load resize scroll', () => {
