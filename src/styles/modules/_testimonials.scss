@@ -1,0 +1,84 @@
+.module-testimonials {
+  padding: 3rem 10vw 6rem 10vw;
+}
+
+.testimonials-heading {
+  color: $tan;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: $font-default;
+  line-height: 1.25;
+}
+
+#testimonials-slider {
+  border: 1px solid $tan;
+  margin-top: 2rem;
+
+  blockquote {
+    padding: 3rem 10vw;
+
+    &::before {
+      display: none;
+    }
+
+    q {
+      display: block;
+      line-height: 2;
+      font-size: 1.5em;
+      font-family: $font-heading;
+      text-align: center;
+    }
+
+    cite {
+      display: block;
+      text-align: center;
+      color: $green;
+      margin-top: 2em;
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: -3rem;
+    transform: translateX(-50%);
+
+    button {
+      border-color: $tan;
+    }
+
+    .slick-active button {
+      background-color: $tan;
+    }
+  }
+}
+
+.testimonial-stars {
+  @include listStripped(inline-block);
+  @include grid(center, center);
+  margin-bottom: 2em;
+
+  .star {
+    width: 1.25rem;
+    height: 1.25rem;
+    @include icon(star-tan);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0.25em;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 1200px) {
+  #testimonials-slider blockquote {
+    padding: 3rem;
+  }
+}
+
+@media(max-width: 1024px) {
+  .module-testimonials {
+    padding: 3rem 3rem 6rem 3rem;
+  }
+}

@@ -35,6 +35,7 @@ export default {
       autoplaySpeed: 6669,
       pauseOnHover: false,
       pauseOnFocus: false,
+      dots: true,
     });
 
     // MODULE: Funnel Slider
@@ -44,6 +45,18 @@ export default {
       speed: 3666,
       autoplay: true,
       autoplaySpeed: 5555,
+    });
+
+    // MODULE: Testimonial Slider
+    $('#testimonials-slider').slick({
+      arrows: false,
+      speed: 1234,
+      autoplay: true,
+      autoplaySpeed: 6666,
+      adaptiveHeight: true,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      dots: true,
     });
   },
   finalize() {

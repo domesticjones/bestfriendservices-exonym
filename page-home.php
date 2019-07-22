@@ -27,7 +27,7 @@
       get_template_part('modules/funnel');
     ex_wrap('end');
     ex_wrap('start', 'testimonials', get_field('testimonials_settings')['module_id']);
-      echo 'testimonials';
+      get_template_part('modules/testimonials');
     ex_wrap('end');
     ex_wrap('start', 'topsellers', 'top-sellers');
       echo 'top sellers';

@@ -28,11 +28,9 @@
   &-up::after { transform: rotate(-90deg); }
 }
 
-$cta-colors: $tan $green $orchid $violet $grey $grey-dark $black;
-$cta-color-names: tan green orchid violet grey grey-dark black;
-@each $ctaColor in $cta-colors {
-  $i: index($cta-colors, $ctaColor);
-  .cta-color-#{nth($cta-color-names, $i)} {
+@each $ctaColor in $colorCodes {
+  $i: index($colorCodes, $ctaColor);
+  .cta-color-#{nth($colorNames, $i)} {
     background-color: $ctaColor;
     border-color: $ctaColor;
 

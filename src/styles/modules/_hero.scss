@@ -1,5 +1,18 @@
 #hero-slider {
   @include listStripped();
+
+  .slick-dots {
+    right: 7vw;
+    bottom: 2rem;
+
+    button {
+      border-color: $violet;
+    }
+
+    .slick-active button {
+      background-color: $violet;
+    }
+  }
 }
 
 .hero-wrap {

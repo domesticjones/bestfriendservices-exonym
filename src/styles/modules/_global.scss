@@ -1,0 +1,41 @@
+@each $ctaColor in $colorCodes {
+  $i: index($colorCodes, $ctaColor);
+  .module-bg-#{nth($colorNames, $i)} {
+    background-color: $ctaColor;
+    @if nth($colorNames, $i) == white {
+      color: $black;
+    } @else if nth($colorNames, $i) == tan {
+      color: $black;
+    } @else {
+      color: $white;
+    }
+  }
+}
+
+.slick-slide {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.slick-dots {
+  @include listStripped(inline-block);
+  @include grid();
+  position: absolute;
+
+  button {
+    display: block;
+    font-size: 0;
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 100%;
+    margin: 0.2rem;
+    background-color: transparent;
+    border: 1px solid $green;
+  }
+
+  .slick-active button {
+    background-color: $green;
+  }
+}
