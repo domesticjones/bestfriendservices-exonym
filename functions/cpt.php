@@ -64,11 +64,65 @@ function cpt_faq() {
 }
 add_action( 'init', 'cpt_faq', 0 );
 
+function cpt_resources() {
+	$labels = array(
+		'name'                  => _x( 'Resources', 'Post Type General Name', 'resources' ),
+		'singular_name'         => _x( 'Resource', 'Post Type Singular Name', 'resources' ),
+		'menu_name'             => __( 'Resources', 'resources' ),
+		'name_admin_bar'        => __( 'Resource', 'resources' ),
+		'archives'              => __( 'Resource Archives', 'resources' ),
+		'attributes'            => __( 'Resource Attributes', 'resources' ),
+		'parent_item_colon'     => __( 'Parent Resource:', 'resources' ),
+		'all_items'             => __( 'All Resources', 'resources' ),
+		'add_new_item'          => __( 'Add New Resource', 'resources' ),
+		'add_new'               => __( 'Add New', 'resources' ),
+		'new_item'              => __( 'New Resource', 'resources' ),
+		'edit_item'             => __( 'Edit Resource', 'resources' ),
+		'update_item'           => __( 'Update Resource', 'resources' ),
+		'view_item'             => __( 'View Resource', 'resources' ),
+		'view_items'            => __( 'View Resources', 'resources' ),
+		'search_items'          => __( 'Search Resource', 'resources' ),
+		'not_found'             => __( 'Not found', 'resources' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'resources' ),
+		'featured_image'        => __( 'Featured Image', 'resources' ),
+		'set_featured_image'    => __( 'Set featured image', 'resources' ),
+		'remove_featured_image' => __( 'Remove featured image', 'resources' ),
+		'use_featured_image'    => __( 'Use as featured image', 'resources' ),
+		'insert_into_item'      => __( 'Insert into Resource', 'resources' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Resource', 'resources' ),
+		'items_list'            => __( 'Resources list', 'resources' ),
+		'items_list_navigation' => __( 'Resources list navigation', 'resources' ),
+		'filter_items_list'     => __( 'Filter Resources list', 'resources' ),
+	);
+	$args = array(
+		'label'                 => __( 'Resource', 'resources' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'page-attributes' ),
+		'hierarchical'          => true,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-book',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => 'resources',
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'resource', $args );
+}
+add_action( 'init', 'cpt_resources', 0 );
+
 // Change "Enter Title Here" text on CPT's
 function ex_change_title_text($title) {
   $screen = get_current_screen();
   if('faq' == $screen->post_type ) {
     $title = 'Enter the question here';
+  } elseif('resource' == $screen->post_type ) {
+    $title = 'Enter the resource topic here';
   }
   return $title;
 }

@@ -19,7 +19,13 @@ body {
   Global Link Defaults
   ---------------------------------------------------------------------- */
 a {
+  color: $orchid;
   text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: $black;
+  }
 }
 
 /**

@@ -1,0 +1,38 @@
+.resource-disclaimer {
+  @include fontItalic();
+  text-align: center;
+}
+
+.resources-list {
+  @include listStripped();
+  @include grid(center, flex-start, row, wrap);
+  margin-top: 2rem;
+}
+
+li.resource {
+  display: block;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 3rem;
+
+  h2 {
+    margin-bottom: 0;
+    font-size: 1.666em;
+  }
+}
+
+.resource-child {
+  display: inline-block;
+  margin: 1em;
+  color: $green;
+  @include transition();
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  li.resource {
+    width: 100%;
+  }
+}
