@@ -1,0 +1,22 @@
+#faq-list {
+  @include listStripped();
+  overflow: visible;
+
+  li.question {
+    position: absolute;
+    opacity: 0;
+    margin-bottom: 3rem;
+    transform: translateX(50vw);
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &.is-active {
+      position: relative;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+#faq-search {
+  margin-bottom: 3rem;
+}

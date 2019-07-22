@@ -39,3 +39,17 @@
     background-color: $green;
   }
 }
+
+.module-general {
+  max-width: 1024px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.general-page-heading {
+  text-align: center;
+  color: $orchid;
+  border-bottom: 1px solid $green;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}

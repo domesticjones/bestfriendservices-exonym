@@ -1,5 +1,5 @@
 			</main>
-			<?php if(have_rows('affiliates', 'options')): ?>
+			<?php if(have_rows('affiliates', 'options') && get_post_type() == 'page'): ?>
 				<footer id="affiliates">
 					<h3><?php the_field('affiliates_heading', 'options'); ?></h3>
 					<ul class="footer-affiliates">

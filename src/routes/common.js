@@ -152,5 +152,17 @@ export default {
         return parseInt(val, 10) + math;
       });
     });
+
+    // TYPE: Frequently Asked Questions Search
+    $('#faq-search').keyup((e) => {
+      const filter = $(e.currentTarget).val(), count = 0;
+      $('#faq-list li').each((i,e) => {
+        if($(e).text().search(new RegExp(filter, "i")) < 0) {
+          $(e).removeClass('is-active');
+        } else {
+          $(e).addClass('is-active');
+        }
+      });
+    });
   },
 };
