@@ -11,6 +11,7 @@
     $resourceQuery = new WP_Query($resourceQueryArgs);
     if($resourceQuery->have_posts()) {
       echo '<nav class="resources-list">';
+      echo '<li class="resource"><a href="' . get_permalink(get_option('page_for_posts')) . '"><h2>Our Blog</h2></a></li>';
       while ($resourceQuery->have_posts()) {
         $resourceQuery->the_post();
         echo '<li class="resource">';

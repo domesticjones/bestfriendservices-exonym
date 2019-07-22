@@ -73,6 +73,32 @@
       }
     }
   }
+
+  button.account {
+    &::before {
+      @include icon(avatar-white);
+    }
+
+    &:hover {
+      &::before {
+        @include icon(avatar-purple);
+      }
+    }
+  }
+
+  button.cart {
+    margin-left: 1em;
+
+    &::before {
+      @include icon(cart-white);
+    }
+
+    &:hover {
+      &::before {
+        @include icon(cart-purple);
+      }
+    }
+  }
 }
 
 .nav-header {
@@ -111,7 +137,7 @@
   }
 }
 
-.nav-account {
+#header .nav-account {
   @include navMenu(vertical);
   position: relative;
   text-align: center;
@@ -183,18 +209,6 @@
     }
   }
 
-  button {
-    &::before {
-      @include icon(avatar-white);
-    }
-
-    &:hover {
-      &::before {
-        @include icon(avatar-purple);
-      }
-    }
-  }
-
   &:hover,
   &:focus,
   &:active {
@@ -208,8 +222,12 @@
     button {
       color: $violet;
 
-      &::before {
+      &.account::before {
         @include icon(avatar-purple);
+      }
+
+      &.cart::before {
+        @include icon(cart-purple);
       }
 
       &::after {
@@ -280,6 +298,15 @@
 
   #responsive-nav-toggle {
     display: block;
+    margin-left: 1.15rem;
+  }
+
+  #header .nav-account {
+    margin-left: 0.5rem;
+  }
+
+  .nav-cart {
+    margin-left: auto;
   }
 }
 

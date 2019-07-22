@@ -28,6 +28,42 @@ li.resource {
   @include transition();
 }
 
+.resource-subhead {
+  border-top: 1px solid $green;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.resource-reference {
+  @include grid(center, center, row, wrap);
+
+  .cta-button {
+    position: relative;
+    margin: 1em;
+    padding-bottom: 1.25rem;
+    height: 4rem;
+  }
+
+  .details {
+    font-size: 0.75em;
+    display: block;
+    position: absolute;
+    left: 1.5rem;
+    bottom: 0.75rem;
+    @include fontItalic();
+    opacity: 0.333;
+  }
+}
+
+.resource-subtopics {
+  @include grid(center, center, row, wrap);
+
+  .cta-button {
+    margin: 1em;
+  }
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */

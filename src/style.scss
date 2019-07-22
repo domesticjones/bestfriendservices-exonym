@@ -40,3 +40,10 @@
 @import "styles/templates/home";
 @import "styles/templates/faq";
 @import "styles/templates/resources";
+
+/**
+  Woocommerce
+  ---------------------------------------------------------------------- */
+@import "styles/woocommerce/global";
+@import "styles/woocommerce/shop";
+@import "styles/woocommerce/account";

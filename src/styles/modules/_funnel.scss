@@ -30,6 +30,10 @@
     padding: 1em 2em;
     background-color: $violet-trans;
   }
+
+  &:hover {
+    color: $white;
+  }
 }
 
 .funnel-heading-strip {

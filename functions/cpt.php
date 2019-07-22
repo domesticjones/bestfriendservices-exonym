@@ -143,4 +143,4 @@ function ex_listall_posts_archive( $query ) {
     $query->set('posts_per_page', -1);
   }
 }
-add_action( 'pre_get_posts', 'ex_listall_posts_archive' );
+add_action('pre_get_posts', 'ex_listall_posts_archive');

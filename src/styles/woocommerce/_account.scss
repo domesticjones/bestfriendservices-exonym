@@ -1,0 +1,132 @@
+.woocommerce-account .woocommerce {
+  @include grid();
+}
+
+.woocommerce-MyAccount-navigation {
+  @include navMenu(vertical);
+  padding: 0.5rem 1rem;
+  border: 1px solid $grey;
+  margin: 2rem;
+  min-width: 17vw;
+
+  a {
+    display: block;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 2.5rem;
+    margin: 0.5rem;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1.75rem;
+      height: 1.75rem;
+      left: 0;
+      top: 0.25rem;
+      border: 1px solid $grey;
+    }
+  }
+
+  .is-active a::before {
+    @include icon(check-purple);
+    background-size: 75%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+.woocommerce-MyAccount-content {
+  width: 100%;
+  margin: 2rem;
+
+  .woocommerce-Button {
+    margin: 0 0 1rem 0;
+  }
+
+  .addresses > div {
+    width: 50%;
+  }
+
+  .edit {
+    display: block;
+    color: $green;
+    margin-bottom: 1em;
+    @include fontItalic();
+  }
+
+  address {
+    @include fontItalic(false);
+  }
+}
+
+.woocommerce-address-fields__field-wrapper {
+  @include grid(flex-start, flex-end, row, wrap);
+
+  .form-row {
+    width: 33.333%;
+  }
+}
+
+.woocommerce-EditAccountForm {
+  @include grid(flex-start, flex-start, row, wrap);
+
+  .form-row {
+    width: 50%;
+  }
+
+  fieldset {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+
+    legend {
+      @extend h3;
+    }
+
+    .form-row {
+      display: inline-block;
+      width: 33%;
+    }
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .woocommerce-MyAccount-navigation {
+    min-width: 25%;
+  }
+}
+
+@media (max-width: 960px) {
+  .woocommerce-account .woocommerce {
+    @include grid(center, center, column-reverse);
+    padding-bottom: 3rem;
+  }
+
+  .woocommerce-MyAccount-content,
+  .woocommerce-MyAccount-navigation {
+    margin: 0;
+    min-width: auto;
+  }
+
+  .woocommerce-MyAccount-content {
+    padding: 2rem 2rem 0 2rem;
+  }
+
+  .woocommerce-MyAccount-navigation {
+    width: calc(100% - 4rem);
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .woocommerce-address-fields__field-wrapper,
+  .woocommerce-EditAccountForm,
+  .woocommerce-EditAccountForm fieldset {
+    .form-row {
+      width: 100%;
+    }
+  }
+}

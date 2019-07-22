@@ -52,4 +52,17 @@
   border-bottom: 1px solid $green;
   padding: 1em 0;
   margin-bottom: 1em;
+
+  .heading-sub {
+    display: block;
+    font-size: 0.333em;
+    font-family: $font-default;
+    margin-top: 0.5em;
+    color: $green;
+    @include fontBold();
+
+    &:hover {
+      color: $black;
+    }
+  }
 }

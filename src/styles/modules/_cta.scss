@@ -1,10 +1,10 @@
-.cta-button {
+a.cta-button {
   @include grid(center, center);
   font-size: 1rem;
-  color: white;
+  color: $white;
   padding: 0.5em 1em 0.5em 1.5em;
   height: $fh-input-height;
-  border: 1px solid;
+  border: 1px solid inherit;
   margin-top: 2em;
   border-radius: 2px;
   @include transition();
@@ -30,21 +30,22 @@
 
 @each $ctaColor in $colorCodes {
   $i: index($colorCodes, $ctaColor);
-  .cta-color-#{nth($colorNames, $i)} {
+  a.cta-color-#{nth($colorNames, $i)} {
     @if nth($colorNames, $i) == white {
       background-color: transparent;
+      border-color: $white;
     } @else {
       background-color: $ctaColor;
+      border-color: $ctaColor;
     }
-    border-color: $ctaColor;
 
     &:hover {
       @if nth($colorNames, $i) == white {
         background-color: transparentize($white, 0.87);
       } @else {
         background-color: darken($ctaColor, 13%);
+        border-color: darken($ctaColor, 13%);
       }
-      border-color: darken($ctaColor, 13%);
     }
   }
 }

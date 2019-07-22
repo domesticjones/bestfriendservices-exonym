@@ -10,10 +10,13 @@
     .logo-light, .logo-emblem-light { display: none; }
     .logo-dark { display: block; }
     nav button { color: $violet; border-color: $violet; }
-    nav button::before { @include icon(avatar-purple); }
+    nav button.account::before { @include icon(avatar-purple); }
+    nav button.cart::before { @include icon(cart-purple); }
     nav button::after { background-color: $violet; }
     nav.nav-account:hover button { color: $white; }
+    nav.nav-cart:hover button { color: $white; }
     nav.nav-account:hover button::before { @include icon(avatar-white); }
+    nav.nav-cart:hover button::before { @include icon(cart-white); }
     #responsive-nav-toggle .line { background-color: $violet; }
     #responsive-nav-toggle::after { border-color: $violet; }
   }

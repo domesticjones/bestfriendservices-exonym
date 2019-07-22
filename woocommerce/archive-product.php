@@ -29,12 +29,10 @@ get_header( 'shop' );
 do_action( 'woocommerce_before_main_content' );
 
 ?>
-<div id="pet-name-display">Name: <span></span></div>
-<div id="pet-type-display">Type: <span></span></div>
-<div id="pet-weight-display">Weight: <span></span></div>
-<header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+
+<?php $shopPage = woocommerce_get_page_id('shop'); ex_wrap('start', 'product_headings', '', $shopPage); ?>
+	<?php if(apply_filters( 'woocommerce_show_page_title', true)): ?>
+		<h1 class="woocommerce-products-header__title page-title"><?php the_field('page_heading', $shopPage); ?></h1>
 	<?php endif; ?>
 
 	<?php
@@ -46,7 +44,10 @@ do_action( 'woocommerce_before_main_content' );
 	 */
 	do_action( 'woocommerce_archive_description' );
 	?>
-</header>
+<?php ex_wrap('end'); ?>
+<div id="pet-name-display">Name: <span></span></div>
+<div id="pet-type-display">Type: <span></span></div>
+<div id="pet-weight-display">Weight: <span></span></div>
 <?php
 if ( woocommerce_product_loop() ) {
 

@@ -1,9 +1,9 @@
 <?php
-
-function ex_add_woocommerce_support() {
-  add_theme_support('woocommerce');
-}
-add_action('after_setup_theme', 'ex_add_woocommerce_support');
+  // Declare WC Support
+  function ex_add_woocommerce_support() {
+    add_theme_support('woocommerce');
+  }
+  add_action('after_setup_theme', 'ex_add_woocommerce_support');
 
 
   // Remove All WC Styling
@@ -24,3 +24,15 @@ add_action('after_setup_theme', 'ex_add_woocommerce_support');
     }
   }
   add_action('init','possibly_redirect');
+
+  // Kill Breadcrumbs
+  remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+
+  // Send Admins to WP Dashboard instead of customer account
+  function ex_redirect_wc_admins() {
+    if(current_user_can('manage_options') && is_account_page()) {
+      wp_redirect(admin_url(), 301);
+      exit();
+    }
+  }
+  add_action('template_redirect', 'ex_redirect_wc_admins');

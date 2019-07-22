@@ -16,9 +16,12 @@
     return $output;
   }
 
-  function ex_wrap($pos, $class = '', $id = '') {
+  function ex_wrap($pos, $class = '', $id = '', $target = null) {
+    if($target == null) {
+      $target = $post->ID;
+    }
     if($pos == 'start') {
-      $styles = ex_bg(get_field($class . '_settings'));
+      $styles = ex_bg(get_field($class . '_settings', $target));
       $output = '<section id="' . $id . '" class="module module-bg-' . $styles[0] . ' animate-parallax animate-z-normal module-' . $class . '">' . $styles[1];
     } elseif($pos == 'end') {
       $output = '</section>';
