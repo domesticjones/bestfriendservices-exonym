@@ -39,7 +39,7 @@
       echo 'trending';
     ex_wrap('end');
     ex_wrap('start', 'quote', get_field('quote_settings')['module_id']);
-      echo 'quote';
+      get_template_part('modules/quote');
     ex_wrap('end');
   endwhile; endif;
   get_footer();

@@ -1,0 +1,41 @@
+.quote-wrap {
+  padding: 10vw 10vw 7vw 10vw;
+  text-align: center;
+
+  &::before {
+    display: none;
+  }
+
+  q {
+    display: block;
+    font-family: $font-heading;
+    font-size: 2em;
+    line-height: 2em;
+  }
+
+  cite {
+    display: block;
+    font-size: 1.25em;
+    margin-top: 2em;
+  }
+}
+
+@each $quoteColor in $colorCodes {
+  $i: index($colorCodes, $quoteColor);
+  .quote-color-#{nth($colorNames, $i)} {
+    color: $quoteColor;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 660px) {
+  .quote-wrap {
+    padding: 3rem;
+
+    q {
+      font-size: 1.5em;
+    }
+  }
+}

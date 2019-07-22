@@ -14,7 +14,7 @@
             }
           ?>
         </ul>
-        <q><?php the_sub_field('testimonial'); ?></q>
+        <q>&ldquo;<?php the_sub_field('testimonial'); ?>&rdquo;</q>
         <cite>~ <?php echo $data['credit']; ?></cite>
       </blockquote>
     <?php endwhile; ?>
