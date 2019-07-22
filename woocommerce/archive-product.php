@@ -21,8 +21,8 @@ get_header( 'shop' );
 ?>
 
 
-<?php $shopPage = woocommerce_get_page_id('shop'); ex_wrap('start', 'woocommerce_heading', '', $shopPage); ?>
-	<?php if(apply_filters( 'woocommerce_show_page_title', true)): ?>
+	<?php $shopPage = wc_get_page_id('shop'); ex_wrap('start', 'woocommerce_heading', '', $shopPage); ?>
+	<?php if(apply_filters('woocommerce_show_page_title', true)): ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php the_field('page_heading', $shopPage); ?></h1>
 	<?php endif; ?>
 
