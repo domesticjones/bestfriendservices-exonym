@@ -18,19 +18,10 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
-
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
-
 ?>
 
-<?php $shopPage = woocommerce_get_page_id('shop'); ex_wrap('start', 'product_headings', '', $shopPage); ?>
+
+<?php $shopPage = woocommerce_get_page_id('shop'); ex_wrap('start', 'woocommerce_heading', '', $shopPage); ?>
 	<?php if(apply_filters( 'woocommerce_show_page_title', true)): ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php the_field('page_heading', $shopPage); ?></h1>
 	<?php endif; ?>
@@ -45,9 +36,20 @@ do_action( 'woocommerce_before_main_content' );
 	do_action( 'woocommerce_archive_description' );
 	?>
 <?php ex_wrap('end'); ?>
-<div id="pet-name-display">Name: <span></span></div>
-<div id="pet-type-display">Type: <span></span></div>
-<div id="pet-weight-display">Weight: <span></span></div>
+
+<?php
+
+/**
+ * Hook: woocommerce_before_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+ * @hooked woocommerce_breadcrumb - 20
+ * @hooked WC_Structured_Data::generate_website_data() - 30
+ */
+do_action( 'woocommerce_before_main_content' );
+
+?>
+
 <?php
 if ( woocommerce_product_loop() ) {
 

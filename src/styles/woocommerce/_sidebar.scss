@@ -1,0 +1,96 @@
+#sidebar {
+  order: 1;
+  width: 17%;
+  padding: 2rem;
+}
+
+.widget {
+  border: 1px solid $grey;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.widget-title {
+  font-size: 1.25rem;
+  color: $orchid;
+  margin-bottom: 1rem;
+}
+
+#pet-cta,
+#pet-info {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+#pet-info {
+  position: relative;
+
+  a {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: $green;
+    @include fontItalic();
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+.pet-widget-name {
+  font-size: 1.25em;
+  @include fontBold();
+}
+
+#pet-cta {
+  .cta-button {
+    margin-top: 0;
+  }
+}
+
+.search-form-inline {
+  @include grid();
+
+  .search-submit {
+    background-color: $violet;
+    border-color: $violet;
+    padding: 0 1rem;
+
+    span {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      height: 1rem;
+      width: 1rem;
+      @include icon(magnify-white);
+      @include transition();
+    }
+
+    &:hover {
+      background-color: darken($violet, 13%);
+      border-color: darken($violet, 13%);
+
+      &::before {
+        transform: scale(1.25);
+      }
+    }
+  }
+
+  button,
+  input {
+    margin-top: 0;
+  }
+}
+
+.widget-cats {
+  @include listStripped();
+  @extend %wcCheckboxes;
+}

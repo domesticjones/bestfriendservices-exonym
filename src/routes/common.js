@@ -123,14 +123,17 @@ export default {
   	});
 
     // MODULE: Sales Funnel
-    $(window).on('load', () => {
-      const petname = localStorage.getItem('petname');
-      const pettype = localStorage.getItem('pettype');
-      const petweight = localStorage.getItem('petweight');
-      if(petname) { $('#pet-name').val(petname); $('#pet-name-display span').text(petname); }
-      if(pettype) { $('#pet-type').val(pettype); $('#pet-type-display span').text(pettype); }
-      if(petweight) { $('#pet-weight').val(petweight); $('#pet-weight-display span').text(petweight); }
-    });
+    const petname = localStorage.getItem('petname');
+    const pettype = localStorage.getItem('pettype');
+    const petweight = localStorage.getItem('petweight');
+    if(petname) { $('#pet-name').val(petname); $('#pet-name-display').text(petname); }
+    if(pettype) { $('#pet-type').val(pettype); $('#pet-type-display').text(pettype); }
+    if(petweight) { $('#pet-weight').val(petweight); $('#pet-weight-display').text(petweight); }
+    if(petname && pettype && petweight) {
+      $('#pet-info').addClass('is-active');
+    } else {
+      $('#pet-cta').addClass('is-active');
+    }
     $('#funnel').on('submit', (e) => {
       const $this = $(e.currentTarget);
       const name = $('#pet-name').val();

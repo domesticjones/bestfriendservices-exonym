@@ -5,8 +5,9 @@ $orchid: #7E497F;
 $violet: #362E5D;
 $violet-trans: transparentize($violet, 0.4);
 $grey: #95989A;
+$grey-light: #F7F7F7;
 $grey-dark: #4E4E4E;
 $black: #101010;
 
-$colorCodes: $white $tan $green $orchid $violet $grey $grey-dark $black;
-$colorNames: white tan green orchid violet grey grey-dark black;
+$colorCodes: $white $tan $green $orchid $violet $grey $grey-light $grey-dark $black;
+$colorNames: white tan green orchid violet grey grey-light grey-dark black;

@@ -1,0 +1,45 @@
+.woocommerce {
+  .products {
+    @include listStripped();
+    @include grid(flex-start, flex-end, row, wrap);
+
+    .product {
+      width: calc(33.333% - 2rem);
+      margin: 1rem 2rem 1rem 0;
+
+      img {
+        width: 100%;
+      }
+
+      .button {
+        display: none;
+      }
+
+      .woocommerce-loop-product__title {
+        font-size: 1rem;
+        font-family: $font-default;
+        @include fontBold();
+        margin-bottom: 0;
+      }
+
+      .woocommerce-Price-amount {
+        font-size: 0.85rem;
+        color: $orchid;
+      }
+    }
+  }
+
+  .woocommerce-result-count {
+    display: none;
+  }
+
+  .woocommerce-ordering {
+    @include grid(flex-end);
+    background-color: $grey-light;
+    padding: 0.5rem 1rem;
+
+    select {
+      width: auto;
+    }
+  }
+}
