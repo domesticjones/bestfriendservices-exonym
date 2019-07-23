@@ -43,7 +43,8 @@
   @include fontItalic();
 }
 
-.module-woocommerce_heading {
+.module-woocommerce_heading,
+.module-blog_heading {
   padding: 4vw;
   width: 100%;
   order: 0;

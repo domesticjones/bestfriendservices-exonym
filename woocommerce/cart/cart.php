@@ -21,7 +21,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <?php $cartPage = wc_get_page_id('cart'); ex_wrap('start', 'woocommerce_heading', '', $cartPage); ?>
 <?php if(apply_filters( 'woocommerce_show_page_title', true)): ?>
-	<h1 class="woocommerce-products-header__title page-title"><?php the_field('woocommerce_heading', $cartPage); ?></h1>
+	<h1 class="woocommerce-page-title"><?php the_field('woocommerce_heading', $cartPage); ?></h1>
 <?php endif; ex_wrap('end'); ?>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">

@@ -1,0 +1,170 @@
+.blog #content {
+  @include clearfix();
+}
+
+#blog-wrap {
+  @include listStripped();
+  @include grid(space-between, flex-start, row, wrap);
+  width: 83%;
+  float: left;
+  text-align: center;
+
+  a {
+    display: block;
+    padding: 2rem;
+    width: 50%;
+
+    &:hover {
+      .blog-image {
+        opacity: 1;
+      }
+
+      .blog-data p {
+        color: $grey-dark;
+      }
+    }
+  }
+
+  h2 {
+    font-family: $font-default;
+    @include fontBold();
+    font-size: 1.25em;
+    position: relative;
+    color: $black;
+    padding: 0 0 1em 0;
+    margin-bottom: 1em;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: calc(50% - 5rem);
+      bottom: 0;
+      width: 10rem;
+      height: 1px;
+      background-color: $orchid;
+    }
+  }
+}
+
+.blog-data {
+  padding: 2rem;
+  @include transition();
+
+  p {
+    color: $grey;
+    font-size: 0.85rem;
+  }
+}
+
+.blog-image {
+  padding-top: 56.25%;
+  background-color: $grey;
+  @include transition();
+
+  img {
+    display: none;
+  }
+
+  &.has-thumb {
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.888;
+  }
+
+  &.no-thumb {
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.333;
+  }
+}
+
+#blog-sidebar {
+  padding: 2rem;
+  width: 17%;
+  float: right;
+  text-align: center;
+
+  .emblem-sidebar {
+    display: block;
+    max-width: 60%;
+    margin: 2rem auto;
+  }
+
+  .widget-about {
+    border: none;
+    padding: 0;
+  }
+
+  .blog-about {
+    font-size: 0.85em;
+    line-height: 1.25em;
+  }
+
+  .nav-social {
+    @include navMenu(horizontal);
+
+    span {
+      display: none;
+    }
+
+    a {
+      @include grid(center, center);
+      background-color: $orchid;
+      border-radius: 100%;
+      width: 2rem;
+      height: 2rem;
+      margin: 0.5rem;
+
+      &:hover {
+        background-color: darken($orchid, 13%);
+      }
+    }
+
+    img {
+      display: block;
+      height: 1rem;
+    }
+  }
+
+  .widget-cats {
+    text-align: left;
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 1200px) {
+  #blog-sidebar {
+    width: 33.333%;
+  }
+
+  #blog-wrap {
+    width: 66.666%;
+  }
+}
+
+@media(max-width: 1024px) {
+  .blog-data {
+    padding: 1rem 0 0 0;
+  }
+}
+
+@media(max-width: 768px) {
+  #blog-sidebar {
+    display: none;
+  }
+
+  #blog-wrap {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media(max-width: 640px) {
+  #blog-wrap a {
+    width: 100%;
+  }
+}

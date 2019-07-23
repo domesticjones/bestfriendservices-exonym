@@ -13,6 +13,7 @@ body {
 
 #content {
   background-color: $white;
+  @include clearfix();
 }
 
 /**

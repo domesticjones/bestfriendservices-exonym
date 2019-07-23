@@ -31,23 +31,23 @@
 					<?php
 						global $woocommerce;
 						if(WC()->cart->get_cart_contents_count() == 0) {
-							echo '<a href="' . get_permalink(woocommerce_get_page_id('shop')) . '"><button class="cart" type="button">Shop</button></a>';
+							echo '<a href="' . get_permalink(wc_get_page_id('shop')) . '"><button class="cart" type="button">Shop</button></a>';
 						} else {
-							echo '<a href="' . $woocommerce->cart->get_cart_url() . '"><button class="cart" type="button">' . $woocommerce->cart->get_cart_total() . '</button></a>';
+							echo '<a href="' . get_permalink(wc_get_page_id('checkout')) . '"><button class="cart" type="button">' . $woocommerce->cart->get_cart_total() . '</button></a>';
 						}
 					?>
 				</nav>
 	      <nav class="nav-account" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					<?php
 						if(is_user_logged_in()) {
-							echo '<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '"><button class="account" type="button">Account</button></a>';
+							echo '<a href="' . get_permalink(wc_get_page_id('myaccount')) . '"><button class="account" type="button">Account</button></a>';
 							wp_nav_menu(array(
 		            'container' => false,
 		            'theme_location' => 'menu-account',
 		            'depth' => 1,
 		          ));
 						} else {
-							echo '<a href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '"><button class="account" type="button">Log In</button></a>';
+							echo '<a href="' . get_permalink(wc_get_page_id('myaccount')) . '"><button class="account" type="button">Log In</button></a>';
 							echo
 								'<section class="header-login">' .
 									wp_login_form(array(

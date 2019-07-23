@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $checkoutPage = wc_get_page_id('checkout'); ex_wrap('start', 'woocommerce_heading', '', $checkoutPage); ?>
 <?php if(apply_filters( 'woocommerce_show_page_title', true)): ?>
-	<h1 class="woocommerce-products-header__title page-title"><?php the_field('woocommerce_heading', $checkoutPage); ?></h1>
+	<h1 class="woocommerce-page-title"><?php the_field('woocommerce_heading', $checkoutPage); ?></h1>
 <?php endif; ex_wrap('end');
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
