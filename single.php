@@ -7,5 +7,6 @@
         the_content();
       ex_wrap('end');
     endwhile; endif;
+  get_sidebar('blog');
   get_footer();
 ?>

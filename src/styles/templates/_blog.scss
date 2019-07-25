@@ -1,12 +1,12 @@
-.blog #content {
-  @include clearfix();
+.blog #content,
+.archive.category #content {
+  @include grid(center, flex-start, row, wrap);
 }
 
 #blog-wrap {
   @include listStripped();
   @include grid(space-between, flex-start, row, wrap);
   width: 83%;
-  float: left;
   text-align: center;
 
   a {
@@ -53,12 +53,13 @@
 }
 
 .blog-data {
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   @include transition();
 
   p {
     color: $grey;
     font-size: 0.85rem;
+    padding-bottom: 0;
   }
 }
 
@@ -138,10 +139,18 @@
   }
 }
 
+.single-post #content {
+  @include grid(center, flex-start);
+
+  .module-general {
+    margin: 0;
+  }
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media(max-width: 1200px) {
+@media(max-width: 1600px) {
   #blog-sidebar {
     width: 33.333%;
   }
@@ -154,6 +163,10 @@
 @media(max-width: 1024px) {
   .blog-data {
     padding: 1rem 0 0 0;
+  }
+
+  .single-post #blog-sidebar {
+    display: none;
   }
 }
 
