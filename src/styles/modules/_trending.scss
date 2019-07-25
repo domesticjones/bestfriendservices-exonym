@@ -105,6 +105,10 @@
   .trending-thumb {
     padding: 1rem;
   }
+
+  .trending-heading {
+    font-size: 1.5rem;
+  }
 }
 
 @media(max-width: 660px) {
@@ -118,5 +122,9 @@
 
   .trending-thumb {
     padding: 0.25rem;
+  }
+
+  .trending-data h2 {
+    font-size: 1.75rem;
   }
 }

@@ -1,0 +1,64 @@
+.module-topsellers {
+  padding: 7vw;
+}
+
+.topsellers-heading {
+  color: $violet;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.topsellers-heading-sub {
+  color: $orchid;
+  font-size: 1.35em;
+  text-align: center;
+  font-family: $font-default;
+  @include fontBold();
+}
+
+.topsellers-wrap {
+  @include listStripped();
+  @include grid(space-around, flex-end, row, wrap);
+
+  li {
+    width: 20%;
+    padding: 2rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1em;
+      margin-top: 1em;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media(max-width: 1200px) {
+  .module-topsellers {
+    padding: 3rem;
+  }
+
+  .topsellers-wrap li {
+    width: 25%;
+  }
+}
+
+@media(max-width: 1024px) {
+  .topsellers-heading {
+    font-size: 2rem;
+  }
+
+  .topsellers-wrap li {
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 768px) {
+  .topsellers-wrap li {
+    width: 50%;
+  }
+}

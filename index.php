@@ -1,7 +1,7 @@
 <?php get_header(); $blog = get_option('page_for_posts'); ?>
   <?php ex_wrap('start', 'blog_heading', '', $blog); ?>
   <?php if(apply_filters('woocommerce_show_page_title', true)): ?>
-    <h1 class="woocommerce-products-header__title page-title"><?php the_field('blog_heading', $blog); ?></h1>
+    <h1 class="woocommerce-page-title"><?php the_field('blog_heading', $blog); if(is_category()) { echo ': ' . single_cat_title('', false); } ?></h1>
   <?php endif; ex_wrap('end'); ?>
   <ul id="blog-wrap">
     <?php if(have_posts()): while(have_posts()): the_post(); ?>

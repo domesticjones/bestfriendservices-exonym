@@ -4,7 +4,8 @@ a.cta-button {
   color: $white;
   padding: 0.5em 1em 0.5em 1.5em;
   height: $fh-input-height;
-  border: 1px solid inherit;
+  border-width: 1px;
+  border-style: solid;
   margin-top: 2em;
   border-radius: 2px;
   @include transition();

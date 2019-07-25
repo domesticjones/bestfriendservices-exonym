@@ -30,7 +30,7 @@
       get_template_part('modules/testimonials');
     ex_wrap('end');
     ex_wrap('start', 'topsellers', 'top-sellers');
-      echo 'top sellers';
+      get_template_part('modules/topsellers');
     ex_wrap('end');
     ex_wrap('start', 'about', get_field('about_settings')['module_id']);
       get_template_part('modules/about');
