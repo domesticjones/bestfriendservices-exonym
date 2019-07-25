@@ -63,6 +63,9 @@ table {
     max-width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    @extend %table;
+    @extend %table-condensed;
+    @extend %table-bordered;
 }
 
 /*  Sets table width to 100%.

@@ -1,3 +1,20 @@
+.post-type-archive-resource {
+  .module-general {
+    @include grid(center, center, column);
+    color: $violet;
+
+    p,
+    ul,
+    h1,
+    h2,
+    h3 {
+      width: 100%;
+    }
+
+    margin-bottom: 7vw;
+  }
+}
+
 .module-resources_heading {
   @extend %headingInterior;
 }
@@ -21,6 +38,8 @@
     width: 30%;
     margin-bottom: 3rem;
     height: 15vw;
+    background-size: cover;
+    background-position: center center;
 
     h2 {
       margin: 0;
@@ -56,11 +75,72 @@
   }
 }
 
-.resource-child {
-  display: inline-block;
-  margin: 1em;
-  color: $green;
-  @include transition();
+#resources-contact {
+  &.is-active {
+    &::after {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+#resources-contact-info {
+  margin-top: 2rem;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  color: $violet;
+
+  &.is-active {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+    @include transition(all 500ms ease-in-out);
+  }
+
+  a {
+    color: $violet;
+
+    &:hover {
+      color: $orchid;
+    }
+  }
+
+  nav {
+    @include navMenu(vertical);
+    text-align: center;
+    margin-bottom: 3rem;
+
+    ul li {
+      margin-bottom: 1rem;
+    }
+
+    .name {
+      display: block;
+      @include fontBold();
+    }
+  }
+
+  .nav-social ul {
+    margin-top: 3rem;
+    @include grid(center, center);
+
+    span {
+      display: none;
+    }
+
+    a {
+      @include grid(center, center);
+      background-color: $orchid;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 100%;
+      margin: 0.5rem;
+
+      &:hover {
+        background-color: $violet;
+      }
+    }
+  }
 }
 
 .resource-subhead {
@@ -102,8 +182,32 @@
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+  .module-resources {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .resources-list ul li.resource {
+    height: 20vw;
+  }
+}
+
 @media (max-width: 1024px) {
-  li.resource {
+  .module-resources {
+    padding: 2rem;
+  }
+
+  .resources-list ul li.resource {
+    width: calc(50% - 1.5rem);
+    height: 30vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .resources-list ul li.resource {
     width: 100%;
+    height: 56.25vw;
   }
 }

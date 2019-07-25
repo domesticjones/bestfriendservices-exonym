@@ -167,5 +167,11 @@ export default {
         }
       });
     });
+
+    // MODULE: Contact Info Expand
+    $('#resources-contact').on('click', e => {
+      e.preventDefault();
+      $('#resources-contact-info, #resources-contact').toggleClass('is-active');
+    })
   },
 };

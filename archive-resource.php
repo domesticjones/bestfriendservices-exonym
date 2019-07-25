@@ -33,5 +33,15 @@
     }
     echo '</ul></nav>';
   ex_wrap('end');
+  ex_wrap('start', 'general');
+    the_field('resources_footer', $resourcesArchive);
+    echo '<a href="#contact" class="cta-button cta-color-green cta-arrow-down" id="resources-contact">Contact</a>';
+    echo '<footer id="resources-contact-info">';
+      ex_contact('phone');
+      ex_contact('email');
+      ex_contact('address');
+      ex_social();
+    echo '</footer>';
+  ex_wrap('end');
   get_footer();
 ?>
