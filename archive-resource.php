@@ -1,8 +1,19 @@
 <?php
+  $resourcesArchive = 39537; // Page ID of the "Help Center" page
   get_header();
-  ex_wrap('start', 'general');
-    echo '<h1 class="general-page-heading">Resources</h1>';
-    echo '<p class="resource-disclaimer">Please click on a resource below for more information.</p>';
+  ex_wrap('start', 'resources_heading', '', $resourcesArchive);
+    echo '<h1>' . get_field(resources_heading, $resourcesArchive) . '</h1>';
+  ex_wrap('end');
+  ex_wrap('start', 'resources');
+    echo '<nav class="resources-list"><ul>';
+    if(have_rows('resource_links', $resourcesArchive)) {
+      while(have_rows('resource_links', $resourcesArchive)) {
+        the_row();
+        $link = get_sub_field('link');
+        $photo = get_sub_field('image');
+        echo '<li class="resource" style="background-image: url(' . $photo['sizes']['medium'] . ')"><a href="' . $link['url'] . '"><h2>' . $link['title'] . '</h2>' . wp_get_attachment_image($photo['id'], 'medium') . '</a></li>';
+      }
+    }
     $resourceQueryArgs = array(
       'post_type' => 'resource',
       'posts_per_page' => -1,
@@ -10,25 +21,17 @@
     );
     $resourceQuery = new WP_Query($resourceQueryArgs);
     if($resourceQuery->have_posts()) {
-      echo '<nav class="resources-list">';
-      echo '<li class="resource"><a href="' . get_permalink(get_option('page_for_posts')) . '"><h2>Our Blog</h2></a></li>';
       while ($resourceQuery->have_posts()) {
         $resourceQuery->the_post();
         echo '<li class="resource">';
           echo '<a href="' . get_the_permalink() . '">';
             echo '<h2>' . get_the_title() . '</h2>';
           echo '</a>';
-          $subTopics = get_children('post_parent=' . $post->ID . '&post_type=resource');
-          if(!empty($subTopics)) {
-            foreach($subTopics as $topic) {
-              echo '<a href="' . get_the_permalink($topic->ID) . '" class="resource-child">' . get_the_title($topic->ID) . '</a>';
-            }
-          }
         echo '</li>';
       }
-      echo '</nav>';
       wp_reset_query();
     }
+    echo '</ul></nav>';
   ex_wrap('end');
   get_footer();
 ?>

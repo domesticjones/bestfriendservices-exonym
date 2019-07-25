@@ -3,6 +3,10 @@
   @include grid(center, flex-start, row, wrap);
 }
 
+.module-blog_heading {
+  @extend %headingInterior;
+}
+
 #blog-wrap {
   @include listStripped();
   @include grid(space-between, flex-start, row, wrap);

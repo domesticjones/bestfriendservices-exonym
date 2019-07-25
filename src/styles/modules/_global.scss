@@ -66,3 +66,15 @@
     }
   }
 }
+
+%headingInterior {
+  padding: 4vw;
+  width: 100%;
+  order: 0;
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+  }
+}
