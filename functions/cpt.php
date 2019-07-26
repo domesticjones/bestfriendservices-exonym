@@ -97,7 +97,7 @@ function cpt_resources() {
 	$args = array(
 		'label'                 => __( 'Resource', 'resources' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'page-attributes' ),
+		'supports'              => array( 'title', 'editor', 'page-attributes', 'thumbnail' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,

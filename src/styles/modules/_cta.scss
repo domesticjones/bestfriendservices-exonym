@@ -1,4 +1,5 @@
-a.cta-button {
+a.cta-button,
+button.cta-button {
   @include grid(center, center);
   font-size: 1rem;
   color: $white;
@@ -24,15 +25,19 @@ a.cta-button {
   }
 }
 
-.cta-arrow {
+a.cta-arrow,
+button.cta-arrow {
   &-down::after { transform: rotate(90deg); }
-  &-left::after { transform: rotate(180deg); }
+  &-left::after { transform: rotate(180deg); margin: 0 0.5rem 0 0; }
   &-up::after { transform: rotate(-90deg); }
+
+  &-left { @include grid(center, center, row-reverse); padding: 0.5em 1.5em 0.5em 1em; }
 }
 
 @each $ctaColor in $colorCodes {
   $i: index($colorCodes, $ctaColor);
-  a.cta-color-#{nth($colorNames, $i)} {
+  a.cta-color-#{nth($colorNames, $i)},
+  button.cta-color-#{nth($colorNames, $i)} {
     @if nth($colorNames, $i) == white {
       background-color: transparent;
       border-color: $white;

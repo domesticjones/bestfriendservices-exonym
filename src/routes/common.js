@@ -172,6 +172,42 @@ export default {
     $('#resources-contact').on('click', e => {
       e.preventDefault();
       $('#resources-contact-info, #resources-contact').toggleClass('is-active');
-    })
+    });
+
+    // CHECKOUT: Toggle Steps
+    $('.checkout-step').click(e => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      const target = $this.attr('href');
+      $('.checkout-step, .checkout-section').removeClass('is-active');
+      $this.addClass('is-active');
+      $(target).addClass('is-active');
+      $('html, body').animate({ scrollTop: $('.checkout-steps').offset().top - 100 });
+    });
+    $('.checkout-section-nav-button').click(e => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      const target = $this.attr('href');
+      $('.checkout-step, .checkout-section').removeClass('is-active');
+      $(target).addClass('is-active');
+      $(`.checkout-step[href="${target}"]`).addClass('is-active');
+      $('html, body').animate({ scrollTop: $('.checkout-steps').offset().top - 100 });
+    });
+
+    // CHECKOUT: Cart View Update
+    $('#order_review').bind('DOMNodeRemoved', () => {
+
+    });
+    $('#order_review').bind('DOMNodeInserted', () => {
+      const subtotal = $('#order_review .cart-subtotal .woocommerce-Price-amount').html();
+      const total = $('#order_review .order-total .woocommerce-Price-amount').html();
+      $('#checkout-cart-subtotal i').html(subtotal);
+      $('#checkout-cart-total i').html(total);
+    });
+
+    // CHECKOUT: Create Account
+    $('#checkout-continue-create').on('click', () => {
+      $('.create-account').addClass('is-active');
+    });
   },
 };

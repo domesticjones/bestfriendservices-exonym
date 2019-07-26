@@ -23,9 +23,10 @@
     if($resourceQuery->have_posts()) {
       while ($resourceQuery->have_posts()) {
         $resourceQuery->the_post();
-        echo '<li class="resource">';
+        echo '<li class="resource" style="background-image: url(' . get_the_post_thumbnail_url($post->ID, 'medium') . ')">';
           echo '<a href="' . get_the_permalink() . '">';
             echo '<h2>' . get_the_title() . '</h2>';
+            the_post_thumbnail('medium');
           echo '</a>';
         echo '</li>';
       }

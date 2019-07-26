@@ -14,7 +14,7 @@ $table-border-color: $grey-dark;
 
 $table-border-width: .071428571em;
 $table-border-style: solid;
-$table-margin-bottom: 1.529411765em;
+$table-margin-bottom: 2rem;
 $table-cell-padding: .470588235em;
 $table-cell-text-align: left;
 $table-cell-border-top: $table-border-width $table-border-style $table-border-color;
@@ -64,7 +64,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     @extend %table;
-    @extend %table-condensed;
     @extend %table-bordered;
 }
 

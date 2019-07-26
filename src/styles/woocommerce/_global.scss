@@ -58,6 +58,28 @@ a.woocommerce-Button {
   padding: 2rem;
 }
 
+%wcCheckboxEmpty {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    left: 0;
+    top: 0.15rem;
+    border: 1px solid $grey;
+  }
+}
+
+%wcCheckboxActive {
+  &::before {
+    @include icon(check-purple);
+    background-size: 75%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
 %wcCheckboxes {
   a {
     display: block;
@@ -67,23 +89,11 @@ a.woocommerce-Button {
     font-size: 0.85rem;
     line-height: 1.35;
 
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 1.25rem;
-      height: 1.25rem;
-      left: 0;
-      top: 0.15rem;
-      border: 1px solid $grey;
-    }
+    @extend %wcCheckboxEmpty;
   }
 
-  .is-active a::before {
-    @include icon(check-purple);
-    background-size: 75%;
-    background-position: center center;
-    background-repeat: no-repeat;
+  .is-active a {
+    @extend %wcCheckboxActive;
   }
 }
 

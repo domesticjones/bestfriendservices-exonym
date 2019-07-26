@@ -38,3 +38,34 @@
     }
   }
   add_action('template_redirect', 'ex_redirect_wc_admins');
+
+  // Move Payments into after the order review in Checkout
+  remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+  add_action( 'woocommerce_checkout_after_order_review', 'woocommerce_checkout_payment', 20 );
+
+  // Move Create Account in Checkout
+  remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10 );
+  add_action( 'woocommerce_checkout_before_customer_details', 'woocommerce_checkout_login_form' );
+
+  // Remove Select2 from front end
+  function ex_dequeue_select2() {
+    if(class_exists('woocommerce') && !is_admin()) {
+      wp_dequeue_style('select2');
+      wp_deregister_style('select2');
+      wp_dequeue_script('selectWoo');
+      wp_deregister_script('selectWoo');
+    }
+  }
+  add_action('wp_enqueue_scripts', 'ex_dequeue_select2', 100);
+
+  // Create the checkout navigation buttons
+  function ex_checkoutNav($prev = null, $next = null) {
+    echo '<nav class="checkout-section-nav">';
+    if($prev) {
+      echo '<a href="' . $prev[1] . '" class="checkout-section-nav-button cta-button cta-color-grey cta-arrow-left">' . $prev[0] . '</a>';
+    }
+    if($next) {
+      echo '<a href="' . $next[1] . '" class="checkout-section-nav-button cta-button cta-color-green">' . $next[0] . '</a>';
+    }
+    echo '</nav>';
+  }
