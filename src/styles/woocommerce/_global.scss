@@ -97,6 +97,42 @@ a.woocommerce-Button {
   }
 }
 
+.shop_table {
+  border: none;
+
+  th {
+    border: none;
+    font-size: 0.75em;
+    @include fontBold(false);
+    @include fontItalic();
+  }
+
+  td {
+    border: none;
+    vertical-align: middle;
+    border-radius: 0 !important;
+  }
+
+  .cart_item td {
+    border-bottom: 1px solid $grey;
+  }
+
+  .product-name:not(th) {
+    @include fontBold();
+  }
+
+  .product-subtotal:not(th) {
+    @include fontBold();
+  }
+
+  .quantity {
+    width: 6rem;
+
+    .screen-reader-text {
+      display: none;
+    }
+  }
+}
 
 /**
   Responsive Breakpoints

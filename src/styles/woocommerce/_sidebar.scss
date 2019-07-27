@@ -45,6 +45,7 @@
 .pet-widget-name {
   font-size: 1.25em;
   @include fontBold();
+  margin-bottom: 0.25em;
 }
 
 #pet-cta {
