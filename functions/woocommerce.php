@@ -69,3 +69,12 @@
     }
     echo '</nav>';
   }
+
+  // Limit searches to only products
+  function searchfilter($query) {
+    if ($query->is_search && !is_admin() ) {
+      $query->set('post_type', 'product');
+    }
+    return $query;
+  }
+  add_filter('pre_get_posts','searchfilter');

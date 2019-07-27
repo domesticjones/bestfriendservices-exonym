@@ -17,27 +17,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'shop' );
-?>
-
-
-	<?php $shopPage = wc_get_page_id('shop'); ex_wrap('start', 'woocommerce_heading', '', $shopPage); ?>
-	<?php if(apply_filters('woocommerce_show_page_title', true)): ?>
-		<h1 class="woocommerce-page-title"><?php the_field('woocommerce_heading', $shopPage); ?></h1>
-	<?php endif; ?>
-
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
-<?php ex_wrap('end'); ?>
-
-<?php
+get_header('shop');
+$shopPage = wc_get_page_id('shop');
+ex_wrap('start', 'woocommerce_heading', '', $shopPage);
+	if(apply_filters('woocommerce_show_page_title', true)) {
+		echo '<h1 class="woocommerce-page-title">' . get_field('woocommerce_heading', $shopPage) . '</h1>';
+	}
+	// do_action( 'woocommerce_archive_description' );
+ex_wrap('end');
 
 /**
  * Hook: woocommerce_before_main_content.

@@ -1,0 +1,13 @@
+body.search {
+  #content {
+    @include grid(space-between, flex-start, row, wrap);
+  }
+
+  .woocommerce-ordering {
+    span {
+      display: block;
+      padding: 1.5em 1em;
+      margin-right: auto;
+    }
+  }
+}
