@@ -1,7 +1,7 @@
 #sidebar {
   order: 1;
-  width: 17%;
-  padding: 2rem;
+  width: 25%;
+  padding: 4vw 2rem;
 }
 
 .widget {
@@ -93,4 +93,20 @@
 .widget-cats {
   @include listStripped();
   @extend %wcCheckboxes;
+}
+
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  #sidebar {
+    width: 33.333%;
+  }
+}
+
+@media (max-width: 960px) {
+  #sidebar {
+    display: none;
+  }
 }

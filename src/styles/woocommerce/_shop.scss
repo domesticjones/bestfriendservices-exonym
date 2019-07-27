@@ -43,3 +43,18 @@
     }
   }
 }
+
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media(max-width: 960px) {
+  .woocommerce .products {
+    @include grid(space-between, flex-end, row, wrap);
+
+    .product {
+      width: calc(50% - 1rem);
+      margin: 1rem 0;
+    }
+  }
+}

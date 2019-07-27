@@ -11,9 +11,6 @@
     </div>
   </div>
   <div class="widget">
-    <h3 class="widget-title">Pet Type</h3>
-  </div>
-  <div class="widget">
     <h3 class="widget-title">Search</h3>
     <?php get_search_form(); ?>
   </div>

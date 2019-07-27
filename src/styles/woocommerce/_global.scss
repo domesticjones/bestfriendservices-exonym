@@ -54,8 +54,8 @@ a.woocommerce-Button {
 
 #primary {
   order: 2;
-  width: 83%;
-  padding: 2rem;
+  width: 75%;
+  padding: 4vw 2rem 4vw 0;
 }
 
 %wcCheckboxEmpty {
@@ -101,6 +101,19 @@ a.woocommerce-Button {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  #primary {
+    width: 66.666%;
+  }
+}
+
+@media (max-width: 960px) {
+  #primary {
+    padding: 2rem;
+    width: 100%;
+  }
+}
+
 @media(max-width: 768px) {
   .woocommerce {
     .form-row {

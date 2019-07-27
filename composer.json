@@ -30,9 +30,9 @@
     "wpackagist-plugin/admin-menu-editor": "*",
     "wpackagist-plugin/aryo-activity-log": "*",
     "wpackagist-plugin/woocommerce": "3.6.5",
-    "wpackagist-plugin/woocommerce-admin": "0.15.0",
-    "wpackagist-plugin/wordpress-importer": "*",
+    "wpackagist-plugin/woocommerce-admin": "*",
     "wpackagist-plugin/auto-upload-images": "*",
+    "wpackagist-plugin/contact-form-7": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }

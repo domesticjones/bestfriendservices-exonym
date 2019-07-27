@@ -62,12 +62,12 @@ ex_wrap('start', 'checkout');
 </header>
 <section id="checkout-login" class="checkout-section<?php if(!is_user_logged_in()) { echo ' is-active'; } ?>">
 	<?php
+		do_action('woocommerce_checkout_before_customer_details');
 		if(is_user_logged_in()) {
 			$user = wp_get_current_user();
 			echo '<p><strong>Currently Logged In As:</strong><br />' . $user->billing_first_name . ' ' . $user->billing_last_name . '</p>';
 			echo '<a href="' . wc_logout_url() . '">' . Logout . '</a>';
 		} else {
-			do_action('woocommerce_checkout_before_customer_details');
 			echo '
 				<nav>
 					<a id="checkout-continue-guest" href="#checkout-info" class="checkout-section-nav-button">Continue as Guest</a>
