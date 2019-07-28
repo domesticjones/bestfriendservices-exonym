@@ -123,9 +123,9 @@ export default {
   	});
 
     // MODULE: Sales Funnel
-    const petname = localStorage.getItem('petname');
-    const pettype = localStorage.getItem('pettype');
-    const petweight = localStorage.getItem('petweight');
+    let petname = localStorage.getItem('petname');
+    let pettype = localStorage.getItem('pettype');
+    let petweight = localStorage.getItem('petweight');
     if(petname) { $('#pet-name').val(petname); $('#pet-name-display').text(petname); }
     if(pettype) { $('#pet-type').val(pettype); $('#pet-type-display').text(pettype); }
     if(petweight) { $('#pet-weight').val(petweight); $('#pet-weight-display').text(petweight); }
@@ -209,5 +209,104 @@ export default {
     $('#checkout-continue-create').on('click', () => {
       $('.create-account').addClass('is-active');
     });
+
+    // MODULE: Funnel Modal Triggers
+    $('.funnel-form-modal').submit(e => {
+      e.preventDefault();
+    });
+    $(document).on('click', '.funnel-step-1', (e) => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      const name = $this.parent().prev('.funnel-form-modal').find('#pet-name').val();
+      const type = $this.parent().prev('.funnel-form-modal').find('#pet-type').val();
+      const weight = $this.parent().prev('.funnel-form-modal').find('#pet-weight').val();
+      if(name && type && weight) {
+        localStorage.setItem('petname', name);
+        localStorage.setItem('pettype', type);
+        localStorage.setItem('petweight', weight);
+        $this.closest('.funnel-step').next('.funnel-step').find('.funnel-name').text(name);
+        $this.closest('.funnel-step').removeClass('is-active');
+        $this.closest('.funnel-step').next('.funnel-step').addClass('is-active');
+        $('#pet-name-display').text(name);
+        $('#pet-type-display').text(type);
+        $('#pet-weight-display').text(weight);
+        petname = localStorage.getItem('petname');
+        pettype = localStorage.getItem('pettype');
+        petweight = localStorage.getItem('petweight');
+        if(pettype == 'Cat') {
+          $('.cats-list-dog').removeClass('is-active');
+          $('.cats-list-cat').addClass('is-active');
+        } else if(pettype == 'Dog') {
+          $('.cats-list-cat').removeClass('is-active');
+          $('.cats-list-dog').addClass('is-active');
+        }
+      } else {
+        alert('Fill out the form');
+      }
+    });
+
+    // MODAL: Close
+    function exModalClose() {
+      $(document).on('click', '.modal-close', () => {
+        const content = $('#modal-content-inner .modal-content-inline').detach();
+        $('#modal').removeClass('is-active');
+        $('body').append(content);
+      });
+    }
+
+    // MODAL: Initiate Modal Function
+    function exModalSub(obj, customTarget = null) {
+      exModalClose();
+      let dataTarget = '';
+      if(customTarget) {
+        dataTarget = customTarget;
+      } else {
+        dataTarget = `#modal-${obj}`;
+      }
+      const dataLayout = $(dataTarget).detach();
+      $('#modal').addClass('is-active');
+      $('#modal-content-inner').append(dataLayout);
+    }
+    function exModal(obj, customTarget = null) {
+      const funnelModule = $('#start');
+      $(document).on('click', `a[href="#${obj}"]`, e => {
+        e.preventDefault();
+        if(obj == 'find') {
+          if(funnelModule.length) {
+            $('html, body').animate({
+              scrollTop: funnelModule.offset().top
+            });
+          } else {
+            exModalSub(obj);
+            if(petname && pettype && petweight && obj != 'edit') {
+              $('#modal #funnel-choice .funnel-name').text(petname);
+              $('#modal #funnel-info').removeClass('is-active');
+              $('#modal #funnel-choice').addClass('is-active');
+              if(pettype == 'Cat') {
+                $('.cats-list-dog').removeClass('is-active');
+                $('.cats-list-cat').addClass('is-active');
+              } else if(pettype == 'Dog') {
+                $('.cats-list-cat').removeClass('is-active');
+                $('.cats-list-dog').addClass('is-active');
+              }
+            }
+            else {
+              $('#modal #funnel-choice').removeClass('is-active');
+              $('#modal #funnel-info').addClass('is-active');
+            }
+          }
+        } else if(obj == 'edit') {
+          exModalSub(obj, customTarget);
+          $('#modal #funnel-choice').removeClass('is-active');
+          $('#modal #funnel-info').addClass('is-active');
+        } else {
+          exModalSub(obj);
+        }
+      });
+    }
+
+    // MODAL: List of Modal Triggers
+    exModal('find');
+    exModal('edit', '#modal-find');
   },
 };

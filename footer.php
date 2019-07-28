@@ -54,7 +54,11 @@
 			</footer>
 		</div>
 		<?php
+			if(!is_page_template('page-home.php')) {
+				get_template_part('modules/modal', 'funnel');
+			}
 			get_template_part('modules/navigation');
+			get_template_part('modules/modal');
 			wp_footer();
 		?>
 	</body>

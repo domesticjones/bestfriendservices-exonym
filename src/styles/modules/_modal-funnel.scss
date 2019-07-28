@@ -1,0 +1,50 @@
+.funnel-step {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+
+  .cats-list {
+    display: none;
+
+    a {
+      min-width: calc(25% - 2rem);
+      margin: 1rem;
+      padding: 0;
+    }
+
+    img {
+      height: 100px;
+      width: auto;
+    }
+
+    &.is-active {
+      @include grid(flex-end, center, row, wrap);
+    }
+  }
+}
+
+.funnel-form-modal {
+  width: 100%;
+
+  .cta-button {
+    display: none;
+  }
+
+  input#pet-weight {
+    margin: 0;
+  }
+}
+
+.funnel-modal-nav {
+  @include grid(flex-start, flex-start, column);
+
+  .cta-button {
+    margin-bottom: 1rem;
+  }
+
+  a:last-child {
+    @include fontItalic();
+  }
+}

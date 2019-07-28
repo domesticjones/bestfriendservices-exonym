@@ -42,3 +42,10 @@
       }
     }
   }
+
+  function ex_modal($id, $content) {
+    $output = '<div id="modal-' . $id . '" class="modal-content-inline">';
+      $output .= $content;
+    $output .= '</div>';
+    return $output;
+  }

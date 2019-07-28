@@ -27,6 +27,10 @@
       color: $orchid;
     }
   }
+
+  li.none {
+    padding: 2rem;
+  }
 }
 
 .woocommerce-result-count {
@@ -34,12 +38,18 @@
 }
 
 .woocommerce-ordering {
-  @include grid(flex-end);
+  @include grid(space-between, center);
   background-color: $grey-light;
   padding: 0.5rem 1rem;
+  @include fontItalic();
 
   select {
     width: auto;
+  }
+
+  p {
+    padding: 0 0 0 1rem;
+    @include fontItalic();
   }
 }
 

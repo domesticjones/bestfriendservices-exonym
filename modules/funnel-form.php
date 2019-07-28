@@ -1,5 +1,14 @@
-<?php /* Ensure to check against existance of ID for a scrollto effect instead of duplicating form ID's on a page. Maybe Modal in next phase */ ?>
-<form id="funnel" type="POST" action="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">
+<?php
+  $action = '';
+  $type = 'type="GET" ';
+  $id = 'class="funnel-form-modal" ';
+  if(is_page_template('page-home.php')) {
+    $action =  'action="' . get_permalink(woocommerce_get_page_id('shop')) . '"';
+    $type = 'type="POST" ';
+    $id = 'id="funnel" ';
+  }
+?>
+<form <?php echo $id . $type . $action; ?>>
   <input id="pet-name" type="text" placeholder="Your Pet's Name" required>
   <select id="pet-type" required>
     <option value="" selected disabled>Type of Pet</option>
