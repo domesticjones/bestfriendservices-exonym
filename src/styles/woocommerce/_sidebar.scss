@@ -96,6 +96,11 @@
   @extend %wcCheckboxes;
 }
 
+.widget-pettype {
+  @include listStripped();
+  @extend %wcCheckboxes;
+}
+
 
 /**
   Responsive Breakpoints

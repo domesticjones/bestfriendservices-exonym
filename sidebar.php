@@ -11,7 +11,11 @@
     </div>
   </div>
   <div class="widget">
-    <h3 class="widget-title">Pet Type</h3>
+    <h3 class="widget-title">Search</h3>
+    <?php get_search_form(); ?>
+  </div>
+  <div class="widget">
+    <h3 class="widget-title">Pet Memorial Type</h3>
     <ul class="widget-pettype">
       <?php
         $typeCatsIncludeCat = get_field('sales_funnel_categories_for_cats', 'options');
@@ -30,14 +34,21 @@
         $typeDogsPrint = '';
         foreach($typeCatsCat as $cat) { $typeCatsPrint .= $cat->slug . ','; }
         foreach($typeCatsDog as $cat) { $typeDogsPrint .= $cat->slug . ','; }
+        $typeSelect = ($_GET['pettype']);
+        $typeClassCats = '';
+        $typeClassDogs = '';
+        if($typeSelect == 'cat') {
+          $typeClassCats = 'is-active';
+        } elseif($typeSelect == 'dog') {
+          $typeClassDogs = 'is-active';
+        } else {
+          $typeClassCats = 'is-active';
+          $typeClassDogs = 'is-active';
+        }
       ?>
-      <li><a href="<?php echo get_home_url() . '?post_type=product&taxonomy=product_cat&product_cat=' . $typeCatsPrint . '&pettype=cat'; ?>">Cat</a></li>
-      <li><a href="<?php echo get_home_url() . '?post_type=product&taxonomy=product_cat&product_cat=' . $typeDogsPrint . '&pettype=cat'; ?>">Dog</a></li>
+      <li class="<?php echo $typeClassCats; ?>"><a href="<?php echo get_home_url() . '?post_type=product&product_cat=' . $typeCatsPrint . '&pettype=cat'; ?>">Cat</a></li>
+      <li class="<?php echo $typeClassDogs; ?>"><a href="<?php echo get_home_url() . '?post_type=product&product_cat=' . $typeDogsPrint . '&pettype=dog'; ?>">Dog</a></li>
     </ul>
-  </div>
-  <div class="widget">
-    <h3 class="widget-title">Search</h3>
-    <?php get_search_form(); ?>
   </div>
   <div class="widget">
     <h3 class="widget-title">Categories</h3>

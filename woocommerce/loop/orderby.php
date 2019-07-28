@@ -41,6 +41,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     if($results = 0) {
       $resultsPrint = 'No items found';
     }
+		$typeSelect = ($_GET['pettype']);
+		if($typeSelect == 'cat') {
+      $resultsPrint = 'Showing all <strong>Cat</strong>-specific items';
+		} elseif($typeSelect == 'dog') {
+      $resultsPrint = 'Showing all <strong>Dog</strong>-specific items';
+		}
     echo '<p>' . $resultsPrint . '</p>';
   ?>
 	<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
