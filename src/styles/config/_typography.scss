@@ -84,6 +84,17 @@ body {
   font-weight: $font-normal;
 }
 
+sup,
+sub {
+  font-size: 0.666em;
+  opacity: 0.666;
+  position: relative;
+}
+
+sup {
+  bottom: 0.333em;
+}
+
 /**
   Global Website Headings
   ---------------------------------------------------------------------- */

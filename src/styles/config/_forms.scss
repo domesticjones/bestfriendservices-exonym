@@ -173,6 +173,7 @@ input[type="radio"] {
 /* Select ------------------ */
 
 select {
+  padding-right: 2.5em;
   height: $fh-input-height;
   @include icon(arrow-purple);
   background-size: 0.75rem;

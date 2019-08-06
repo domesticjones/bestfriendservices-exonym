@@ -19,7 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' );
+$shopPage = wc_get_page_id('shop');
+ex_wrap('start', 'woocommerce_heading', '', $shopPage);
+	if(apply_filters('woocommerce_show_page_title', true)) {
+		echo '<h1 class="woocommerce-page-title">' . get_the_title($post->ID) . '</h1>';
+	}
+ex_wrap('end');
+?>
 
 	<?php
 		/**
@@ -52,7 +59,7 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
-		do_action( 'woocommerce_sidebar' );
+		//do_action( 'woocommerce_sidebar' );
 	?>
 
 <?php get_footer( 'shop' );

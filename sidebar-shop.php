@@ -58,6 +58,7 @@
         $productCatArgs = array(
           'taxonomy'    => 'product_cat',
           'exclude'     => 15,
+          'parent'      => 0,
         );
         $productCats = get_terms($productCatArgs);
         $currentStatus = '';

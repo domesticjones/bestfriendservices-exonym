@@ -195,9 +195,6 @@ export default {
     });
 
     // CHECKOUT: Cart View Update
-    $('#order_review').bind('DOMNodeRemoved', () => {
-
-    });
     $('#order_review').bind('DOMNodeInserted', () => {
       const subtotal = $('#order_review .cart-subtotal .woocommerce-Price-amount').html();
       const total = $('#order_review .order-total .woocommerce-Price-amount').html();
@@ -308,5 +305,33 @@ export default {
     // MODAL: List of Modal Triggers
     exModal('find');
     exModal('edit', '#modal-find');
+    exModal('info');
+    exModal('size');
+    exModal('customize');
+
+    // PRODUCT: Gallery
+    const productGallery = $('#product-single-gallery');
+    productGallery.slick({
+      arrows: false,
+      speed: 1333,
+      autoplay: true,
+      autoplaySpeed: 6669,
+      slidesToShow: 5,
+      centerPadding: '0',
+      focusOnSelect: true,
+      vertical: true,
+      verticalSwiping: true,
+      cssEase: 'ease-in-out',
+      lazyLoad: 'progressive',
+    });
+    productGallery.on('beforeChange', (e, slick, currentSlide, nextSlide) => {
+      const bg = $(slick.$slides.get(nextSlide)).find('.product-image-gallery-single').css('background-image');
+      $('#product-single-gallery-frame').css('background-image', bg);
+    });
+
+    //PRODUCT: Change Button Text
+    if(petname) {
+      $('#product-button-customize').text(`Customize for ${petname}`);
+    }
   },
 };

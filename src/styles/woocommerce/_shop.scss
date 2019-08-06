@@ -1,13 +1,14 @@
 
 .products {
   @include listStripped();
-  @include grid(flex-start, flex-end, row, wrap);
+  @include grid(space-between, flex-end, row, wrap);
 
-  .product {
+  li.product {
     width: calc(33.333% - 2rem);
-    margin: 1rem 2rem 1rem 0;
+    margin: 1rem 0;
 
     img {
+      display: block;
       width: 100%;
     }
 
@@ -45,12 +46,53 @@
 
   select {
     width: auto;
+    padding-right: 2.5em;
+    margin-left: auto;
   }
 
   p {
-    padding: 0 0 0 1rem;
+    padding: 0 0 0 0.5rem;
     @include fontItalic();
   }
+
+  .nav-pagination {
+    margin-left: 0.5rem;
+
+    a,
+    span {
+      width: 1.5em;
+    }
+  }
+}
+
+.nav-pagination,
+.woocommerce-pagination {
+  @include navMenu(horizontal);
+
+  a,
+  span {
+    display: block;
+    padding: 0.25rem;
+    width: 2rem;
+    border: 1px solid $grey-light;
+    text-align: center;
+    color: $green;
+    @include transition();
+
+    &:hover {
+      background-color: $grey-light;
+      color: $violet;
+    }
+  }
+
+  span {
+    opacity: 0.333;
+  }
+}
+
+.woocommerce-pagination {
+  @include grid(center, center);
+  margin-top: 3vw;
 }
 
 

@@ -12,7 +12,7 @@
   add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
   // Redirect login requests to Account page
-  function possibly_redirect(){
+  function ex_redirect_wc_public(){
     global $pagenow;
     if( 'wp-login.php' == $pagenow ) {
       if ( isset( $_POST['wp-submit'] ) ||   // in case of LOGIN
@@ -29,6 +29,9 @@
 
   // Kill Breadcrumbs
   remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+
+  // Kill Related Products
+  remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
   // Send Admins to WP Dashboard instead of customer account
   function ex_redirect_wc_admins() {
@@ -78,3 +81,31 @@
     return $query;
   }
   add_filter('pre_get_posts','searchfilter');
+
+  // Change "Sorting" Names
+  function ex_wcSortingRename($sorting_options){
+    $sorting_options = array(
+      'menu_order' => __( 'Sort Items...', 'woocommerce' ),
+      'popularity' => __( 'Top Sellers', 'woocommerce' ),
+      'rating'     => __( 'Highest Rated', 'woocommerce' ),
+      'date'       => __( 'Newest Items', 'woocommerce' ),
+      'price'      => __( 'Price: $ &rarr; $$$', 'woocommerce' ),
+      'price-desc' => __( 'Price: $$$ &rarr; $', 'woocommerce' ),
+    );
+    return $sorting_options;
+  }
+  add_filter('woocommerce_catalog_orderby', 'ex_wcSortingRename');
+
+  // Change Products Per Pages
+  function ex_wcPostListings($query) {
+    if($query->is_archive) {
+      if(is_shop()) {
+        $query->set('posts_per_page', 24);
+      } elseif(is_tax('product_cat')) {
+        $query->set('posts_per_page', -1);
+      }
+    }
+    return $query;
+  }
+
+  add_filter('pre_get_posts', 'ex_wcPostListings');

@@ -26,8 +26,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     $results = 0;
     $postResults = ' items';
     if(is_shop()) {
-      $preResults = 'Showing all ';
-      $results = wp_count_posts('product')->publish;
+      $preResults = '';
+      $results = '';
+	    $postResults = '(' . wp_count_posts('product')->publish . ' items)' . ex_page_navi();
     } elseif(is_tax('product_cat')) {
       $term = get_queried_object()->term_id;
       $termData = get_term($term);
