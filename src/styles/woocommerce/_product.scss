@@ -59,6 +59,16 @@
   @include grid(center, flex-start, column);
   width: 50%;
   padding-left: 2vw;
+
+  .quantity {
+    display: none !important;
+  }
+}
+
+.out-of-stock {
+  @include fontBold();
+  font-size: 0.85em;
+  color: $orchid;
 }
 
 .product-single-nav {

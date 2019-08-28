@@ -311,6 +311,7 @@ export default {
     exModal('info');
     exModal('size');
     exModal('customize');
+    exModal('options');
 
     // PRODUCT: Gallery
     const productGallery = $('#product-single-gallery');
@@ -334,7 +335,7 @@ export default {
 
     // PRODUCT: Change Button Text
     if(petname) {
-      $('#product-button-customize').text(`Customize for ${petname}`);
+      $('#product-button-customize, #product-button-options').text(`Customize for ${petname}`);
     }
 
     // PRODUCT: Remove class descriptors from components

@@ -62,7 +62,7 @@
       dl,
       dt,
       dd {
-        display: inline-block;
+        display: block;
       }
 
       dt {
@@ -76,14 +76,23 @@
       }
     }
 
-    .variation {
-      dd {
-        margin-right: 1rem;
-      }
-    }
-
     .component_table_item_indent {
       padding-left: 0;
+    }
+  }
+
+  dl.variation {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.5em;
+
+    dt {
+      opacity: 0.5;
+    }
+
+    dd {
+      @include fontBold(false);
+      margin-right: 1rem;
     }
   }
 }

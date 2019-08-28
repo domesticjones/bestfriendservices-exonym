@@ -43,10 +43,14 @@ i.modal-close {
   max-height: 80vh;
   padding: 3rem 4vw;
 
-  h1, h2, h3, h4, h5, h6 { color: $orchid; }
+  h1, h2, h3, h4, h5, h6 { color: $violet; }
 
   .modal-content-inline {
     display: block;
+  }
+
+  .quantity {
+    display: none !important;
   }
 }
 

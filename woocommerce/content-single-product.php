@@ -67,15 +67,26 @@ if ( post_password_required() ) {
     <?php the_excerpt(); ?>
     <nav class="product-single-nav">
       <?php
-        woocommerce_template_single_price();
-        if($product instanceof WC_Product_Composite) {
+				$terms = get_the_terms($product->get_id(), 'product_type');
+				$product_type = sanitize_title(current($terms)->name);
+				woocommerce_template_single_price();
+        if($product_type == 'composite') {
           ob_start();
             woocommerce_template_single_add_to_cart();
             $productAddToCart = ob_get_contents();
           ob_end_clean();
           echo ex_modal('customize', $productAddToCart);
           echo '<a href="#customize" id="product-button-customize" class="cta-button cta-color-green cta-arrow-right">Select Options</a>';
-        }
+        } elseif($product_type == 'simple') {
+					woocommerce_template_single_add_to_cart();
+				} elseif($product_type == 'variable') {
+					ob_start();
+						woocommerce_template_single_add_to_cart();
+						$productAddToCart = ob_get_contents();
+					ob_end_clean();
+          echo ex_modal('options', $productAddToCart);
+          echo '<a href="#options" id="product-button-options" class="cta-button cta-color-green cta-arrow-right">Select Options</a>';
+				}
       ?>
     </nav>
     <nav class="product-tab-nav">
@@ -83,7 +94,7 @@ if ( post_password_required() ) {
         <?php
           $contentMore = apply_filters('the_content', get_the_content());
           if(!empty($contentMore)) {
-            $contentMoreOutput = '<h2>More Info About ' . get_the_title($product->ID) . '</h2>' . get_the_content();
+            $contentMoreOutput = '<h2>More Info About ' . get_the_title($product->ID) . '</h2>' . apply_filters('the_content', get_the_content());
             echo '<li><a href="#info">More Information</a>' . ex_modal('info', $contentMoreOutput) . '</li>';
           }
           $contentSpecs = 'size_guide';
