@@ -98,6 +98,7 @@
     border-right: none;
   }
 }
+
 //Composite Products Modal Styling
 #modal-customize {
   .component_title_wrapper {
@@ -151,7 +152,7 @@
     float: none;
   }
 
-  .component:not(.selection_thumbnail_hidden) .composited_product_details_wrapper>.details {
+  .component:not(.selection_thumbnail_hidden) .composited_product_details_wrapper >.details {
     width: 66.666%;
     float: none;
   }
@@ -203,6 +204,7 @@
 
   .component_inner {
     display: block !important;
+    padding-bottom: 0;
   }
 
   .multistep.blocked .component_selections>div,
@@ -212,5 +214,83 @@
 
   .block_component {
     display: none;
+  }
+
+  .composite_component,
+  .composite_data {
+    display: none !important;
+
+    &.active {
+      display: block !important;
+    }
+  }
+
+  .component-nav {
+    @include grid(center, center, column);
+
+    .inactive {
+      display: none;
+    }
+
+    i {
+      @include fontBold();
+      @include fontItalic(false);
+    }
+
+    span {
+      margin-left: 0.5em;
+      @include fontBold(false);
+    }
+
+    button.cta-inline {
+      background-color: transparent;
+      color: $green;
+      padding: 0;
+      height: auto;
+      border: none;
+      @include fontItalic();
+      margin: 0;
+
+      span {
+        margin-left: 0;
+      }
+
+      &:hover {
+        color: $orchid;
+      }
+    }
+  }
+
+  #composite_review {
+    @include grid(center, center);
+
+    img {
+      display: block;
+      max-height: 10rem;
+      width: auto;
+      margin: 1rem auto;
+    }
+
+    h3 {
+      color: $violet;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    .component_item {
+      padding: 2rem;
+    }
+  }
+
+  .screen-reader-text {
+    display: none;
+  }
+
+  .composite_button {
+    @include grid();
+
+    button {
+      margin-left: 1em;
+    }
   }
 }

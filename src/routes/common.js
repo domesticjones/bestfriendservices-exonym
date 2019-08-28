@@ -329,9 +329,65 @@ export default {
       $('#product-single-gallery-frame').css('background-image', bg);
     });
 
-    //PRODUCT: Change Button Text
+    // PRODUCT: Change Button Text
     if(petname) {
       $('#product-button-customize').text(`Customize for ${petname}`);
     }
+
+    // PRODUCT: Remove class descriptors from components
+    $('.composite_component').removeAttr('style');
+
+    $(document).on('click', '.composited_product_image a, .component_title_button ', e => {
+      e.preventDefault();
+    });
+
+    $(document).on('click', '#product-button-customize', () => {
+      $('.composite_component').each((i,e) => {
+        const $this = $(e);
+        const next = $this.next().find('.step_title').text();
+        const prev = $this.prev().find('.step_title').text();
+        if(prev.length > 0) {
+          $this.find('.component-nav .prev span').text(prev);
+        } else {
+          $this.find('.component-nav .prev').addClass('inactive');
+        }
+        if(next.length > 0) {
+          $this.find('.component-nav .next span').text(next);
+        } else {
+          $this.find('.component-nav .next span').text('Review');
+
+        }
+      });
+    });
+
+    // PRODUCT: Validate all fields before proceeding by checking validation message visibility
+    $(document).on('click', '.component-nav button', e => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      if($this.hasClass('next')) {
+        const validate = $this.closest('.composite_component').find('.woocommerce-variation');
+        if(validate.css('display') != 'none') {
+          $this.closest('.composite_component').removeClass('active');
+          $this.closest('.composite_component').next().addClass('active');
+        } else {
+          alert('All options marked with a * are required');
+        }
+        if($this.find('span').text() == 'Review') {
+          $('.composite_component').each((i,e) => {
+            const title = $(e).data('nav_title');
+            const img = $(e).find('.composited_product_images').html();
+            let imgPrint = '';
+            if(img.length) {
+              imgPrint = img;
+            }
+            $('#composite_review').append(`<div class="component_item"><h3>${title}</h3>${imgPrint}</div>`);
+
+          });
+        }
+      } else if($this.hasClass('prev')) {
+        $this.closest('.composite_component').removeClass('active');
+        $this.closest('.composite_component').prev().addClass('active');
+      }
+    });
   },
 };

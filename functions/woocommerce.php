@@ -25,7 +25,7 @@
       }
     }
   }
-  add_action('init','possibly_redirect');
+  add_action('init','ex_redirect_wc_public');
 
   // Kill Breadcrumbs
   remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);

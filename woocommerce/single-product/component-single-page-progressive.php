@@ -64,5 +64,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			do_action( 'woocommerce_composite_component_selections_progressive', $component_id, $product );
 
 		?></div>
+
 	</div>
+	<nav class="component-nav">
+		<button class="cta-button cta-arrow-right next"><i>Next: </i><span></span></button>
+		<button class="cta-inline prev">Back: <span></span></button>
+	</nav>
 </div>
