@@ -10,7 +10,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.8.2",
+        "version": "5.8.3",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -33,7 +33,6 @@
     "wpackagist-plugin/woocommerce-admin": "*",
     "wpackagist-plugin/auto-upload-images": "*",
     "wpackagist-plugin/contact-form-7": "*",
-    "wpackagist-plugin/ajax-load-more": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }

@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ab630109f5fb072624333bf5b071a22",
+    "content-hash": "8934eec9de6af9124d699c3d05e5a969",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.2",
+            "version": "5.8.3",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.2",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.3",
                 "reference": null,
                 "shasum": null
             },
@@ -23,16 +23,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+                "reference": "141b272484481432cda342727a427dc1e206bfa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/141b272484481432cda342727a427dc1e206bfa0",
+                "reference": "141b272484481432cda342727a427dc1e206bfa0",
                 "shasum": ""
             },
             "require": {
@@ -88,6 +88,7 @@
                 "RadPHP",
                 "SMF",
                 "Thelia",
+                "Whmcs",
                 "WolfCMS",
                 "agl",
                 "aimeos",
@@ -110,6 +111,7 @@
                 "installer",
                 "itop",
                 "joomla",
+                "known",
                 "kohana",
                 "laravel",
                 "lavalite",
@@ -139,7 +141,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-08-27T06:10:37+00:00"
+            "time": "2019-08-12T15:00:31+00:00"
         },
         {
             "name": "philippbaschke/acf-pro-installer",
@@ -199,16 +201,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -220,7 +222,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -237,12 +239,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
                     "name": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -253,7 +255,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -308,15 +310,15 @@
         },
         {
             "name": "wpackagist-plugin/admin-menu-editor",
-            "version": "1.9",
+            "version": "1.9.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/admin-menu-editor/",
-                "reference": "tags/1.9"
+                "reference": "tags/1.9.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.9.zip",
+                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.9.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -325,26 +327,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/admin-menu-editor/"
-        },
-        {
-            "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.1.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1562258908",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/ajax-load-more/"
         },
         {
             "name": "wpackagist-plugin/ari-adminer",
@@ -488,7 +470,7 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce-admin",
-            "version": "0.16.0",
+            "version": "0.17.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce-admin/",
@@ -496,7 +478,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-admin.zip?timestamp=1564085774",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-admin.zip?timestamp=1565900337",
                 "reference": null,
                 "shasum": null
             },

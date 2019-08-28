@@ -14,6 +14,7 @@
     <h3 class="widget-title">Search</h3>
     <?php get_search_form(); ?>
   </div>
+  <?php /* FEATURE ON HOLD: Pet Type Filter
   <div class="widget">
     <h3 class="widget-title">Pet Memorial Type</h3>
     <ul class="widget-pettype">
@@ -50,6 +51,7 @@
       <li class="<?php echo $typeClassDogs; ?>"><a href="<?php echo get_home_url() . '?post_type=product&product_cat=' . $typeDogsPrint . '&pettype=dog'; ?>">Dog</a></li>
     </ul>
   </div>
+  */ ?>
   <div class="widget">
     <h3 class="widget-title">Categories</h3>
     <ul class="widget-cats">
