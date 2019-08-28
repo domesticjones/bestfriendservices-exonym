@@ -54,6 +54,23 @@
       @include transition();
     }
   }
+
+  .blog-navigation {
+    width: 100%;
+
+    .page-numbers {
+      @include grid(center, center, row, wrap);
+      margin: 2rem auto;
+
+      a,
+      span {
+        display: block;
+        padding: 0.5rem;
+        width: 2.5em;
+        margin: 0.5em 0.25em;
+      }
+    }
+  }
 }
 
 .blog-data {

@@ -24,6 +24,7 @@
         </li>
       </a>
     <?php endwhile; endif; ?>
+    <li class="blog-navigation"><?php echo ex_page_navi(); ?></li>
   </ul>
 <?php get_sidebar('blog'); ?>
 <?php get_footer(); ?>

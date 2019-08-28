@@ -39,12 +39,20 @@
   background-color: transparentize($grey, 0.777);
   border-radius: 2px;
   padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
   @include fontItalic();
+
+  a.button {
+    padding: 0.5em 2em;
+    margin-right: 1em;
+  }
 }
 
 .module-woocommerce_heading {
   @extend %headingInterior;
+
+  h1 {
+    color: $white;
+  }
 }
 
 a.woocommerce-Button {

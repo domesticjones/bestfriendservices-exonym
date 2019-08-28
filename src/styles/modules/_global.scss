@@ -48,7 +48,7 @@
 
 .general-page-heading {
   text-align: center;
-  color: $orchid;
+  color: $violet;
   border-bottom: 1px solid $green;
   padding: 1em 0;
   margin-bottom: 1em;
@@ -76,6 +76,7 @@
     position: relative;
     z-index: 1;
     margin-bottom: 0;
+    color: $white;
   }
 }
 

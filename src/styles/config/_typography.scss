@@ -112,6 +112,7 @@ h6 {
   line-height: 1.25;
   font-family: $font-heading;
   @include fontBold(false);
+  color: $violet;
 }
 
 h1 {

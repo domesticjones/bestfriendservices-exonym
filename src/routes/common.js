@@ -6,7 +6,7 @@ require('slick-carousel');
 export default {
   init() {
   	// Wrap embedded objects and force them into 16:9
-  	$('iframe, embed, video').not('.ignore-ratio').wrap('<div class="video-container" />');
+  	$('#container iframe, #container embed, #container video').not('.ignore-ratio').wrap('<div class="video-container" />');
 
   	// HEADER: Responsive Nav Toggle
   	$('#responsive-nav-toggle').click(e => {

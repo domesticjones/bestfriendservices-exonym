@@ -53,7 +53,7 @@
   </div>
   */ ?>
   <div class="widget">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Browse by Category</h3>
     <ul class="widget-cats">
       <li class="<?php if(is_archive('product') && !is_tax() || is_search()) { echo 'is-active'; } ?>"><a href="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">All Categories</a></li>
       <?php
