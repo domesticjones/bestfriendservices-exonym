@@ -60,5 +60,13 @@
 @media(max-width: 768px) {
   .topsellers-wrap li {
     width: 50%;
+
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .module-topsellers {
+    padding: 2rem 1rem;
   }
 }

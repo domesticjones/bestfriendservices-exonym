@@ -16,6 +16,9 @@ export default {
       $('body').toggleClass('nav-active');
   	});
 
+    // ON INIT: Add visible class to first item before the rest of content loads
+    $('#content').find('.module:first').addClass('is-visible');
+
     // HEADER: Notify when scrolling from top
     $(window).on('load scroll', () => {
       const scrollPosition = $(window).scrollTop();

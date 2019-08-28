@@ -99,10 +99,8 @@
   // Change Products Per Pages
   function ex_wcPostListings($query) {
     if($query->is_archive) {
-      if(is_shop()) {
-        $query->set('posts_per_page', 24);
-      } elseif(is_tax('product_cat')) {
-        $query->set('posts_per_page', -1);
+      if(is_shop() || is_archive('product_cat')) {
+        $query->set('posts_per_page', 12);
       }
     }
     return $query;

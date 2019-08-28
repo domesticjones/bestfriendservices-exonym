@@ -32,10 +32,19 @@
   ---------------------------------------------------------------------- */
 @media (max-width: 660px) {
   .quote-wrap {
-    padding: 3rem;
+    padding: 4rem 2rem;
+
+    blockquote {
+      margin-bottom: 0;
+    }
 
     q {
-      font-size: 1.5em;
+      font-size: 1.25em;
+      line-height: 1.5;
+    }
+
+    cite {
+      font-size: 1rem;
     }
   }
 }

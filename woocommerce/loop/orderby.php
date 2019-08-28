@@ -28,12 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     if(is_shop()) {
       $preResults = '';
       $results = '';
-	    $postResults = '(' . wp_count_posts('product')->publish . ' items)' . ex_page_navi();
+	    $postResults = '<p>(' . wp_count_posts('product')->publish . ' items)' . ex_page_navi() . '</p>';
     } elseif(is_tax('product_cat')) {
       $term = get_queried_object()->term_id;
-      $termData = get_term($term);
-      $preResults = 'Showing only ' . $termData->name . ': ';
+      $termData = get_term($term, 'product_cat');
       $results = $termData->count;
+      $preResults = '';
+			$postResults = ' ' . $termData->name;
     }
     if($results == 1) {
       $postResults = ' item';
@@ -48,7 +49,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		} elseif($typeSelect == 'dog') {
       $resultsPrint = 'Showing all <strong>Dog</strong>-specific items';
 		}
-    echo '<p>' . $resultsPrint . '</p>';
+		if(is_tax('product_cat')) {
+			$resultsPrint .= ex_page_navi();
+		}
+    echo '<p>' . $resultsPrint. '</p>';
   ?>
 	<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
 		<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>

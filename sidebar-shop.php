@@ -57,10 +57,11 @@
     <ul class="widget-cats">
       <li class="<?php if(is_archive('product') && !is_tax() || is_search()) { echo 'is-active'; } ?>"><a href="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">All Categories</a></li>
       <?php
+        $shopPage =  wc_get_page_id('shop');
+        $catsExclude = get_field('exclude_categories', $shopPage);
         $productCatArgs = array(
           'taxonomy'    => 'product_cat',
-          'exclude'     => 15,
-          'parent'      => 0,
+          'exclude'     => $catsExclude,
         );
         $productCats = get_terms($productCatArgs);
         $currentStatus = '';

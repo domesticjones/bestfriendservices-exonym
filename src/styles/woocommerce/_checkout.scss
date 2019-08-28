@@ -332,4 +332,12 @@ li.checkout-total {
   .woocommerce-shipping-fields__field-wrapper .form-row {
     width: 100%;
   }
+
+  .checkout-section-nav {
+    @include grid(center, center, column-reverse);
+  }
+
+  #shipping_method {
+    @include grid(center, center, column);
+  }
 }
