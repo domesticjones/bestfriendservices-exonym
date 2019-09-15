@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17107879dfb704efe648413b67c87cbf",
+    "content-hash": "5ae86647c4aac0fb181bc6d20193f56c",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -410,15 +410,15 @@
         },
         {
             "name": "wpackagist-plugin/disable-gutenberg",
-            "version": "1.8.1",
+            "version": "1.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/disable-gutenberg/",
-                "reference": "tags/1.8.1"
+                "reference": "tags/1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-gutenberg.1.8.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-gutenberg.1.9.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -469,6 +469,26 @@
             "homepage": "https://wordpress.org/plugins/relevanssi/"
         },
         {
+            "name": "wpackagist-plugin/woo-custom-product-addons",
+            "version": "2.3.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woo-custom-product-addons/",
+                "reference": "tags/2.3.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woo-custom-product-addons.2.3.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woo-custom-product-addons/"
+        },
+        {
             "name": "wpackagist-plugin/woocommerce",
             "version": "3.6.5",
             "source": {
@@ -490,7 +510,7 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce-admin",
-            "version": "0.17.0",
+            "version": "0.18.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce-admin/",
@@ -498,7 +518,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-admin.zip?timestamp=1565900337",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-admin.zip?timestamp=1567027022",
                 "reference": null,
                 "shasum": null
             },

@@ -83,3 +83,6 @@ function remove_pages_count_columns($defaults) {
   return $defaults;
 }
 add_filter('manage_pages_columns', 'remove_pages_count_columns');
+
+// Remove CF7 Styling
+add_filter('wpcf7_autop_or_not', '__return_false');

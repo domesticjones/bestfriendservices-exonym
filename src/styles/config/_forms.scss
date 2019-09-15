@@ -289,3 +289,28 @@ input[type="reset"]:focus {
   background-color: $fh-button-hover-bg-color;
   color: $fh-button-hover-font-color;
 }
+
+/* Basic Form Layouts ------------------ */
+
+.ex-form-row {
+  @include grid(space-between, flex-end, row, wrap);
+}
+
+.form-element {
+  padding: 0.5em;
+  text-align: left;
+
+  label {
+    font-size: 0.75em;
+    margin: 0.25em 0;
+    @include fontItalic();
+    color: $grey-dark;
+  }
+
+  input {
+    margin-top: 0;
+  }
+
+  &-half { width: 50%; }
+  &-wide { width: 100%; }
+}

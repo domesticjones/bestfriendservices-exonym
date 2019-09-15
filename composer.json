@@ -34,6 +34,7 @@
     "wpackagist-plugin/auto-upload-images": "*",
     "wpackagist-plugin/contact-form-7": "*",
     "wpackagist-plugin/relevanssi": "*",
+    "wpackagist-plugin/woo-custom-product-addons": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }

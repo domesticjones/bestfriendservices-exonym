@@ -1,5 +1,5 @@
 <?php
-  $resourcesArchive = 39537; // Page ID of the "Help Center" page
+  $resourcesArchive = get_page_by_path('help-center'); // Page ID of the "Help Center" page
   get_header();
   ex_wrap('start', 'resources_heading', '', $resourcesArchive);
     echo '<h1>' . get_field(resources_heading, $resourcesArchive) . '</h1>';
@@ -24,6 +24,8 @@
       ex_contact('email');
       ex_contact('address');
       ex_social();
+      $formId = get_field('footer_form', $resourcesArchive);
+      echo do_shortcode('[contact-form-7 id="' . $formId . '"]');
     echo '</footer>';
   ex_wrap('end');
   get_footer();
