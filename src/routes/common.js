@@ -172,6 +172,13 @@ export default {
       $('.create-account').addClass('is-active');
     });
 
+    // CHECKOUT: Populate Order Notes
+    let engravingNotes = [];
+    $('.engraving-info').each((i,e) => {
+      engravingNotes.push($(e).text());
+    });
+    $('#order_comments').val(engravingNotes);
+
     // MODULE: Funnel Modal Triggers
     $('.funnel-form-modal').submit(e => {
       e.preventDefault();

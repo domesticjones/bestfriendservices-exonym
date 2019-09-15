@@ -1,0 +1,132 @@
+.woocommerce-order-received {
+  .woocommerce-notice {
+    text-align: center;
+  }
+
+  .woocommerce-table {
+    background-color: $grey-light;
+
+    th {
+      border-bottom: 1px solid $grey;
+      padding: 1em;
+      color: $grey;
+    }
+
+    td {
+      border-bottom: 1px solid $grey;
+      padding: 0 1em;
+    }
+
+    tr:last-child {
+      td, th {
+        border: none;
+      }
+    }
+
+    thead {
+      th {
+        border-bottom: 1px solid $grey !important;
+      }
+    }
+    tbody {
+      margin-bottom: 1em;
+
+      tr:first-child td {
+        padding-top: 1em;
+      }
+    }
+
+    p {
+      padding-bottom: 0;
+    }
+
+    .component {
+      @include fontBold(false);
+
+      dt {
+        margin-top: 1.5em;
+        font-size: 0.75em;
+      }
+
+      p {
+        @include fontBold();
+      }
+    }
+
+    .wc-item-meta {
+      @include listStripped();
+      @include grid();
+      @include fontBold(false);
+
+      li {
+        padding: 0 1em;
+      }
+
+      strong {
+        @include fontBold(false);
+        font-size: 0.75em;
+      }
+
+      p {
+        @include fontBold();
+        line-height: 1;
+      }
+    }
+  }
+
+  .woocommerce-order-details__title {
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  .woocommerce-customer-details {
+    .woocommerce-columns {
+      @include grid();
+      text-align: center;
+    }
+
+    .woocommerce-column {
+      width: 50%;
+      padding: 2em;
+    }
+
+    h2 {
+      font-size: 1.25em;
+    }
+
+    p {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.woocommerce-thankyou-order-details {
+  @include listStripped();
+  @include grid(center, flex-start, row, wrap);
+  margin-bottom: 1em;
+
+  li {
+    padding: 1em;
+    margin: 1em;
+    background-color: $grey-light;
+    text-align: center;
+    font-size: 0.75em;
+    color: $grey;
+  }
+
+  strong {
+    display: block;
+    font-size: 1.25em;
+    color: $black;
+  }
+}
+
+@media (max-width: 768px) {
+  .woocommerce-order-received .woocommerce-customer-details .woocommerce-columns {
+    @include grid(center, center, column);
+
+    .woocommerce-column {
+      width: 100%;
+    }
+  }
+}

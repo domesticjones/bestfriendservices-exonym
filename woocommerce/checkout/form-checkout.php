@@ -42,10 +42,22 @@ ex_wrap('start', 'checkout');
 		echo '<ul class="checkout-lineitems">';
 		foreach($cart as $item => $values) {
 			$prod =  $values['product_id'];
+			$customForms = $values['wcpa_data'];
+			$customFormsInfo = [];
+			$customFormsPrint = '';
+			if($customForms) {
+				foreach($customForms as $form) {
+					array_push($customFormsInfo, array('name' => $form['label'], 'value' => $form['value']));
+				}
+				foreach($customFormsInfo as $info) {
+					$customFormsPrint .= '<i>' . $info['name'] . ':</i><span class="engraving-info">' . $info['value'] . '</span>';
+				}
+			}
+			$product = wc_get_product($prod);
 			$price = get_post_meta($prod, '_price', true);
 			echo '<li class="checkout-product">';
 				echo '<div class="checkout-cart-photo">' . get_the_post_thumbnail($prod, 'thumbnail') . '</div>';
-				echo '<div class="checkout-cart-data"><h3>' . get_the_title($prod) . '</h3><p>' . get_woocommerce_currency_symbol() . $price . '</p></div>';
+				echo '<div class="checkout-cart-data"><h3>' . get_the_title($prod) . '</h3><p>' . $customFormsPrint . '</p><p class="price">' . get_woocommerce_currency_symbol() . $price . '</p></div>';
 			echo '</li>';
 		}
 		echo '<li class="checkout-editcart"><a href="' . get_permalink(wc_get_page_id('cart')) . '">Edit Cart Contents</a></li>';

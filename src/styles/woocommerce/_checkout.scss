@@ -315,6 +315,31 @@ li.checkout-total {
   }
 }
 
+.checkout-cart-data {
+  padding-left: 0.5em;
+
+  i {
+    display: block;
+    font-size: 0.75em;
+    @include fontBold(false);
+    color: $grey;
+  }
+
+  p {
+    white-space: pre;
+    line-height: 1.25;
+    padding: 1em 0;
+    @include fontBold();
+  }
+
+  .price {
+    @include fontBold(false);
+  }
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .checkout-sidebar,
   .checkout-steps,
