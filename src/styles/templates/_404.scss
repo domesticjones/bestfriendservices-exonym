@@ -1,0 +1,8 @@
+.error-404-links {
+  @include listStripped();
+  @include grid(center, center, row, wrap);
+
+  li {
+    margin: 2em;
+  }
+}
