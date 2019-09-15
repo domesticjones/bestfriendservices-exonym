@@ -97,13 +97,8 @@
   add_filter('woocommerce_catalog_orderby', 'ex_wcSortingRename');
 
   // Change Products Per Pages
-  function ex_wcPostListings($query) {
-    if($query->is_archive) {
-      if(is_shop() || is_archive('product_cat')) {
-        $query->set('posts_per_page', 12);
-      }
-    }
-    return $query;
+  function ex_wcPostsPerPage($cols) {
+    $cols = 9;
+    return $cols;
   }
-
-  add_filter('pre_get_posts', 'ex_wcPostListings');
+  add_filter('loop_shop_per_page', 'ex_wcPostsPerPage', 20);

@@ -34,6 +34,26 @@
   }
 }
 
+.woocommerce-notices-wrapper {
+  @include grid(center, center, column);
+  width: 100%;
+  padding: 2vw;
+  margin-bottom: 2vw;
+  background-color: $grey;
+  text-align: center;
+  color: $white;
+  @include fontItalic();
+
+  &:empty {
+    display: none;
+  }
+
+  & > *:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
 .woocommerce-message {
   border: 1px solid $grey;
   background-color: transparentize($grey, 0.777);

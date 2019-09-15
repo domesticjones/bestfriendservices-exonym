@@ -139,8 +139,10 @@ add_action('template_redirect', 'ex_redirect_cpt_archive');
 
 // List all archives on CPT
 function ex_listall_posts_archive( $query ) {
-  if($query->is_archive('faq') && $query->is_main_query() && !is_admin() ) {
-    $query->set('posts_per_page', -1);
+  if($query->is_main_query() && !is_admin() ) {
+    if(is_post_type_archive('faq')) {
+      $query->set('posts_per_page', -1);
+    }
   }
 }
 add_action('pre_get_posts', 'ex_listall_posts_archive');

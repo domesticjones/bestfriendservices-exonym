@@ -111,11 +111,148 @@
 
 //Composite Products Modal Styling
 #modal-customize {
+  .composite_form .composite_pagination {
+    display: block;
+    margin-top: -1rem;
+
+    ul.pagination_elements {
+      @include listStripped();
+      @include grid(center, center);
+      width: 100%;
+      text-align: center;
+
+      & > li {
+        flex: 1 1 0;
+        background-color: transparent;
+        height: auto;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        &.pagination_element_review .element_title::after {
+          display: none;
+        }
+      }
+    }
+
+    .element_index {
+      display: none;
+    }
+
+    .element_title {
+      display: block;
+      padding-top: 2rem;
+      position: relative;
+      line-height: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: calc(50% - 0.75rem);
+        left: calc(50% - 0.75rem);
+        z-index: 2;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: $violet;
+        border-radius: 50%;
+        border: 0.5rem solid $white;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: calc(50% - 1px);
+        left: 50%;
+        z-index: 1;
+        height: 2px;
+        width: 100%;
+        background-color: #E8E8C6;
+      }
+    }
+
+    a {
+      display: block;
+      white-space: nowrap;
+      padding: 3.5em 2em 0.5em 2em;
+      font-size: 0.75em;
+      @include fontBold(false);
+      color: $violet-trans;
+      line-height: 1;
+    }
+
+    .pagination_element_current {
+      a {
+        color: $violet;
+      }
+
+      .element_title::before {
+        border: 1.25rem solid #F4F4F4;
+        width: 3rem;
+        height: 3rem;
+        top: calc(50% - 1.5rem);
+        left: calc(50% - 1.5rem);
+      }
+    }
+  }
+
+  .composite_navigation.top {
+    display: none;
+  }
+
+  .composite_navigation_inner {
+    @include grid(center, center, column-reverse);
+    padding-top: 0;
+
+    a {
+      margin: 0;
+      @extend a.cta-button;
+      @include fontBold(false);
+      @include grid(center, center);
+
+      &::after {
+        position: relative;
+        width: 1.25em;
+        height: 1.25em;
+        top: 0.5em;
+        left: 0.25em;
+      }
+
+      &.next {
+        @extend a.cta-color-green;
+
+        &.inactive {
+          background-color: $grey;
+          border-color: $grey;
+        }
+      }
+
+      &.prev {
+        color: $green;
+        border: none;
+        padding: 0;
+        margin-left: 3em;
+
+        &:hover {
+          color: $violet;
+        }
+      }
+    }
+  }
+
   .component_title_wrapper {
     padding: 0;
+
     h2 {
       outline: none !important;
     }
+  }
+
+  .composited_product_title_wrapper {
+    display: none;
   }
 
   .step_index {
@@ -150,6 +287,56 @@
     .required {
       color: $orchid;
     }
+  }
+
+  .component_option_radio_buttons_container {
+    @include grid();
+
+    .component_option_radio_button {
+      @include grid(center, flex-start);
+
+      input {
+        display: none;
+
+        &:checked + label::before {
+          @include icon(check-purple);
+        }
+      }
+
+      label {
+        position: relative;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 1.25rem;
+          height: 1.25rem;
+          left: 0;
+          top: 0.15rem;
+          margin-right: 0.5em;
+          border: 1px solid $grey;
+          background-size: 75%;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+      }
+
+      .amount {
+        padding-left: 0.5em;
+      }
+    }
+
+    .radio_button_title {
+      text-transform: none;
+      font-family: $font-default;
+      margin: 0.25em 0 0 0;
+      padding-left: 0.5em;
+    }
+  }
+
+  .component_section_title {
+    display: none;
   }
 
   .composited_product_details_wrapper {
@@ -222,52 +409,12 @@
     opacity: 1;
   }
 
-  .block_component {
-    display: none;
-  }
-
   .composite_component,
   .composite_data {
     display: none !important;
 
     &.active {
       display: block !important;
-    }
-  }
-
-  .component-nav {
-    @include grid(center, center, column);
-
-    .inactive {
-      display: none;
-    }
-
-    i {
-      @include fontBold();
-      @include fontItalic(false);
-    }
-
-    span {
-      margin-left: 0.5em;
-      @include fontBold(false);
-    }
-
-    button.cta-inline {
-      background-color: transparent;
-      color: $green;
-      padding: 0;
-      height: auto;
-      border: none;
-      @include fontItalic();
-      margin: 0;
-
-      span {
-        margin-left: 0;
-      }
-
-      &:hover {
-        color: $orchid;
-      }
     }
   }
 
@@ -292,15 +439,33 @@
     }
   }
 
-  .screen-reader-text {
-    display: none;
-  }
-
   .composite_button {
     @include grid();
 
     button {
       margin-left: 1em;
     }
+  }
+}
+
+#funnel-weight-recommend-table {
+  display: none;
+}
+
+#funnel-weight-recommend-toggle {
+  display: block;
+  text-align: right;
+  padding: 1em 0;
+}
+
+#funnel-weight-recommend-text {
+  text-align: right;
+}
+
+#funnel-weight-recommend-value {
+  display: none;
+
+  &:empty + #funnel-weight-recommend-text {
+    display: none;
   }
 }

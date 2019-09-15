@@ -341,27 +341,9 @@ export default {
     // PRODUCT: Remove class descriptors from components
     $('.composite_component').removeAttr('style');
 
+    // PRODUCT: Don't allow component images to open a new window
     $(document).on('click', '.composited_product_image a, .component_title_button ', e => {
       e.preventDefault();
-    });
-
-    $(document).on('click', '#product-button-customize', () => {
-      $('.composite_component').each((i,e) => {
-        const $this = $(e);
-        const next = $this.next().find('.step_title').text();
-        const prev = $this.prev().find('.step_title').text();
-        if(prev.length > 0) {
-          $this.find('.component-nav .prev span').text(prev);
-        } else {
-          $this.find('.component-nav .prev').addClass('inactive');
-        }
-        if(next.length > 0) {
-          $this.find('.component-nav .next span').text(next);
-        } else {
-          $this.find('.component-nav .next span').text('Review');
-
-        }
-      });
     });
 
     // PRODUCT: Validate all fields before proceeding by checking validation message visibility
@@ -392,6 +374,31 @@ export default {
         $this.closest('.composite_component').removeClass('active');
         $this.closest('.composite_component').prev().addClass('active');
       }
+    });
+
+    // PRODUCT: Populate the Funnel Data and Recommendations
+    $(document).on('click', '#product-button-customize', () => {
+      if(petweight) {
+        $('#funnel-weight-recommend-value').text(petweight);
+        let sizeRec = null;
+        $('#funnel-weight-recommend-table tr:not(:first)').each((i,e) => {
+          const min = parseInt($(e).find('.pet-weight-min').text());
+          const max = parseInt($(e).find('.pet-weight-max').text());
+          const size = $(e).find('td:first-child').text();
+          if(petweight >= min && petweight <= max) {
+            sizeRec = size;
+          }
+        });
+        $('#recommend-pet-name').text(petname);
+        $('#recommend-pet-weight').text(petweight);
+        $('#recommend-pet-size').text(sizeRec);
+      }
+    });
+
+    // PRODUCT: Funnel Size Recommendation Toggle
+    $(document).on('click', '#funnel-weight-recommend-toggle', e => {
+      e.preventDefault();
+      $('#funnel-weight-recommend-table').toggle();
     });
   },
 };
