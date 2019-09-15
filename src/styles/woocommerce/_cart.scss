@@ -1,3 +1,13 @@
+.woocommerce-cart {
+  #pay_with_amazon {
+    display: none;
+  }
+
+  .woocommerce-notices-wrapper {
+    margin-bottom: 0;
+  }
+}
+
 .woocommerce-cart-form,
 .cart-collaterals {
   max-width: 1024px;

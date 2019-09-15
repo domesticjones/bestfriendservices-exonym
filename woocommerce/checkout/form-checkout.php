@@ -42,6 +42,11 @@ ex_wrap('start', 'checkout');
 		echo '<ul class="checkout-lineitems">';
 		foreach($cart as $item => $values) {
 			$prod =  $values['product_id'];
+			$isCompositeChild = $values['composite_parent'];
+			$childStatus = '';
+			if($isCompositeChild) {
+				$childStatus = ' composite_child';
+			}
 			$customForms = $values['wcpa_data'];
 			$customFormsInfo = [];
 			$customFormsPrint = '';
@@ -55,9 +60,14 @@ ex_wrap('start', 'checkout');
 			}
 			$product = wc_get_product($prod);
 			$price = get_post_meta($prod, '_price', true);
-			echo '<li class="checkout-product">';
+			$variations = (!empty($values['variation_id'])) ? $values['variation_id'] : '';
+			$variationsPrint = '';
+			if(!empty($variations)) {
+			   $variationsPrint = ex_wcVariationRetrieval($variations);
+			}
+			echo '<li class="checkout-product' . $childStatus . '">';
 				echo '<div class="checkout-cart-photo">' . get_the_post_thumbnail($prod, 'thumbnail') . '</div>';
-				echo '<div class="checkout-cart-data"><h3>' . get_the_title($prod) . '</h3><p>' . $customFormsPrint . '</p><p class="price">' . get_woocommerce_currency_symbol() . $price . '</p></div>';
+				echo '<div class="checkout-cart-data"><h3>' . get_the_title($prod) . '</h3><p>' . $customFormsPrint . $variationsPrint . '</p><p class="price">' . get_woocommerce_currency_symbol() . $price . '</p></div>';
 			echo '</li>';
 		}
 		echo '<li class="checkout-editcart"><a href="' . get_permalink(wc_get_page_id('cart')) . '">Edit Cart Contents</a></li>';

@@ -102,3 +102,13 @@
     return $cols;
   }
   add_filter('loop_shop_per_page', 'ex_wcPostsPerPage', 20);
+
+  // Get the variations on the checkout list
+  function ex_wcVariationRetrieval($item_id) {
+    $_product = new WC_Product_Variation($item_id);
+    $variation_data = $_product->get_variation_attributes();
+    //$variation_detail = woocommerce_get_formatted_variation( $variation_data, true );  // this will give all variation detail in one line
+    $variation_detail = woocommerce_get_formatted_variation($variation_data, false);  // this will give all variation detail one by one
+    return $variation_detail; // $variation_detail will return string containing variation detail which can be used to print on website
+    // return $variation_data; // $variation_data will return only the data which can be used to store variation data
+  }

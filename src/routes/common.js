@@ -364,7 +364,14 @@ export default {
         $('#recommend-pet-weight').text(petweight);
         $('#recommend-pet-size').text(sizeRec);
       }
+      // PRODUCT: Populate the Engraving Field
+      if(petname) {
+        const placeholder = $('.wcpa_type_textarea textarea').attr('placeholder');
+        $('.wcpa_type_textarea textarea').val(petname);
+        $('.wcpa_type_textarea textarea').before(`<p class="engraving-instruction">${placeholder}</p>`);
+      }
     });
+
 
     // PRODUCT: Funnel Size Recommendation Toggle
     $(document).on('click', '#funnel-weight-recommend-toggle', e => {
