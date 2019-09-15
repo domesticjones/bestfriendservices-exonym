@@ -95,6 +95,22 @@
   margin-top: 3vw;
 }
 
+.woocommerce-loop-product__link {
+  display: block;
+
+  img {
+    @include transition();
+  }
+
+  &:hover {
+    background-color: transparentize($grey-pale, 0.75);
+
+    img {
+      opacity: 0.666;
+    }
+  }
+}
+
 
 /**
   Responsive Breakpoints

@@ -1,4 +1,5 @@
 <?php
+  /* TEMPLATE NAME: Help Center */
   $resourcesArchive = get_page_by_path('help-center'); // Page ID of the "Help Center" page
   get_header();
   ex_wrap('start', 'resources_heading', '', $resourcesArchive);

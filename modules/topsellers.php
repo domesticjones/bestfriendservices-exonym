@@ -1,11 +1,20 @@
 <?php
   $heading = get_field('top_sellers_heading');
   $headingSub = get_field('top_sellers_sub_heading');
+  $catExclude = get_field('top_sellers_exclude');
   $topsellersQueryArgs = array(
       'post_type' => 'product',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'product_cat',
+          'field' => 'term_id',
+          'terms' => $catExclude,
+          'operator' => 'NOT IN',
+        ),
+      ),
+      'posts_per_page' => 10,
       'meta_key' => 'total_sales',
       'orderby' => 'meta_value_num',
-      'posts_per_page' => 10,
   );
   $topsellersQuery = new WP_Query($topsellersQueryArgs);
   if($topsellersQuery->have_posts()) {

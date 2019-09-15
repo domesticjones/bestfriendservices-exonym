@@ -40,44 +40,6 @@ export default {
       pauseOnFocus: false,
       dots: true,
     });
-
-    // MODULE: Funnel Slider
-    $('#funnel-products').slick({
-      arrows: false,
-      fade: true,
-      speed: 3666,
-      autoplay: true,
-      autoplaySpeed: 5555,
-    });
-
-    // MODULE: Testimonial Slider
-    $('#testimonials-slider').slick({
-      arrows: false,
-      speed: 1234,
-      autoplay: true,
-      autoplaySpeed: 6666,
-      adaptiveHeight: true,
-      pauseOnHover: false,
-      pauseOnFocus: false,
-      dots: true,
-    });
-
-    // MODULE: Trending Slider
-    $('#trending-slider').slick({
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 6666,
-      adaptiveHeight: true,
-      pauseOnHover: false,
-      asNavFor: '#trending-thumbs',
-    });
-    $('#trending-thumbs').slick({
-      arrows: false,
-      asNavFor: '#trending-slider',
-      slidesToScroll: 1,
-      centerMode: true,
-      focusOnSelect: true,
-    });
   },
   finalize() {
   	$(window).on('load resize scroll', () => {
@@ -273,6 +235,8 @@ export default {
         e.preventDefault();
         if(obj == 'find') {
           if(funnelModule.length) {
+            $('#responsive-nav-toggle').removeClass('is-active');
+            $('body').removeClass('nav-active');
             $('html, body').animate({
               scrollTop: funnelModule.offset().top
             });
@@ -399,6 +363,13 @@ export default {
     $(document).on('click', '#funnel-weight-recommend-toggle', e => {
       e.preventDefault();
       $('#funnel-weight-recommend-table').toggle();
+    });
+
+    // PRODUCT: Populate Preview for Engraving Text
+    $(document).on('keydown', '.component_data textarea', e => {
+      const val = $(e.currentTarget).val();
+      const target = $(e.currentTarget).closest('.component_content').data('product_id');
+      $(`#summary_custom_populate_${target}`).text(val);
     });
   },
 };

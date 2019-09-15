@@ -143,7 +143,7 @@
 
     .element_title {
       display: block;
-      padding-top: 2rem;
+      padding-top: 3rem;
       position: relative;
       line-height: 1;
 
@@ -199,8 +199,12 @@
     }
   }
 
-  .composite_navigation.top {
-    display: none;
+  .composite_navigation {
+    @include clearfix();
+
+    &.top {
+      display: none;
+    }
   }
 
   .composite_navigation_inner {
@@ -399,9 +403,77 @@
     }
   }
 
+  .component_data {
+    .amount {
+      display: none;
+    }
+  }
+
+  .summary_elements {
+    margin-bottom: 0;
+
+    .step_title {
+      font-size: 0.85em;
+      font-family: $font-default;
+      text-align: left;
+      @include fontBold();
+    }
+
+    .meta_element {
+      margin-top: 0;
+      font-size: 0.85em;
+
+      .meta_key {
+        @include fontBold();
+      }
+    }
+
+    a.button {
+      background-color: transparent;
+      color: $green;
+      @include fontBold();
+    }
+  }
+
+  .summary_custom_populate {
+    white-space: pre;
+  }
+
+  .composite_summary {
+    width: 75%;
+    float: left;
+
+    .summary_title {
+      width: 100%;
+      @include clearfix();
+    }
+  }
+
+  .composite_wrap {
+    width: 25%;
+    float: right;
+    padding-top: 4rem;
+  }
+
   .component_inner {
     display: block !important;
     padding-bottom: 0;
+  }
+
+  .composite_review_title {
+    display: none;
+  }
+
+  .composite_price {
+    .price {
+      font-size: 2em;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .single_add_to_cart_button {
+    margin: 1em auto;
   }
 
   .multistep.blocked .component_selections>div,
@@ -436,14 +508,6 @@
 
     .component_item {
       padding: 2rem;
-    }
-  }
-
-  .composite_button {
-    @include grid();
-
-    button {
-      margin-left: 1em;
     }
   }
 }
