@@ -3,7 +3,7 @@
   $height = $heightRaw['number'] . $heightRaw['unit'];
   $images = get_field('hero_images');
   if(have_rows('hero_images')) {
-    echo '<ul id="hero-slider" class="animate-on-enter">';
+    echo '<ul id="hero-slider">';
     while(have_rows('hero_images')) {
       the_row();
       $data = get_sub_field('data');
@@ -15,7 +15,6 @@
           echo '<div class="module-bg" style="opacity: ' . ($bg['opacity'] / 100) . '; background-image: url(' . $bg['image']['sizes']['jumbo'] . ');">' . wp_get_attachment_image($bg['image']['id'], 'jumbo') . '</div>';
         echo '</div></li>';
       }
-      // Make CTA Function
     }
     echo '</ul>';
   }

@@ -73,7 +73,7 @@ form.woocommerce-checkout {
     }
 
     label {
-      @include grid();
+      @include grid(center, center, row, wrap);
       margin-top: 0;
 
       &::before {
@@ -138,6 +138,10 @@ form.woocommerce-checkout {
     padding: 0.25rem 1rem;
     margin: 1rem;
     border: 1px solid $grey;
+
+    &:only-child label {
+      @extend %wcCheckboxActive;
+    }
   }
 
   label {
@@ -456,6 +460,19 @@ li.checkout-total {
   font-size: 0.75em;
   text-align: center;
   padding: 2rem;
+
+  p {
+    padding: 0;
+  }
+}
+
+form.woocommerce-checkout .wc_payment_methods label[for="card-element"]::before {
+  display: none;
+}
+
+form.woocommerce-checkout .wc_payment_methods label[for="wc-stripe-new-payment-method"] {
+  @include grid();
+  display: flex !important;
 }
 
 /**
@@ -475,7 +492,7 @@ li.checkout-total {
   }
 
   body.woocommerce-checkout #pay_with_amazon {
-    margin-top: 0;
+    margin-top: 2rem;
   }
 
   .checkout-steps {
@@ -497,5 +514,9 @@ li.checkout-total {
 
   #shipping_method {
     @include grid(center, center, column);
+  }
+
+  .woocommerce-privacy-policy-text {
+    padding: 0 1rem;
   }
 }

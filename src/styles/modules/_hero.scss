@@ -37,7 +37,16 @@
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  .hero-content img {
-    max-width: 100%;
+  .hero-content {
+    padding: 4rem 1rem 4.5rem 1rem;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .hero-content,
+  .hero-wrap {
+    min-height: 56.25vw !important;
   }
 }

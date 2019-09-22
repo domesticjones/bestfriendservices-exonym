@@ -34,6 +34,10 @@
 
   .cart-update {
     margin: 0 auto 3rem auto;
+
+    &:disabled {
+      display: none;
+    }
   }
 
   .coupon {

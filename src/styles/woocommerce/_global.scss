@@ -52,6 +52,19 @@
     padding-bottom: 0;
     margin-bottom: 0;
   }
+
+  .woocommerce-message {
+    @include grid(center, center, column);
+
+    a.button {
+      height: auto;
+      margin-bottom: 1em;
+    }
+  }
+
+  .restore-item {
+    @extend .cta-button;
+  }
 }
 
 .woocommerce-message {

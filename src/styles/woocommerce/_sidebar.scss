@@ -19,6 +19,7 @@
 #pet-cta,
 #pet-info {
   display: none;
+  position: relative;
 
   &.is-active {
     display: block;
@@ -72,6 +73,8 @@
       height: 1rem;
       width: 1rem;
       @include icon(magnify-white);
+      background-repeat: no-repeat;
+      background-size: contain;
       @include transition();
     }
 
@@ -96,9 +99,50 @@
   @extend %wcCheckboxes;
 }
 
-.widget-pettype {
-  @include listStripped();
-  @extend %wcCheckboxes;
+.widget-inner {
+  display: block;
+}
+
+.widget-toggle {
+  display: none;
+
+  span {
+    display: none;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: auto 75%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+#widget-search {
+  .widget-toggle {
+    &::after {
+      @include icon(magnify-purple);
+    }
+
+    &.is-active::after {
+      @include icon(close-purple);
+    }
+  }
+}
+
+#widget-cats {
+  .widget-toggle {
+    &::after {
+      @include icon(list-purple);
+    }
+
+    &.is-active::after {
+      @include icon(close-purple);
+    }
+  }
 }
 
 
@@ -113,6 +157,80 @@
 
 @media (max-width: 960px) {
   #sidebar {
+    @include grid(space-between, center);
+    position: fixed;
+    z-index: 998;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0 0 0.5rem transparentize($violet, 0.75);
+    padding: 0;
+
+    .widget {
+      padding: 1rem;
+      border: none;
+      margin: 0;
+    }
+  }
+
+  .widget-inner {
     display: none;
+    background-color: $white;
+
+    &.is-active {
+      display: block;
+      padding: 1rem;
+      box-shadow: 0 0 0.5rem transparentize($violet, 0.75);
+    }
+  }
+
+  .widget-toggle {
+    display: block;
+  }
+
+  #widget-search,
+  #widget-cats {
+    .widget-inner {
+      position: absolute;
+      bottom: 4rem;
+      left: 0;
+      width: 100%;
+      max-height: calc(100vh - 10rem);
+      overflow: auto;
+    }
+  }
+
+  #widget-petinfo {
+    position: relative;
+    width: 66.666%;
+    font-size: 0.85em;
+    margin-right: auto;
+
+    .widget-inner {
+      display: block;
+
+      h3 {
+        display: none;
+      }
+    }
+
+    a {
+      font-size: 0;
+      position: absolute;
+      @include icon(pencil-purple);
+      background-size: auto 50%;
+      background-position: right center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+
+      &.cta-button {
+        position: relative;
+        font-size: 0.85rem;
+        background-image: none;
+        padding: 0.75em;
+      }
+    }
   }
 }

@@ -98,7 +98,7 @@
 
   // Change Products Per Pages
   function ex_wcPostsPerPage($cols) {
-    $cols = 9;
+    $cols = 12;
     return $cols;
   }
   add_filter('loop_shop_per_page', 'ex_wcPostsPerPage', 20);

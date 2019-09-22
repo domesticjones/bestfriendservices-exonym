@@ -18,6 +18,7 @@ export default {
 
     // ON INIT: Add visible class to first item before the rest of content loads
     $('#content').find('.module:first').addClass('is-visible');
+    $('#hero-slider').find('.module:first').addClass('is-visible');
 
     // HEADER: Notify when scrolling from top
     $(window).on('load scroll', () => {
@@ -35,7 +36,7 @@ export default {
       fade: true,
       speed: 2000,
       autoplay: true,
-      autoplaySpeed: 6669,
+      autoplaySpeed: 3336,
       pauseOnHover: false,
       pauseOnFocus: false,
       dots: true,
@@ -298,6 +299,17 @@ export default {
       verticalSwiping: true,
       cssEase: 'ease-in-out',
       lazyLoad: 'progressive',
+      responsive: [
+        {
+          breakpoint: 960,
+          settings: {
+            vertical: false,
+            verticalSwiping: false,
+            slidesToShow: 3,
+            centerMode: true,
+          }
+        }
+      ],
     });
     productGallery.on('beforeChange', (e, slick, currentSlide, nextSlide) => {
       const bg = $(slick.$slides.get(nextSlide)).find('.product-image-gallery-single').css('background-image');
@@ -384,6 +396,14 @@ export default {
       const val = $(e.currentTarget).val();
       const target = $(e.currentTarget).closest('.component_content').data('product_id');
       $(`#summary_custom_populate_${target}`).text(val);
+    });
+
+    // SHOP: Command Bar Widgets
+    $('.widget-toggle').click(e => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      $this.prev('.widget-inner').toggleClass('is-active');
+      $this.toggleClass('is-active');
     });
   },
 };

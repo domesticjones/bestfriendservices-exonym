@@ -111,17 +111,44 @@
   }
 }
 
+.component_table_item {
+  padding-top: 1rem;
+
+  .product-quantity,
+  .product-subtotal,
+  .product-price {
+    display: none;
+  }
+}
+
 
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
 @media(max-width: 960px) {
   .products {
-    @include grid(space-between, flex-end, row, wrap);
+    @include grid(space-between, flex-start, row, wrap);
 
-    .product {
+    li.product {
       width: calc(50% - 1rem);
       margin: 1rem 0;
+
+      .woocommerce-loop-product__title {
+        font-size: 0.85em;
+      }
     }
+  }
+
+  .woocommerce-ordering {
+    @include grid(center, center, column);
+
+    select {
+      margin: 1em auto;
+    }
+  }
+
+  .nav-pagination a, .nav-pagination span, .woocommerce-pagination a, .woocommerce-pagination span {
+    width: 1.75rem;
+    font-size: 0.75rem;
   }
 }
