@@ -81,7 +81,15 @@ if ( post_password_required() ) {
 					woocommerce_template_single_add_to_cart();
 				} elseif($product_type == 'variable') {
 					ob_start();
-						woocommerce_template_single_add_to_cart();
+						echo '<div class="variation-modal-wrap">';
+							echo '<h2>Choose Options</h2>';
+							echo '<div class="variation-modal-img">';
+								echo '<img src="' . get_the_post_thumbnail_url($post->ID) . '" id="variation_custom_preview" />';
+							echo '</div>';
+							echo '<div class="variation-modal-data">';
+								woocommerce_template_single_add_to_cart();
+							echo '</div>';
+						echo '</div>';
 						$productAddToCart = ob_get_contents();
 					ob_end_clean();
           echo ex_modal('options', $productAddToCart);

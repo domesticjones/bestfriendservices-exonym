@@ -16,6 +16,14 @@ export default {
       $('body').toggleClass('nav-active');
   	});
 
+    // PRODUCT: Variation Image Placeholder Change
+    $('.single_variation_wrap').on('show_variation', (e,v) => {
+      $('#variation_custom_preview').attr('src', v.image.full_src);
+    });
+    $(document).on('found_variation.first', (e,v) => {
+      $('#variation_custom_preview').attr('src', v.image.full_src);
+    });
+
     // ON INIT: Add visible class to first item before the rest of content loads
     $('#content').find('.module:first').addClass('is-visible');
     $('#hero-slider').find('.module:first').addClass('is-visible');

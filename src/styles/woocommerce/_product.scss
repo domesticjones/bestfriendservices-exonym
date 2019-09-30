@@ -563,6 +563,24 @@
   }
 }
 
+.variation-modal-wrap {
+  @include grid(center, center, row, wrap);
+
+  h2 {
+    width: 100%;
+  }
+}
+
+.variation-modal-img {
+  width: 50%;
+  padding-right: 2rem;
+}
+
+.variation-modal-data{
+  width: 50%;
+  padding-left: 2rem;
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
@@ -665,5 +683,16 @@
     .summary_elements {
       @include grid(center, center, column);
     }
+  }
+
+  .variation-modal-img {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .variation-modal-data{
+    width: 100%;
+    padding-left: 0;
+    padding-top: 2rem;
   }
 }
