@@ -32,10 +32,14 @@
   $funnelStep1Start = '<section id="funnel-info" class="funnel-step is-active">';
   $funnelStep2Start = '<section id="funnel-choice" class="funnel-step">';
   $funnelStepEnd = '</section>';
-  ob_start();
-    include(TEMPLATEPATH . '/modules/funnel-form.php');
-    $funnelForm = ob_get_contents();
-  ob_end_clean();
+  if(!is_page_template('page-home.php')) {
+    ob_start();
+      include(TEMPLATEPATH . '/modules/funnel-form.php');
+      $funnelForm = ob_get_contents();
+    ob_end_clean();
+  } else {
+    $funnelForm = '';
+  }
   $funnelEscape = '<a href="#" class="modal-close">Put customization temporarily on hold</a>';
   $funnelNavA = '<nav class="funnel-modal-nav"><a href="#" class="funnel-step-1 cta-button cta-color-green">Next: Choose Style</a>' . $funnelEscape . '</nav>';
   $funnelNavB = '<nav class="funnel-modal-nav"><a href="' . get_permalink(wc_get_page_id('shop')) . '" class="cta-button cta-color-green">Browse All Styles</a><a href="#edit">Edit Your Pet\'s Info</a></nav>';

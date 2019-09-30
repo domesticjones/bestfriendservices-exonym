@@ -15,6 +15,10 @@
     td {
       border-bottom: 1px solid $grey;
       padding: 0 1em;
+
+      &.woocommerce-table__product-name {
+        padding: 1em;
+      }
     }
 
     tr:last-child {

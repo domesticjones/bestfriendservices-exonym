@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ae86647c4aac0fb181bc6d20193f56c",
+    "content-hash": "85c9b0ecb6b129747bfc1e3762a8650a",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.3",
+            "version": "5.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.3",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.4",
                 "reference": null,
                 "shasum": null
             },
@@ -449,16 +449,36 @@
             "homepage": "https://wordpress.org/plugins/favicon-by-realfavicongenerator/"
         },
         {
-            "name": "wpackagist-plugin/relevanssi",
-            "version": "4.3.2",
+            "name": "wpackagist-plugin/post-types-order",
+            "version": "1.9.4.1",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/relevanssi/",
-                "reference": "tags/4.3.2"
+                "url": "https://plugins.svn.wordpress.org/post-types-order/",
+                "reference": "tags/1.9.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/relevanssi.4.3.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/post-types-order.1.9.4.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/post-types-order/"
+        },
+        {
+            "name": "wpackagist-plugin/relevanssi",
+            "version": "4.3.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/relevanssi/",
+                "reference": "tags/4.3.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/relevanssi.4.3.3.zip",
                 "reference": null,
                 "shasum": null
             },

@@ -47,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           $contentSpecsOutput .= '</tr>';
         }
         $contentSpecsOutput .= '</table>';
+        $contentSpecsOutput .= '<p>Sizes are for the urn base only. A figurine on top adds additional height.</p>';
         echo $contentSpecsOutput;
         ?>
   </div>

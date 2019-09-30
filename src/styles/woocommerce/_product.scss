@@ -436,10 +436,6 @@
     }
   }
 
-  .summary_custom_populate {
-    white-space: pre;
-  }
-
   .composite_summary {
     width: 75%;
     float: left;
@@ -537,6 +533,33 @@
 
   &:empty + #funnel-weight-recommend-text {
     display: none;
+  }
+}
+
+.wcpa_form_item {
+  @include grid(flex-start, center, row-reverse);
+  margin: 0;
+
+  label {
+    white-space: nowrap;
+    padding: 0 0 0 1em;
+    color: $violet-trans;
+    font-size: 0.75em;
+    @include fontItalic();
+  }
+
+  input {
+    margin: 0;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  &:first-child input {
+    border-top: 1px solid $grey !important;
+  }
+
+  &:last-child input {
+    border-bottom: 1px solid $grey !important;
   }
 }
 

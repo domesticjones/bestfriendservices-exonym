@@ -50,6 +50,37 @@
   font-size: 0.75rem;
 }
 
+.nav-footer-horizontal {
+  @include navMenu('horizontal');
+
+  a {
+    opacity: 0.8;
+  }
+
+  li {
+    display: inline-block !important;
+    padding-right: 0.25rem !important;
+
+    &::after {
+      content: '\2022';
+      padding-left: 0.5rem;
+      font-size: 0.5em;
+      position: relative;
+      top: -0.5em;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  @include fontItalic();
+}
+
+#built-by {
+  visibility: hidden;
+}
+
 .footer-logo {
   display: block;
   height: 4rem !important;

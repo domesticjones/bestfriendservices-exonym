@@ -143,7 +143,8 @@
   }
 
   #shipping_method {
-    @include grid();
+    @include grid(flex-start, flex-start, column);
+
     li {
       padding: 0;
       border: none;
@@ -249,9 +250,5 @@
 
   .cart-collaterals {
     padding: 2rem;
-  }
-
-  .cart_totals #shipping_method {
-    @include grid(flex-start, flex-start, column);
   }
 }

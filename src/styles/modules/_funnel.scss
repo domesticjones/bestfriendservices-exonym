@@ -63,6 +63,10 @@
   }
 }
 
+#funnel-trigger-home {
+  display: none;
+}
+
 .funnel-bottom-row {
   @include grid(flex-start, stretch);
 

@@ -20,3 +20,4 @@
     <button type="submit" class="cta-button">Get Started</button>
   </div>
 </form>
+<a href="#find" id="funnel-trigger-home">Select Urn Type</a>

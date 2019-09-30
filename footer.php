@@ -20,9 +20,23 @@
 				</section>
 				<section class="footer-column footer-column-contact">
 					<h3 class="footer-heading">Contact</h3>
-					<p class="footer-address">
-						<?php ex_brand(); echo '<br /><span>'; ex_contact('address'); echo '</span>'; ?>
-					</p>
+					<div class="footer-address">
+						<?php
+							echo '<p>';
+								ex_brand();
+								echo '<br /><span>';
+									ex_contact('address');
+								echo '</span>';
+							echo '</p>';
+							echo '<nav class="nav-footer-horizontal" role="navigation">';
+								wp_nav_menu(array(
+									'container' => false,
+									'theme_location' => 'menu-contact',
+									'depth' => 1,
+								));
+							echo '</nav>';
+						?>
+					</div>
 				</section>
 				<section class="footer-column footer-column-services">
 					<h3 class="footer-heading">Services</h3>
@@ -54,9 +68,7 @@
 			</footer>
 		</div>
 		<?php
-			if(!is_page_template('page-home.php')) {
-				get_template_part('modules/modal', 'funnel');
-			}
+			get_template_part('modules/modal', 'funnel');
 			get_template_part('modules/navigation');
 			get_template_part('modules/modal');
 			wp_footer();

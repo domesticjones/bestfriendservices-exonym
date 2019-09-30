@@ -132,11 +132,12 @@ form.woocommerce-checkout {
 
 #shipping_method {
   @include listStripped();
-  @include grid(center, center);
+  @include grid(center, stretch, row, wrap);
 
   li {
+    width: calc(50% - 1rem);
     padding: 0.25rem 1rem;
-    margin: 1rem;
+    margin: 0.5rem;
     border: 1px solid $grey;
 
     &:only-child label {
@@ -445,7 +446,6 @@ li.checkout-total {
   }
 
   p {
-    white-space: pre;
     line-height: 1.25;
     padding: 1em 0;
     @include fontBold();
@@ -473,6 +473,21 @@ form.woocommerce-checkout .wc_payment_methods label[for="card-element"]::before 
 form.woocommerce-checkout .wc_payment_methods label[for="wc-stripe-new-payment-method"] {
   @include grid();
   display: flex !important;
+}
+
+.wc-saved-payment-methods {
+  @include listStripped();
+  @include grid(center, center, column);
+
+  li {
+    margin: 1em 0;
+
+    label {
+      @include grid(flex-start, center);
+      display: flex !important;
+      margin-left: 0.5em;
+    }
+  }
 }
 
 /**
@@ -514,6 +529,11 @@ form.woocommerce-checkout .wc_payment_methods label[for="wc-stripe-new-payment-m
 
   #shipping_method {
     @include grid(center, center, column);
+
+    li {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
   }
 
   .woocommerce-privacy-policy-text {

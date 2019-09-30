@@ -101,13 +101,24 @@ export default {
       $('#pet-cta').addClass('is-active');
     }
     $('#funnel').on('submit', (e) => {
-      const $this = $(e.currentTarget);
+      e.preventDefault();
       const name = $('#pet-name').val();
       const type = $('#pet-type').val();
       const weight = $('#pet-weight').val();
       localStorage.setItem('petname', name);
       localStorage.setItem('pettype', type);
       localStorage.setItem('petweight', weight);
+      if($('body').hasClass('page-template-page-home')) {
+        $('#funnel-trigger-home').trigger('click');
+        $('#modal .funnel-name').text(name);
+        if(type == 'Cat') {
+          $('.cats-list-dog').removeClass('is-active');
+          $('.cats-list-cat').addClass('is-active');
+        } else if(type == 'Dog') {
+          $('.cats-list-cat').removeClass('is-active');
+          $('.cats-list-dog').addClass('is-active');
+        }
+      }
     });
     $('.numcontrol').on('click', (e) => {
       const $this = $(e.currentTarget);
@@ -176,7 +187,9 @@ export default {
     // CHECKOUT: Populate Order Notes
     let engravingNotes = [];
     $('.engraving-info').each((i,e) => {
-      engravingNotes.push($(e).text());
+      const text = $(e).text();
+      const current = i + 1;
+      engravingNotes.push(`(Line ${current}: ${text})`);
     });
     $('#order_comments').val(engravingNotes);
 
@@ -187,9 +200,12 @@ export default {
     $(document).on('click', '.funnel-step-1', (e) => {
       e.preventDefault();
       const $this = $(e.currentTarget);
-      const name = $this.parent().prev('.funnel-form-modal').find('#pet-name').val();
-      const type = $this.parent().prev('.funnel-form-modal').find('#pet-type').val();
-      const weight = $this.parent().prev('.funnel-form-modal').find('#pet-weight').val();
+      const name = $this.closest('.funnel-step').find('#pet-name').val();
+      const type = $this.closest('.funnel-step').find('#pet-type').val();
+      const weight = $this.closest('.funnel-step').find('#pet-weight').val();
+      localStorage.setItem('petname', name);
+      localStorage.setItem('pettype', type);
+      localStorage.setItem('petweight', weight);
       if(name && type && weight) {
         localStorage.setItem('petname', name);
         localStorage.setItem('pettype', type);
@@ -216,8 +232,8 @@ export default {
     });
 
     // MODAL: Close
-    function exModalClose() {
-      $(document).on('click', '.modal-close', () => {
+    function exModalClose(closer = '.modal-close') {
+      $(document).on('click', closer, () => {
         const content = $('#modal-content-inner .modal-content-inline').detach();
         $('#modal').removeClass('is-active');
         $('body').append(content);
@@ -241,36 +257,37 @@ export default {
       const funnelModule = $('#start');
       $(document).on('click', `a[href="#${obj}"]`, e => {
         e.preventDefault();
+        const name = $('#pet-name').val();
+        const type = $('#pet-type').val();
+        const weight = $('#pet-weight').val();
         if(obj == 'find') {
-          if(funnelModule.length) {
-            $('#responsive-nav-toggle').removeClass('is-active');
-            $('body').removeClass('nav-active');
+          if($('body').hasClass('page-template-page-home') && name.length == 0 && name.length == 0 && weight.length == 0) {
             $('html, body').animate({
-              scrollTop: funnelModule.offset().top
+              scrollTop: $('#start').offset().top
             });
           } else {
             exModalSub(obj);
-            if(petname && pettype && petweight && obj != 'edit') {
-              $('#modal #funnel-choice .funnel-name').text(petname);
-              $('#modal #funnel-info').removeClass('is-active');
-              $('#modal #funnel-choice').addClass('is-active');
-              if(pettype == 'Cat') {
-                $('.cats-list-dog').removeClass('is-active');
-                $('.cats-list-cat').addClass('is-active');
-              } else if(pettype == 'Dog') {
-                $('.cats-list-cat').removeClass('is-active');
-                $('.cats-list-dog').addClass('is-active');
-              }
-            }
-            else {
-              $('#modal #funnel-choice').removeClass('is-active');
-              $('#modal #funnel-info').addClass('is-active');
+          }
+          if((petname && pettype && petweight) || (name && type && weight)) {
+            $('#modal .funnel-name').text(petname);
+            $('#modal #funnel-info').removeClass('is-active');
+            $('#modal #funnel-choice').addClass('is-active');
+            if(pettype == 'Cat') {
+              $('.cats-list-dog').removeClass('is-active');
+              $('.cats-list-cat').addClass('is-active');
+            } else if(pettype == 'Dog') {
+              $('.cats-list-cat').removeClass('is-active');
+              $('.cats-list-dog').addClass('is-active');
             }
           }
         } else if(obj == 'edit') {
           exModalSub(obj, customTarget);
-          $('#modal #funnel-choice').removeClass('is-active');
-          $('#modal #funnel-info').addClass('is-active');
+          if($('body').hasClass('page-template-page-home')) {
+            exModalClose('a[href="#edit"]');
+          } else {
+            $('#modal #funnel-choice').removeClass('is-active');
+            $('#modal #funnel-info').addClass('is-active');
+          }
         } else {
           exModalSub(obj);
         }
@@ -280,6 +297,7 @@ export default {
     // MODAL: List of Modal Triggers
     exModal('find');
     exModal('edit', '#modal-find');
+    exModal('home-find', '#modal-find');
     exModal('info');
     exModal('size');
     exModal('customize');
@@ -378,9 +396,7 @@ export default {
       }
       // PRODUCT: Populate the Engraving Field
       if(petname) {
-        const placeholder = $('.wcpa_type_textarea textarea').attr('placeholder');
-        $('.wcpa_type_textarea textarea').val(petname);
-        $('.wcpa_type_textarea textarea').before(`<p class="engraving-instruction">${placeholder}</p>`);
+        $('#engraving-line-1').val(petname);
       }
     });
 
@@ -392,10 +408,13 @@ export default {
     });
 
     // PRODUCT: Populate Preview for Engraving Text
-    $(document).on('keydown', '.component_data textarea', e => {
-      const val = $(e.currentTarget).val();
-      const target = $(e.currentTarget).closest('.component_content').data('product_id');
-      $(`#summary_custom_populate_${target}`).text(val);
+    $(document).on('click', '.composite_component', e => {
+      const l1 = $('#engraving-line-1').val();
+      const l2 = $('#engraving-line-2').val();
+      const l3 = $('#engraving-line-3').val();
+      const l4 = $('#engraving-line-4').val();
+      const target = $('#engraving-line-1').closest('.component_content').data('product_id');
+      $(`#summary_custom_populate_${target}`).html(`${l1}<br />${l2}<br />${l3}<br />${l4}`);
     });
 
     // SHOP: Command Bar Widgets
