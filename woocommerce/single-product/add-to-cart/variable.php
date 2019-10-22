@@ -50,6 +50,53 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+
+		<?php
+			ob_start();
+				do_action( 'woocommerce_single_variation' );
+				$addonForms = ob_get_contents();
+			ob_end_clean();
+			if(strpos($addonForms, 'photo-engrave-upload') !== false) {
+				if(is_user_logged_in()) {
+					?>
+
+					<div id="photo-engrave" class="not-active">
+						<span>Click here to upload your photo</span>
+						<input type="file" name="file" accept="image/jpg, image/jpeg, image/png" id="photo-upload" onchange="upload();return false;">
+					</div>
+
+					<script type="text/javascript">
+						var uploadFacade = document.getElementById("photo-engrave");
+						var fileInputElement = document.getElementById("photo-upload");
+						function upload(){
+							uploadFacade.classList.remove("not-active", "is-active");
+						  var formData = new FormData();
+						  formData.append("action", "upload-attachment");
+						  formData.append("async-upload", fileInputElement.files[0]);
+						  formData.append("name", fileInputElement.files[0].name);
+						  <?php $my_nonce = wp_create_nonce('media-form'); ?>
+						  formData.append("_wpnonce", "<?php echo $my_nonce; ?>");
+						  var xhr = new XMLHttpRequest();
+						  xhr.onreadystatechange=function(){
+						    if (xhr.readyState==4 && xhr.status==200) {
+									var fileInfo = JSON.parse(xhr.responseText).data;
+									var img = document.createElement('img');
+									img.src = fileInfo.url;
+									uploadFacade.appendChild(img);
+									uploadFacade.classList.add("is-active");
+									document.getElementById("photo-engrave-upload").value = fileInfo.url;
+						    }
+						  }
+						  xhr.open("POST","/wp-admin/async-upload.php",true);
+						  xhr.send(formData);
+						}
+					</script>
+					<?
+				} else {
+					echo 'Please <a href="' . get_permalink(wc_get_page_id('myaccount')) . '?goto=' . get_the_id() . '">Log In or Register</a> to upload a photo of your pet.';
+				}
+			}
+		?>
 		<div class="single_variation_wrap">
 			<?php
 				/**
@@ -76,6 +123,5 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<?php do_action( 'woocommerce_after_variations_form' ); ?>
 </form>
-
 <?php
 do_action( 'woocommerce_after_add_to_cart_form' );

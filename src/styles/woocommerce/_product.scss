@@ -581,6 +581,70 @@
   padding-left: 2rem;
 }
 
+#photo-engrave {
+  @include grid(center, center);
+  position: relative;
+  width: 100%;
+  min-height: 4rem;
+  color: $grey;
+  @include icon('ajax-upload');
+  background-size: auto 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px dashed $grey;
+  border-radius: 1rem;
+
+  span {
+    display: none;
+  }
+
+  &.not-active {
+    background-image: none;
+
+    span {
+      display: block;
+    }
+  }
+
+  &.is-active {
+    border: none;
+    border-radius: 0;
+  }
+
+  &.is-error {
+    border-color: $red;
+
+    span {
+      color: $red;
+    }
+  }
+}
+
+#photo-upload {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#photo-engrave-upload,
+label[for="photo-engrave-upload"] {
+  display: none;
+}
+
+#photo-engrave-name {
+  border-top: 1px solid $grey !important;
+  margin-top: 1rem;
+}
+
+label[for="photo-engrave-name"] {
+  margin-top: 1.5rem;
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */

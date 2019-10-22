@@ -15,6 +15,11 @@
  * @version 3.5.0
  */
 
+$backtoproduct = $_GET['goto'];
+if($backtoproduct) {
+	echo '<script>window.location.href="' . home_url('?p=' . $backtoproduct) . '";</script>';
+}
+
 defined( 'ABSPATH' ) || exit;
 
 /**

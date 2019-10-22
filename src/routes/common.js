@@ -100,7 +100,7 @@ export default {
     let petname = localStorage.getItem('petname');
     let pettype = localStorage.getItem('pettype');
     let petweight = localStorage.getItem('petweight');
-    if(petname) { $('#pet-name').val(petname); $('#pet-name-display').text(petname); }
+    if(petname) { $('#pet-name').val(petname); $('#pet-name-display').text(petname); $('#photo-engrave-name').val(petname); }
     if(pettype) { $('#pet-type').val(pettype); $('#pet-type-display').text(pettype); }
     if(petweight) { $('#pet-weight').val(petweight); $('#pet-weight-display').text(petweight); }
     if(petname && pettype && petweight) {
@@ -432,5 +432,35 @@ export default {
       $this.prev('.widget-inner').toggleClass('is-active');
       $this.toggleClass('is-active');
     });
+
+    // PRODUCT: Re-Upload a Photo
+    $(document).on('click', '#photo-engrave', e => {
+      const $this = $(e.currentTarget);
+      $this.removeClass('is-active');
+      $this.find('img').remove();
+      $('#photo-engrave-upload').val('');
+    });
+
+    // PRODUCT: Validate Photo Upload Add to Cart
+    const photoEngrave = $('#photo-engrave');
+    if(photoEngrave.length > 0) {
+      $(document).on('click', '#modal .button', e => {
+        if($('#photo-engrave-upload').val().length == 0) {
+          photoEngrave.addClass('is-error');
+        }
+      });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
   },
 };

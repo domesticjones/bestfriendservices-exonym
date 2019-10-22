@@ -438,11 +438,13 @@ li.checkout-total {
 .checkout-cart-data {
   padding-left: 0.5em;
 
-  i {
+  i,
+  dt {
     display: block;
     font-size: 0.75em;
     @include fontBold(false);
     color: $grey;
+    margin-top: 1em;
   }
 
   p {
@@ -451,8 +453,12 @@ li.checkout-total {
     @include fontBold();
   }
 
+  .engraving-info {
+    display: none;
+  }
+
   .price {
-    @include fontBold(false);
+    margin-top: 1rem;
   }
 }
 

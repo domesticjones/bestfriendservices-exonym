@@ -112,3 +112,18 @@
     return $variation_detail; // $variation_detail will return string containing variation detail which can be used to print on website
     // return $variation_data; // $variation_data will return only the data which can be used to store variation data
   }
+
+  // Redirect to product on registration if browser token available
+  function custom_registration_redirect_after_registration() {
+    $backtoproduct = $_GET['goto'];
+    if($backtoproduct) {
+      return home_url('?p=' . $backtoproduct);
+    } else {
+      return get_permalink(wc_get_page_id('myaccount'));
+    }
+  }
+  add_action('woocommerce_registration_redirect', 'custom_registration_redirect_after_registration', 2);
+
+  // Allow Customer Role to upload files
+  global $wp_roles; // global class wp-includes/capabilities.php
+  $wp_roles->add_cap('customer', 'upload_files'); 
