@@ -10,7 +10,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.8.4",
+        "version": "5.8.7",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -30,12 +30,12 @@
     "wpackagist-plugin/admin-menu-editor": "*",
     "wpackagist-plugin/aryo-activity-log": "*",
     "wpackagist-plugin/woocommerce": "3.6.5",
-    "wpackagist-plugin/woocommerce-admin": "*",
+    "wpackagist-plugin/woocommerce-admin": "0.18.0",
     "wpackagist-plugin/auto-upload-images": "*",
     "wpackagist-plugin/contact-form-7": "*",
     "wpackagist-plugin/relevanssi": "*",
     "wpackagist-plugin/post-types-order": "*",
-    "wpackagist-plugin/woo-custom-product-addons": "*",
+    "wpackagist-plugin/woo-custom-product-addons": "2.3.6",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }

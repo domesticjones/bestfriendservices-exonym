@@ -126,4 +126,4 @@
 
   // Allow Customer Role to upload files
   global $wp_roles; // global class wp-includes/capabilities.php
-  $wp_roles->add_cap('customer', 'upload_files'); 
+  $wp_roles->add_cap('customer', 'upload_files');

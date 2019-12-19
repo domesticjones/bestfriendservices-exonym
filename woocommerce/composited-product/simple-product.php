@@ -16,9 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
-
 ?><div class="details component_data"><?php
 
   $findProductArgs = array('post_type' => 'product', 'p' => $product->get_id());
@@ -28,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     do_action('woocommerce_before_add_to_cart_button');
   endwhile;
   wp_reset_query();
-  
+
 	/**
 	 * 'woocommerce_composited_product_details' hook.
 	 *

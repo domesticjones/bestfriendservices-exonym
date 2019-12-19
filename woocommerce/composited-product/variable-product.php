@@ -46,14 +46,22 @@ if ( ! defined( 'ABSPATH' ) ) {
           $contentSpecsOutput .= '<td><span class="pet-weight-min">' . get_sub_field('min_pet_weight') . '</span> - <span class="pet-weight-max">' . get_sub_field('max_pet_weight') . '</span> <sup>lbs</sup></td>';
           $contentSpecsOutput .= '</tr>';
         }
+        $contentSpecsOutput .= '<tr><td colspan="5"><p>Sizes are for the urn base only. A figurine on top adds additional height.</p></td></tr>';
         $contentSpecsOutput .= '</table>';
-        $contentSpecsOutput .= '<p>Sizes are for the urn base only. A figurine on top adds additional height.</p>';
         echo $contentSpecsOutput;
         ?>
   </div>
 <?php } ?>
   <table class="variations" cellspacing="0">
 		<tbody><?php
+
+			$findProductArgs = array('post_type' => 'product', 'p' => $product->get_id());
+			$findProduct = new WP_Query($findProductArgs);
+			while($findProduct->have_posts()) : $findProduct->the_post();
+			 global $product;
+			 do_action('woocommerce_before_add_to_cart_button');
+			endwhile;
+			wp_reset_query();
 
 			foreach ( $attributes as $attribute_name => $options ) {
 
@@ -100,4 +108,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'woocommerce_composited_single_variation', $product, $component_id, $composite_product );
 
 	?></div>
+
 </div>
