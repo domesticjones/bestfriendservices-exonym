@@ -113,9 +113,11 @@ export default {
       const name = $('#pet-name').val();
       const type = $('#pet-type').val();
       const weight = $('#pet-weight').val();
-      localStorage.setItem('petname', name);
-      localStorage.setItem('pettype', type);
-      localStorage.setItem('petweight', weight);
+      if(name && type && weight) {
+        localStorage.setItem('petname', name);
+        localStorage.setItem('pettype', type);
+        localStorage.setItem('petweight', weight);
+      }
       if($('body').hasClass('page-template-page-home')) {
         $('#funnel-trigger-home').trigger('click');
         $('#modal .funnel-name').text(name);
@@ -211,9 +213,6 @@ export default {
       const name = $this.closest('.funnel-step').find('#pet-name').val();
       const type = $this.closest('.funnel-step').find('#pet-type').val();
       const weight = $this.closest('.funnel-step').find('#pet-weight').val();
-      localStorage.setItem('petname', name);
-      localStorage.setItem('pettype', type);
-      localStorage.setItem('petweight', weight);
       if(name && type && weight) {
         localStorage.setItem('petname', name);
         localStorage.setItem('pettype', type);
@@ -269,7 +268,7 @@ export default {
         const type = $('#pet-type').val();
         const weight = $('#pet-weight').val();
         if(obj == 'find') {
-          if($('body').hasClass('page-template-page-home') && name.length == 0 && name.length == 0 && weight.length == 0) {
+          if($('body').hasClass('page-template-page-home') && name.length == 0) {
             $('html, body').animate({
               scrollTop: $('#start').offset().top
             });

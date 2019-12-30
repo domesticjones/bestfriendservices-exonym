@@ -161,6 +161,10 @@
   @include grid(center, center, column);
 }
 
+.woocommerce-shipping-totals {
+  display: none;
+}
+
 
 /**
   Responsive Breakpoints

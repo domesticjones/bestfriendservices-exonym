@@ -127,3 +127,6 @@
   // Allow Customer Role to upload files
   global $wp_roles; // global class wp-includes/capabilities.php
   $wp_roles->add_cap('customer', 'upload_files');
+
+  // Make Terms & Conditions checked by Default
+  add_filter('woocommerce_terms_is_checked_default', '__return_true');

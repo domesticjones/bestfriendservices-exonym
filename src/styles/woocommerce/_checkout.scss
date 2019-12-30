@@ -4,6 +4,21 @@
   max-width: 1200px;
   width: 100%;
   padding: 1rem;
+
+  .woocommerce-error {
+    @include listStripped();
+    background-color: $orchid;
+    text-align: center;
+    padding: 2em;
+    color: $white;
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    @include fontItalic();
+
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 .checkout-section {
@@ -38,13 +53,14 @@ form.woocommerce-checkout {
   width: 66.666%;
 
   .wc_payment_methods {
-    @include listStripped();
+    @include listStripped(inline-block);
+    @include grid(center, center, row, wrap);
 
-    .wc_payment_method {
+    li.wc_payment_method {
       border: 1px solid $grey;
       padding: 1em;
       @include fontBold();
-      margin-bottom: 1em;
+      margin: 0.5em;
 
       p,
       a {
@@ -192,7 +208,31 @@ form.woocommerce-checkout {
 }
 
 #order_comments_field {
-  display: block;
+  display: none;
+}
+
+.woocommerce-form__label {
+  position: relative;
+}
+
+#terms {
+  display: none;
+
+  & + span {
+    @extend %wcCheckboxEmpty;
+    padding-left: 2em;
+    font-size: 1.25em;
+    line-height: 1.75;
+  }
+
+  &:checked + span {
+    @extend %wcCheckboxActive;
+  }
+}
+
+.woocommerce-terms-and-conditions-checkbox-text {
+  @include fontBold();
+  @include fontItalic(false);
 }
 
 .checkout-steps {
