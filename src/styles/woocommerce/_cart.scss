@@ -6,6 +6,10 @@
   .woocommerce-notices-wrapper {
     margin-bottom: 0;
   }
+
+  .woocommerce-shipping-totals {
+    display: none;
+  }
 }
 
 .woocommerce-cart-form,
@@ -159,10 +163,6 @@
 
 .return-to-shop {
   @include grid(center, center, column);
-}
-
-.woocommerce-shipping-totals {
-  display: none;
 }
 
 

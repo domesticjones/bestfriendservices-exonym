@@ -7,10 +7,12 @@
 
   .woocommerce-error {
     @include listStripped();
-    background-color: $orchid;
+    background-color: $tan;
+    border: 2px solid $red;
+    border-radius: 2px;
     text-align: center;
     padding: 2em;
-    color: $white;
+    color: $red;
     font-size: 1.25em;
     margin-bottom: 1em;
     @include fontItalic();
