@@ -17,10 +17,10 @@
 #modal-content {
   position: relative;
   max-width: 1024px;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow: auto;
   background-color: $white;
-  box-shadow: 0 0 1.5rem transparentize($violet, 0.666);
+  box-shadow: 0 0 1.5rem transparentize($violet, 0.4);
 }
 
 i.modal-close {
@@ -29,6 +29,7 @@ i.modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  z-index: 10;
   @include icon(close-purple);
   cursor: hand;
   cursor: pointer;
@@ -40,9 +41,6 @@ i.modal-close {
 }
 
 #modal-content-inner {
-  max-height: 80vh;
-  padding: 3rem 4vw;
-
   h1, h2, h3, h4, h5, h6 { color: $violet; }
 
   .modal-content-inline {
@@ -56,4 +54,5 @@ i.modal-close {
 
 .modal-content-inline {
   display: none;
+  padding: 3rem 4vw;
 }

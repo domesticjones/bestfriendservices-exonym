@@ -76,13 +76,13 @@ if ( post_password_required() ) {
             $productAddToCart = ob_get_contents();
           ob_end_clean();
           echo ex_modal('customize', $productAddToCart);
-          echo '<a href="#customize" id="product-button-customize" class="cta-button cta-color-green cta-arrow-right">Select Options</a>';
+          echo '<a href="#customize" id="product-button-customize" class="cta-button cta-color-green cta-arrow-right">Customize your Urn</a>';
         } elseif($product_type == 'simple') {
 					woocommerce_template_single_add_to_cart();
 				} elseif($product_type == 'variable') {
 					ob_start();
 						echo '<div class="variation-modal-wrap">';
-							echo '<h2>Choose Options</h2>';
+							echo '<h2>Customize your Urn</h2>';
 							echo '<div class="variation-modal-img">';
 								echo '<img src="' . get_the_post_thumbnail_url($post->ID) . '" id="variation_custom_preview" />';
 							echo '</div>';
@@ -93,7 +93,7 @@ if ( post_password_required() ) {
 						$productAddToCart = ob_get_contents();
 					ob_end_clean();
           echo ex_modal('options', $productAddToCart);
-          echo '<a href="#options" id="product-button-options" class="cta-button cta-color-green cta-arrow-right">Select Options</a>';
+          echo '<a href="#options" id="product-button-options" class="cta-button cta-color-green cta-arrow-right">Customize Your Urn</a>';
 				}
       ?>
     </nav>
@@ -103,7 +103,7 @@ if ( post_password_required() ) {
           $contentMore = apply_filters('the_content', get_the_content());
           if(!empty($contentMore)) {
             $contentMoreOutput = '<h2>More Info About ' . get_the_title($product->ID) . '</h2>' . apply_filters('the_content', get_the_content());
-            echo '<li><a href="#info">More Information</a>' . ex_modal('info', $contentMoreOutput) . '</li>';
+            echo '<li><a href="#info" class="btn-gradient purple">More Information</a>' . ex_modal('info', $contentMoreOutput) . '</li>';
           }
           $contentSpecs = 'size_guide';
           if(have_rows($contentSpecs)) {
@@ -121,7 +121,7 @@ if ( post_password_required() ) {
               $contentSpecsOutput .= '</tr>';
             }
             $contentSpecsOutput .= '</table>';
-            echo '<li><a href="#size">Size Guide</a>' . ex_modal('size', $contentSpecsOutput) . '</li>';
+            echo '<li><a href="#size" class="btn-gradient purple">Size Guide</a>' . ex_modal('size', $contentSpecsOutput) . '</li>';
           }
         ?>
       </ul>

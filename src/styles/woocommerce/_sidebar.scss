@@ -1,17 +1,18 @@
 #sidebar {
   order: 1;
-  width: 25%;
+  width: 24%;
   padding: 4vw 2rem;
 }
 
 .widget {
-  border: 1px solid $grey;
+  border: 1px solid $grey-light;
   padding: 1rem;
   margin-bottom: 2rem;
+  border-radius: 3px;
 }
 
 .widget-title {
-  font-size: 1.25rem;
+  font-size: 0.9rem;
   color: $orchid;
   margin-bottom: 1rem;
 }
@@ -151,7 +152,7 @@
   ---------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   #sidebar {
-    width: 33.333%;
+    width: 27%;
   }
 }
 

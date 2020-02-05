@@ -8,10 +8,10 @@ $fh-font-size: $font-size !default;
 $fh-font-color: $violet !default;
 
 // Borders
-$fh-border-radius: 0 !default;
+$fh-border-radius: 3px !default;
 $fh-border-width: 1px !default;
 $fh-border-style: solid !default;
-$fh-border-color: $grey !default;
+$fh-border-color: $grey-light !default;
 
 // Inputs, Textareas, Select, Option
 $fh-input-height: 3em !default;
@@ -67,7 +67,7 @@ fieldset {
   outline: none;
   font-family: $fh-font-family;
   font-size: $fh-font-size;
-  color: $fh-font-color;
+  color: $grey;
   vertical-align: top;
   display: $fh-display;
 

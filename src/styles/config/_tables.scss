@@ -6,7 +6,7 @@
 // // ------ colors ------
 // ----------------------------------------
 
-$table-border-color: $grey;
+$table-border-color: $grey-light;
 
 // ----------------------------------------
 // // ------ table settings ------
@@ -15,7 +15,7 @@ $table-border-color: $grey;
 $table-border-width: .071428571em;
 $table-border-style: solid;
 $table-margin-bottom: 2rem;
-$table-cell-padding: .470588235em;
+$table-cell-padding: .6em;
 $table-cell-text-align: left;
 $table-cell-border-top: $table-border-width $table-border-style $table-border-color;
 $table-header-font-weight: bold;
@@ -178,4 +178,29 @@ table {
 .table-bordered tbody:last-child tr:last-child td:last-child,
 %table-bordered tbody:last-child tr:last-child td:last-child {
     border-radius: 0 0 $table-bordered-child-radius 0;
+}
+
+#modal-size{
+  table {
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  th {
+    background: $green;
+    color: $white;
+  }
+
+  table tr:nth-child(even) {
+      background: transparent;
+  }
+
+  table tr:nth-child(odd) {
+      background: #F8F8F8;
+      border-right: 1px solid #E6E4E4;
+  }
+
+  table tr:nth-child(even) {
+      border-right: 1px solid #E6E4E4;
+  }
 }

@@ -1,11 +1,11 @@
 
 .products {
   @include listStripped();
-  @include grid(space-between, flex-end, row, wrap);
+  @include grid(space-evenly, flex-end, row, wrap);
 
   li.product {
-    width: calc(33.333% - 2rem);
-    margin: 1rem 0;
+    width: calc(25% - 1rem);
+    margin-bottom: 1rem;
 
     img {
       display: block;
@@ -21,6 +21,7 @@
       font-family: $font-default;
       @include fontBold();
       margin-bottom: 0;
+      text-align: center;
     }
 
     .woocommerce-Price-amount {
@@ -32,6 +33,27 @@
   li.none {
     padding: 2rem;
   }
+
+  li.product-category {
+    width: calc(33.333% - 1rem);
+    transition: all .2s ease-in-out;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.12);
+
+    &:hover {
+      transform: scale(1.025);
+    }
+
+    h2.woocommerce-loop-category__title {
+      font-size: 1.5em;
+      text-align: center;
+      padding-top: .5em;
+
+      mark {
+        display: none;
+      }
+    }
+  }
+
 }
 
 .woocommerce-result-count {
@@ -40,7 +62,7 @@
 
 .woocommerce-ordering {
   @include grid(space-between, center);
-  background-color: $grey-light;
+  background-color: $grey-pale;
   padding: 0.5rem 1rem;
   @include fontItalic();
 
@@ -53,6 +75,10 @@
   p {
     padding: 0 0 0 0.5rem;
     @include fontItalic();
+
+    strong {
+      display: none;
+    }
   }
 
   .nav-pagination {
@@ -127,7 +153,7 @@
   ---------------------------------------------------------------------- */
 @media(max-width: 960px) {
   .products {
-    @include grid(space-between, flex-start, row, wrap);
+    @include grid(space-evenly, flex-start, row, wrap);
 
     li.product {
       width: calc(50% - 1rem);
