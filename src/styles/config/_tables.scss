@@ -185,17 +185,21 @@ table {
     border-radius: 0;
     margin-bottom: 0;
   }
+
   th {
     background: $green;
     color: $white;
   }
+
   table tr:nth-child(even) {
       background: transparent;
   }
+
   table tr:nth-child(odd) {
       background: #F8F8F8;
       border-right: 1px solid #E6E4E4;
   }
+
   table tr:nth-child(even) {
       border-right: 1px solid #E6E4E4;
   }
