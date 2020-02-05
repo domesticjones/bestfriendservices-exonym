@@ -5,6 +5,13 @@
 
   .woocommerce-notices-wrapper {
     margin-bottom: 0;
+    background-color:#blue;
+
+    .woocommerce-message {
+      border: none;
+      background-color: transparent;
+    }
+
   }
 
   .woocommerce-shipping-totals {

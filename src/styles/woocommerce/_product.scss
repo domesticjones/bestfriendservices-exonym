@@ -92,16 +92,27 @@
   margin-top: 4vw;
   width: 100%;
   font-size: 0.85em;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 1em;
 
   a {
     display: block;
     padding: 0 1em;
-    color: $black;
+    color: $white;
     border-right: 1px solid $black;
+    padding: 10px 20px;
+    font-size: 10px;
+    border-radius: 3px;
+    margin: 3px;
+    background: $orchid;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 
     &:hover {
-      color: $green;
+    background: $violet;
     }
+
   }
 
   li:last-child a {
@@ -109,8 +120,34 @@
   }
 }
 
+
 //Composite Products Modal Styling
+#modal-content {
+  border-radius: 10px;
+  padding-bottom: 0.6em;
+}
+
+.composite_pagination {
+  background: $violet-trans;
+  margin-bottom: 0!important;
+  padding: 0.5em;
+}
+
+#modal-content-inner #modal-customize {
+  padding: 0;
+}
+
 #modal-customize {
+
+  .pagination_elements_wrapper {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .composite_form {
+    padding-left: 0 !important;
+  }
+
   .composite_form .composite_pagination {
     display: block;
     margin-top: -1rem;
@@ -158,7 +195,7 @@
         height: 1.5rem;
         background-color: $violet;
         border-radius: 50%;
-        border: 0.5rem solid $white;
+        border: 0.5rem solid $orchid;
       }
 
       &::after {
@@ -180,17 +217,17 @@
       padding: 3.5em 2em 0.5em 2em;
       font-size: 0.75em;
       @include fontBold(false);
-      color: $violet-trans;
+      color: $grey-pale;
       line-height: 1;
     }
 
     .pagination_element_current {
       a {
-        color: $violet;
+        color: $tan;
       }
 
       .element_title::before {
-        border: 1.25rem solid #F4F4F4;
+        border: 1.25rem solid $orchid;
         width: 3rem;
         height: 3rem;
         top: calc(50% - 1.5rem);
@@ -253,9 +290,16 @@
 
   .component_title_wrapper {
     padding: 0;
+    text-align: center;
+    background: $grey-pale;
+
 
     h2 {
       outline: none !important;
+      color: $violet;
+      text-align: center;
+      padding: 0.5em 0;
+      font-size: 2.5em;
     }
   }
 
@@ -277,11 +321,11 @@
   }
 
   .attribute_options {
-    @include grid(space-between, center, row-reverse);
+    @include grid(space-between, center);
     margin-bottom: 1em;
 
     .label {
-      width: 25ex;
+      width: 12ex;
       padding-left: 1rem;
       vertical-align: middle;
       font-size: 0.85em;
@@ -465,7 +509,7 @@
 
   .component_inner {
     display: block !important;
-    padding-bottom: 0;
+    padding: 0.5em 4vh 0;
   }
 
   .composite_review_title {
@@ -573,16 +617,16 @@
   }
 
   &:first-child input {
-    border-top: 1px solid $grey !important;
+    border-top: 1px solid $grey-light !important;
   }
 
   &:last-child input {
-    border-bottom: 1px solid $grey !important;
+    border-bottom: 1px solid $grey-light !important;
   }
 }
 
 #photo-engrave-line-1 {
-  border-top: 1px solid $grey !important;
+  border-top: 1px solid $grey-light !important;
 }
 
 .variation-modal-wrap {
@@ -747,6 +791,11 @@ label[for="photo-engrave-name"] {
     .component:not(.selection_thumbnail_hidden) .composited_product_details_wrapper > .details {
       width: 100%;
       padding: 0;
+    }
+
+    select {
+      border: 1px solid $grey-light;
+      border-radius: 3px;
     }
 
     .composite_form .composite_navigation .page_button {
