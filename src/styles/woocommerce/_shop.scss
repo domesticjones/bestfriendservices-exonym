@@ -3,8 +3,6 @@
   @include listStripped();
   @include grid(space-evenly, flex-end, row, wrap);
 
-
-
   li.product {
     width: calc(25% - 1rem);
     margin-bottom: 1rem;
@@ -39,12 +37,9 @@
   li.product-category {
     width: calc(33.333% - 1rem);
     transition: all .2s ease-in-out;
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.12);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.12);
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.12);
 
-    &:hover
-    {
+    &:hover {
       transform: scale(1.025);
     }
 
@@ -53,11 +48,9 @@
       text-align: center;
       padding-top: .5em;
 
-      mark {display: none;}
-    }
-
-    img {
-
+      mark {
+        display: none;
+      }
     }
   }
 
@@ -86,7 +79,6 @@
     strong {
       display: none;
     }
-
   }
 
   .nav-pagination {
