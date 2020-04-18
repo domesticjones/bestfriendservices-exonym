@@ -97,7 +97,58 @@
 
 .widget-cats {
   @include listStripped();
-  @extend %wcCheckboxes;
+  @include fontBold();
+  font-size: 1.25rem;
+
+  li {
+    margin: 0.5em 0;
+    position: relative;
+
+    a {
+      color: $violet;
+    }
+
+    &.is-active {
+      a {
+        color: $orchid;
+      }
+    }
+
+    &.is-parent span {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: hand;
+      cursor: pointer;
+
+      &::after {
+        content: '+';
+      }
+    }
+
+    &.is-toggled {
+      span::after {
+        content: '-';
+      }
+
+      & + .widget-cats-child {
+        display: block;
+      }
+    }
+  }
+}
+
+.widget-cats-child {
+  @include listStripped();
+  @include fontBold(false);
+  font-size: 1rem;
+  padding-left: 2em;
+  display: none;
+
+  li {
+    margin: 0.5em 0;
+  }
 }
 
 .widget-inner {

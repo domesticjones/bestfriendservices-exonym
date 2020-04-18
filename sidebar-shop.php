@@ -61,23 +61,49 @@
     <div class="widget-inner">
       <h3 class="widget-title">Browse by Category</h3>
       <ul class="widget-cats">
-        <li class="<?php if(is_archive('product') && !is_tax() || is_search()) { echo 'is-active'; } ?>"><a href="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">All Categories</a></li>
+        <?php /*<li class="<?php if(is_archive('product') && !is_tax() || is_search()) { echo 'is-active'; } ?>"><a href="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">All Categories</a></li> */ ?>
         <?php
           $shopPage =  wc_get_page_id('shop');
           $catsExclude = get_field('exclude_categories', $shopPage);
           $productCatArgs = array(
             'taxonomy'    => 'product_cat',
+            'parent'      => 0,
             'exclude'     => $catsExclude,
           );
           $productCats = get_terms($productCatArgs);
           $currentStatus = '';
+          $parentStatus = '';
           foreach($productCats as $cat) {
-            $currentId = $cat->term_id;
-            if(is_tax('product_cat', $currentId)) {
-              $currentStatus = 'is-active';
+            $currentParent = $cat->term_id;
+            $currentParentStatus = is_tax('product_cat', $currentParent) ? ' is-active is-toggled' : '';
+            $productFindChildrenArgs = array(
+              'taxonomy'    => 'product_cat',
+              'parent'      => $cat->term_id,
+              'exclude'     => $catsExclude,
+            );
+            $productFindChildrenQuery = get_terms($productFindChildrenArgs);
+
+            if($productFindChildrenQuery) {
+              foreach($productFindChildrenQuery as $catChild) {
+                $currentChild = $catChild->term_id;
+                if(is_tax('product_cat', $currentChild) && term_is_ancestor_of($currentParent, $currentChild, 'product_cat')) {
+                  $parentStatus = 'is-parent is-toggled';
+                } else {
+                  $parentStatus = 'is-parent';
+                }
+              }
+              echo '<li class="' . $parentStatus . $currentParentStatus . '"><a href="' . get_term_link($currentParent, 'product_cat') . '">' . $cat->name . '</a><span></span></li>';
+              echo '<ul class="widget-cats-child">';
+                foreach($productFindChildrenQuery as $catChild) {
+                  $currentChild = $catChild->term_id;
+                  $currentChildStatus = is_tax('product_cat', $currentChild) ? 'is-active' : '';
+                  echo '<li class="' . $currentChildStatus . '"><a href="' . get_term_link($currentChild, 'product_cat') . '">' . $catChild->name . '</a></li>';
+                }
+              echo '</ul>';
+            } else {
+              $parentStatus = '';
+              echo '<li class="' . $currentParentStatus . '"><a href="' . get_term_link($currentParent, 'product_cat') . '">' . $cat->name . '</a></li>';
             }
-            echo '<li class="' . $currentStatus . '"><a href="' . get_term_link($currentId, 'product_cat') . '">' . $cat->name . '</a></li>';
-            $currentStatus = '';
           }
         ?>
       </ul>

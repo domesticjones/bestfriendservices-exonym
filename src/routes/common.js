@@ -49,6 +49,15 @@ export default {
       pauseOnFocus: false,
       dots: true,
     });
+
+    // MODULE: Shop Sidebar Categories Accordion
+    $('.widget-cats .is-parent span').click((e) => {
+      $(e.currentTarget).parent().toggleClass('is-toggled');
+    });
+    $('.widget-cats-child .is-active').each((i,e) => {
+      $(e).parent().prev('.is-parent').addClass('is-toggled');
+    });
+
   },
   finalize() {
   	$(window).on('load resize scroll', () => {
@@ -449,17 +458,5 @@ export default {
         }
       });
     }
-
-
-
-
-
-
-
-
-
-
-
-
   },
 };
