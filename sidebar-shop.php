@@ -12,13 +12,6 @@
       </div>
     </div>
   </div>
-  <div id="widget-search" class="widget">
-    <div class="widget-inner">
-      <h3 class="widget-title">Search</h3>
-      <?php get_search_form(); ?>
-    </div>
-    <a href="#" class="widget-toggle"><span>Search</span></a>
-  </div>
   <?php /* FEATURE ON HOLD: Pet Type Filter
   <div class="widget">
     <h3 class="widget-title">Pet Memorial Type</h3>
@@ -59,9 +52,8 @@
   */ ?>
   <div id="widget-cats" class="widget">
     <div class="widget-inner">
-      <h3 class="widget-title">Browse by Category</h3>
+      <h3 class="widget-title">Product Categories</h3>
       <ul class="widget-cats">
-        <?php /*<li class="<?php if(is_archive('product') && !is_tax() || is_search()) { echo 'is-active'; } ?>"><a href="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">All Categories</a></li> */ ?>
         <?php
           $shopPage =  wc_get_page_id('shop');
           $catsExclude = get_field('exclude_categories', $shopPage);
@@ -109,5 +101,12 @@
       </ul>
     </div>
     <a href="#" class="widget-toggle"><span>Categories</span></a>
+  </div>
+  <div id="widget-search" class="widget">
+    <div class="widget-inner">
+      <h3 class="widget-title">Search</h3>
+      <?php get_search_form(); ?>
+    </div>
+    <a href="#" class="widget-toggle"><span>Search</span></a>
   </div>
 </aside>

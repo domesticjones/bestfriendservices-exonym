@@ -58,6 +58,10 @@ export default {
       $(e).parent().prev('.is-parent').addClass('is-toggled');
     });
 
+    // MODULE: Woocommerce Heading Gallery
+    $('#shop-gallery').slick({
+      fade: true,
+    });
   },
   finalize() {
   	$(window).on('load resize scroll', () => {

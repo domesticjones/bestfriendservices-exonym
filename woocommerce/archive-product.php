@@ -18,13 +18,15 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header('shop');
-$shopPage = wc_get_page_id('shop');
+$shopPage = is_tax() ? 'product_cat_' . get_queried_object()->term_id : wc_get_page_id('shop');
+
 ex_wrap('start', 'woocommerce_heading', '', $shopPage);
-	if(apply_filters('woocommerce_show_page_title', true)) {
-		echo '<h1 class="woocommerce-page-title">' . get_field('woocommerce_heading', $shopPage) . '</h1>';
-	}
-	// do_action( 'woocommerce_archive_description' );
+	echo '<h1 class="woocommerce-page-title">' . get_field('woocommerce_heading', $shopPage) . '</h1>';
 ex_wrap('end');
+
+
+$shopHeadGallery = get_field('woo_header_gallery', $shopPage);
+ex_shop_header($shopHeadGallery);
 
 /**
  * Hook: woocommerce_before_main_content.
@@ -36,7 +38,6 @@ ex_wrap('end');
 do_action( 'woocommerce_before_main_content' );
 
 ?>
-
 <?php
 if ( woocommerce_product_loop() ) {
 

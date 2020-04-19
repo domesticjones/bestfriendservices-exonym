@@ -8,7 +8,7 @@ $fh-font-size: $font-size !default;
 $fh-font-color: $violet !default;
 
 // Borders
-$fh-border-radius: 3px !default;
+$fh-border-radius: 0 !default;
 $fh-border-width: 1px !default;
 $fh-border-style: solid !default;
 $fh-border-color: $grey-light !default;
@@ -239,11 +239,10 @@ input[type="image"] {
   width: $fh-button-width;
   max-width: $fh-button-max-width;
   background-color: $fh-button-bg-color;
-  padding: 0 2em;
+  padding: 0 1em;
   cursor: pointer;
   color: $fh-button-font-color;
   appearance: none;
-  border-radius: 2px;
   border: 1px solid transparent;
   @include transition();
 }

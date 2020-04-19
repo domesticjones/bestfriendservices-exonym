@@ -1,6 +1,4 @@
 .woocommerce {
-  @include clearfix();
-
   .u-columns {
     @include grid();
   }
@@ -29,7 +27,17 @@
 
   &.archive {
     #content {
-      @include grid(space-between, flex-start, row, wrap);
+      @include grid(center, flex-start, row, wrap);
+
+      #primary {
+        padding: 4vw 4vw 0 2rem;
+        width: 75%;
+      }
+
+      #sidebar {
+        padding: 4vw 2rem 0 4vw;
+        width: 25%;
+      }
     }
   }
 }
@@ -84,8 +92,14 @@
   @extend %headingInterior;
 
   h1 {
-    color: $white;
+    color: $orchid;
   }
+}
+
+.module-woocommerce_heading_slider {
+  padding: 2vw 4vw;
+  width: 100%;
+  background-color: $orchid;
 }
 
 a.woocommerce-Button {
@@ -178,16 +192,16 @@ a.woocommerce-Button {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media (max-width: 1200px) {
-  #primary {
-    width: 72%;
-  }
-}
-
 @media (max-width: 960px) {
-  #primary {
-    padding: 2rem;
-    width: 100%;
+  .woocommerce.archive #content {
+    #primary {
+      padding: 2rem;
+      width: 100%;
+    }
+
+    #sidebar {
+      width: 100%;
+    }
   }
 }
 

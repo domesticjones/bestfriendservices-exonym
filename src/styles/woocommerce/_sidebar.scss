@@ -5,16 +5,28 @@
 }
 
 .widget {
-  border: 1px solid $grey-light;
-  padding: 1rem;
   margin-bottom: 2rem;
-  border-radius: 3px;
+  border-top: 1px solid $grey-dark;
+  padding-bottom: 2em;
+
+  &:first-of-type {
+    border-top: none;
+
+    .widget-title {
+      margin-top: 0;
+    }
+  }
 }
 
 .widget-title {
-  font-size: 0.9rem;
-  color: $orchid;
-  margin-bottom: 1rem;
+  font-family: $font-default;
+  line-height: 1;
+  font-size: 1.15rem;
+  color: $violet;
+  margin: 4em 0 2em 0;
+  letter-spacing: 0.35ex;
+  text-transform: uppercase;
+  @include fontBold();
 }
 
 #pet-cta,
@@ -105,7 +117,11 @@
     position: relative;
 
     a {
-      color: $violet;
+      color: $grey-dark;
+
+      &:hover {
+        color: $orchid;
+      }
     }
 
     &.is-active {
@@ -117,13 +133,24 @@
     &.is-parent span {
       display: block;
       position: absolute;
+      width: 1em;
+      height: 1em;
+      text-align: center;
       right: 0;
       top: 0;
       cursor: hand;
       cursor: pointer;
+      @include fontBold();
+      line-height: 1;
+      color: $grey-dark;
 
       &::after {
         content: '+';
+        font-size: 1.5em;
+      }
+
+      &:hover::after {
+        color: $orchid;
       }
     }
 
@@ -143,7 +170,7 @@
   @include listStripped();
   @include fontBold(false);
   font-size: 1rem;
-  padding-left: 2em;
+  padding: 0.25em 0 0.25em 2em;
   display: none;
 
   li {
@@ -223,6 +250,10 @@
       padding: 1rem;
       border: none;
       margin: 0;
+    }
+
+    .widget-title {
+      margin-top: 2rem;
     }
   }
 

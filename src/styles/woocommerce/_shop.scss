@@ -1,59 +1,124 @@
-
 .products {
   @include listStripped();
-  @include grid(space-evenly, flex-end, row, wrap);
+  @include grid(space-between, flex-start, row, wrap);
 
-  li.product {
-    width: calc(25% - 1rem);
-    margin-bottom: 1rem;
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    .button {
-      display: none;
-    }
-
-    .woocommerce-loop-product__title {
-      font-size: 1rem;
-      font-family: $font-default;
-      @include fontBold();
-      margin-bottom: 0;
-      text-align: center;
-    }
-
-    .woocommerce-Price-amount {
-      font-size: 0.85rem;
-      color: $orchid;
-    }
-  }
-
-  li.none {
-    padding: 2rem;
-  }
-
-  li.product-category {
+  li {
     width: calc(33.333% - 1rem);
-    transition: all .2s ease-in-out;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.12);
+    text-align: center;
+    margin-bottom: 2rem;
 
-    &:hover {
-      transform: scale(1.025);
-    }
-
-    h2.woocommerce-loop-category__title {
-      font-size: 1.5em;
-      text-align: center;
-      padding-top: .5em;
+    h2 {
+      font-size: 1.5rem;
+      padding-top: 1em;
+      @include fontBold();
+      color: $green;
 
       mark {
         display: none;
       }
+
+      &.shop-product-cat {
+        font-family: $font-default;
+        text-transform: uppercase;
+        font-size: 1rem;
+        letter-spacing: 0.1ex;
+      }
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-family: $font-default;
+      @include fontBold();
+      margin-top: 1em;
     }
   }
 
+  .add_to_cart_button {
+    display: none;
+  }
+}
+
+.shop-thumb {
+  padding-top: 100%;
+  background-color: $grey-pale;
+  background-position: center center;
+  background-size: cover;
+
+  img {
+    display: none;
+  }
+}
+
+.shop-cta {
+  margin: 1em auto;
+  background-color: $orchid;
+
+  &:hover {
+    background-color: $violet;
+  }
+}
+
+#shop-gallery {
+  .slick-arrow {
+    display: block;
+    position: absolute;
+    top: calc(50% - 1.5rem);
+    height: 3rem;
+    width: 3rem;
+    font-size: 0px;
+    z-index: 1;
+    background-color: $violet-trans;
+
+    &.slick-next {
+      right: 0;
+    }
+
+    &:focus,
+    &:active {
+      border: none;
+    }
+  }
+
+  .slick-slide {
+    z-index: 0;
+  }
+}
+
+.shop-gallery-slide {
+  position: relative;
+  height: 0px;
+  padding-top: 43.75%;
+  background-size: cover;
+  background-position: center center;
+
+  h1 {
+    position: absolute;
+    top: 4vw;
+    left: 2vw;
+    font-size: 3.5vw;
+    font-family: $font-default;
+    text-transform: uppercase;
+    color: $orchid;
+    letter-spacing: 0.1ex;
+
+    span {
+      text-transform: none;
+      display: block;
+      color: $orchid-vibrant;
+      font-family: $font-heading;
+      font-size: 2em;
+      letter-spacing: 0;
+    }
+  }
+
+  a {
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+    display: block;
+    line-height: 3em;
+    padding: 0 1.5em;
+  }
 }
 
 .woocommerce-result-count {
@@ -61,34 +126,7 @@
 }
 
 .woocommerce-ordering {
-  @include grid(space-between, center);
-  background-color: $grey-pale;
-  padding: 0.5rem 1rem;
-  @include fontItalic();
-
-  select {
-    width: auto;
-    padding-right: 2.5em;
-    margin-left: auto;
-  }
-
-  p {
-    padding: 0 0 0 0.5rem;
-    @include fontItalic();
-
-    strong {
-      display: none;
-    }
-  }
-
-  .nav-pagination {
-    margin-left: 0.5rem;
-
-    a,
-    span {
-      width: 1.5em;
-    }
-  }
+  display: none;
 }
 
 .nav-pagination,
@@ -123,18 +161,6 @@
 
 .woocommerce-loop-product__link {
   display: block;
-
-  img {
-    @include transition();
-  }
-
-  &:hover {
-    background-color: transparentize($grey-pale, 0.75);
-
-    img {
-      opacity: 0.666;
-    }
-  }
 }
 
 .component_table_item {
@@ -176,5 +202,11 @@
   .nav-pagination a, .nav-pagination span, .woocommerce-pagination a, .woocommerce-pagination span {
     width: 1.75rem;
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #shop-gallery .slick-arrow {
+    display: none !important;
   }
 }

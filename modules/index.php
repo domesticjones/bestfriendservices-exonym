@@ -49,3 +49,20 @@
     $output .= '</div>';
     return $output;
   }
+
+  function ex_shop_header($repeaterArray) {
+    if($repeaterArray) {
+    	ex_wrap('start', 'woocommerce_heading_slider');
+    		echo '<div id="shop-gallery">';
+    			foreach($repeaterArray as $s)  {
+    				$lOne = $s['line_1'];
+    				$lTwo = $s['line_2'] ? '<span>' . $s['line_2'] . '</span>' : '';
+    				$img = wp_get_attachment_image_url($s['background']['id'], 'jumbo');
+    				$heading = $lOne || $lTwo ? '<h1>' . $lOne . $lTwo . '</h1>' : '';
+    				$button = $s['button'] ? '<a href="' . $s['button']['url'] . '" class="button shop-gallery-cta" target="' . $s['button']['target'] . '">' . $s['button']['title'] . '</a>' : '';
+    				echo '<div><div class="shop-gallery-slide" style="background-image: url(' . $img .');">' . $heading . $button . '</div></div>';
+    			}
+    		echo '</div>';
+    	ex_wrap('end');
+    }
+  }
