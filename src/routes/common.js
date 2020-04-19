@@ -49,6 +49,9 @@ export default {
       pauseOnFocus: false,
       dots: true,
     });
+    $(window).on('load', () => {
+      $('#hero-slider').find('.module-bg').removeClass('not-loaded');
+    });
 
     // MODULE: Shop Sidebar Categories Accordion
     $('.widget-cats .is-parent span').click((e) => {
@@ -62,6 +65,22 @@ export default {
     $('#shop-gallery').slick({
       fade: true,
     });
+
+  	// MODULES: Animate onScreen
+  	$(window).on('load resize scroll', () => {
+  		$('.animate-on-enter').each((i, el) => {
+  			const $this = $(el);
+  			if ($this.visible(true)) {
+  				$this.addClass('is-visible');
+  			}
+  		});
+  		$('.animate-on-leave').each((i, el) => {
+  			const $this = $(el);
+  			if (!$this.visible(true)) {
+  				$this.removeClass('is-visible');
+  			}
+  		});
+  	});
   },
   finalize() {
   	$(window).on('load resize scroll', () => {
@@ -91,22 +110,6 @@ export default {
     		$('#responsive-nav-toggle').removeClass('is-active');
         $('body').removeClass('nav-active');
       }
-  	});
-
-  	// MODULES: Animate onScreen
-  	$(window).on('load resize scroll', () => {
-  		$('.animate-on-enter').each((i, el) => {
-  			const $this = $(el);
-  			if ($this.visible(true)) {
-  				$this.addClass('is-visible');
-  			}
-  		});
-  		$('.animate-on-leave').each((i, el) => {
-  			const $this = $(el);
-  			if (!$this.visible(true)) {
-  				$this.removeClass('is-visible');
-  			}
-  		});
   	});
 
     // MODULE: Sales Funnel

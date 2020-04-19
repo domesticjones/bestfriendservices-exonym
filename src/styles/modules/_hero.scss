@@ -13,6 +13,14 @@
       background-color: $violet;
     }
   }
+
+  .module-bg {
+    opacity: 1;
+
+    &.not-loaded {
+      opacity: 0 !important;
+    }
+  }
 }
 
 .hero-wrap {

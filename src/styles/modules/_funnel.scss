@@ -83,7 +83,7 @@
   &::before {
       content: 'lbs';
       position: absolute;
-      top: 1em;
+      top: 0.8em;
       right: 5ex;
       @include fontItalic(false);
       color: $violet;
