@@ -188,6 +188,22 @@
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
 @media(max-width: 960px) {
+  .woocommerce.archive #content {
+    #primary {
+      padding: 0;
+      width: 100%;
+    }
+
+    #sidebar {
+      width: 100%;
+      padding: 0;
+
+      .widget-title {
+        margin-top: 1rem;
+      }
+    }
+  }
+
   .products {
     @include grid(space-evenly, flex-start, row, wrap);
 
@@ -201,7 +217,10 @@
     }
   }
 
-  .nav-pagination a, .nav-pagination span, .woocommerce-pagination a, .woocommerce-pagination span {
+  .nav-pagination a,
+  .nav-pagination span,
+  .woocommerce-pagination a,
+  .woocommerce-pagination span {
     width: 1.75rem;
     font-size: 0.75rem;
   }

@@ -23,7 +23,8 @@ get_header( 'shop' );
 $shopPage = wc_get_page_id('shop');
 ex_wrap('start', 'woocommerce_heading', '', $shopPage);
 	if(apply_filters('woocommerce_show_page_title', true)) {
-		echo '<h1 class="woocommerce-page-title">' . get_the_title($post->ID) . '</h1>';
+		$title = is_singular('product') ? 'Shop' . (get_the_terms($post->ID, 'product_cat') ? ' Our ' . get_the_terms($post->ID, 'product_cat')[0]->name : '') : get_the_title($post->ID);
+		echo '<h1 class="woocommerce-page-title">' . $title . '</h1>';
 	}
 ex_wrap('end');
 ?>

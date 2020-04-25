@@ -25,7 +25,6 @@ function ex_butler() {
 	add_filter('wp_head', 'ex_remove_wp_widget_recent_comments_style', 1 ); // remove injected css for recent comments widget
 	add_action('wp_head', 'ex_remove_recent_comments_style', 1); // clean up comment styles in the head
 	add_filter('gallery_style', 'ex_gallery_style'); // clean up gallery output
-  add_filter('the_content', 'ex_filter_ptags_on_images'); // cleaning up random code around images
 	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 }
 
@@ -52,10 +51,6 @@ function ex_gallery_style($css) {
   return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
-// Remove the <p> tag from around images
-function ex_filter_ptags_on_images($content){
-	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
 
 // Limit post revisions to 5
 if(!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS',5);

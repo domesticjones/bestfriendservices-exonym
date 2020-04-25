@@ -192,20 +192,6 @@ a.woocommerce-Button {
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media (max-width: 960px) {
-  .woocommerce.archive #content {
-    #primary {
-      padding: 2rem;
-      width: 100%;
-    }
-
-    #sidebar {
-      width: 100%;
-      padding-top: 0;
-    }
-  }
-}
-
 @media(max-width: 768px) {
   .woocommerce {
     .form-row {

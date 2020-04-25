@@ -16,14 +16,6 @@ export default {
       $('body').toggleClass('nav-active');
   	});
 
-    // PRODUCT: Variation Image Placeholder Change
-    $('.single_variation_wrap').on('show_variation', (e,v) => {
-      $('#variation_custom_preview').attr('src', v.image.full_src);
-    });
-    $(document).on('found_variation.first', (e,v) => {
-      $('#variation_custom_preview').attr('src', v.image.full_src);
-    });
-
     // ON INIT: Add visible class to first item before the rest of content loads
     $('#content').find('.module:first').addClass('is-visible');
     $('#hero-slider').find('.module:first').addClass('is-visible');
@@ -317,88 +309,41 @@ export default {
       });
     }
 
+    // PRODUCT: Image Gallery Toggling
+    $('#product-single-thumbs li').click(e => {
+      $('#product-single-thumbs li').removeClass('is-active');
+      const img = $(e.currentTarget).data('image');
+      $(e.currentTarget).addClass('is-active');
+      $('#product-single-image').css('background-image', `url(${img})`);
+    });
+
+    // PRODUCT: Scroll to the Composite Products
+    $('#product-customize').click(() => {
+      $('html, body').animate({
+        scrollTop: $('#product-single-composite').offset().top - 120
+      }, 1000);
+    });
+
+    // PRODUCT: Change Button Text
+    if(petname) {
+      $('#product-customize').text(`Customize for ${petname}`);
+    }
+
+    // See what ones are vestigial now
+
     // MODAL: List of Modal Triggers
     exModal('find');
     exModal('edit', '#modal-find');
     exModal('home-find', '#modal-find');
     exModal('info');
     exModal('size');
-    exModal('customize');
     exModal('options');
 
-    // PRODUCT: Gallery
-    const productGallery = $('#product-single-gallery');
-    productGallery.slick({
-      arrows: false,
-      speed: 1333,
-      autoplay: true,
-      autoplaySpeed: 6669,
-      slidesToShow: 5,
-      centerPadding: '0',
-      focusOnSelect: true,
-      vertical: true,
-      verticalSwiping: true,
-      cssEase: 'ease-in-out',
-      lazyLoad: 'progressive',
-      responsive: [
-        {
-          breakpoint: 960,
-          settings: {
-            vertical: false,
-            verticalSwiping: false,
-            slidesToShow: 3,
-            centerMode: true,
-          }
-        }
-      ],
-    });
-    productGallery.on('beforeChange', (e, slick, currentSlide, nextSlide) => {
-      const bg = $(slick.$slides.get(nextSlide)).find('.product-image-gallery-single').css('background-image');
-      $('#product-single-gallery-frame').css('background-image', bg);
-    });
 
-    // PRODUCT: Change Button Text
-    if(petname) {
-      $('#product-button-customize, #product-button-options').text(`Customize for ${petname}`);
-    }
+    /* Look into these
 
-    // PRODUCT: Remove class descriptors from components
-    $('.composite_component').removeAttr('style');
 
-    // PRODUCT: Don't allow component images to open a new window
-    $(document).on('click', '.composited_product_image a, .component_title_button ', e => {
-      e.preventDefault();
-    });
 
-    // PRODUCT: Validate all fields before proceeding by checking validation message visibility
-    $(document).on('click', '.component-nav button', e => {
-      e.preventDefault();
-      const $this = $(e.currentTarget);
-      if($this.hasClass('next')) {
-        const validate = $this.closest('.composite_component').find('.woocommerce-variation');
-        if(validate.css('display') != 'none') {
-          $this.closest('.composite_component').removeClass('active');
-          $this.closest('.composite_component').next().addClass('active');
-        } else {
-          alert('All options marked with a * are required');
-        }
-        if($this.find('span').text() == 'Review') {
-          $('.composite_component').each((i,e) => {
-            const title = $(e).data('nav_title');
-            const img = $(e).find('.composited_product_images').html();
-            let imgPrint = '';
-            if(img.length) {
-              imgPrint = img;
-            }
-            $('#composite_review').append(`<div class="component_item"><h3>${title}</h3>${imgPrint}</div>`);
-
-          });
-        }
-      } else if($this.hasClass('prev')) {
-        $this.closest('.composite_component').removeClass('active');
-        $this.closest('.composite_component').prev().addClass('active');
-      }
-    });
 
     // PRODUCT: Populate the Funnel Data and Recommendations
     $(document).on('click', '#product-button-customize', () => {
@@ -424,6 +369,14 @@ export default {
     });
 
 
+    // PRODUCT: Variation Image Placeholder Change
+    $('.single_variation_wrap').on('show_variation', (e,v) => {
+      $('#variation_custom_preview').attr('src', v.image.full_src);
+    });
+    $(document).on('found_variation.first', (e,v) => {
+      $('#variation_custom_preview').attr('src', v.image.full_src);
+    });
+
     // PRODUCT: Funnel Size Recommendation Toggle
     $(document).on('click', '#funnel-weight-recommend-toggle', e => {
       e.preventDefault();
@@ -438,14 +391,6 @@ export default {
       const l4 = $('#engraving-line-4').val();
       const target = $('#engraving-line-1').closest('.component_content').data('product_id');
       $(`#summary_custom_populate_${target}`).html(`${l1}<br />${l2}<br />${l3}<br />${l4}`);
-    });
-
-    // SHOP: Command Bar Widgets
-    $('.widget-toggle').click(e => {
-      e.preventDefault();
-      const $this = $(e.currentTarget);
-      $this.prev('.widget-inner').toggleClass('is-active');
-      $this.toggleClass('is-active');
     });
 
     // PRODUCT: Re-Upload a Photo
@@ -465,5 +410,17 @@ export default {
         }
       });
     }
+
+    */
+
+
+    // SHOP: Command Bar Widgets
+    $('.widget-toggle').click(e => {
+      e.preventDefault();
+      const $this = $(e.currentTarget);
+      $this.prev('.widget-inner').toggleClass('is-active');
+      $this.toggleClass('is-active');
+    });
+
   },
 };
