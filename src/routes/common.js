@@ -329,6 +329,76 @@ export default {
       $('#product-customize').text(`Customize for ${petname}`);
     }
 
+    // PRODUCT: Populate data throughout composite form
+    let productOptionSkip = true;
+    $('.composite_data').on('wc-composite-initializing', (e,c) => {
+      setTimeout(() => {
+        // PRODUCT: Populate the Funnel Data and Recommendations
+        if(petweight) {
+          $('#funnel-weight-recommend-value').text('found it');
+          let sizeRec = null;
+          $('#funnel-weight-recommend-table tr:not(:first)').each((i,e) => {
+            const min = parseInt($(e).find('.pet-weight-min').text());
+            const max = parseInt($(e).find('.pet-weight-max').text());
+            const size = $(e).find('td:first-child').text();
+            if(petweight >= min && petweight <= max) {
+              sizeRec = size;
+            }
+          });
+          $('#recommend-pet-name').text(petname);
+          $('#recommend-pet-weight').text(petweight);
+          $('#recommend-pet-size').text(sizeRec);
+        } else {
+          $('#funnel-weight-recommend-text').empty().remove();
+        }
+
+        // PRODUCT: Populate the Engraving Field
+        if(petname && !$('#engraving-line-1').val().length) {
+          $('#engraving-line-1').val(petname);
+        }
+
+        // PRODUCT: Composite Optional Dismiss Link Generate
+        if(productOptionSkip) {
+          $('.component_option_radio_buttons_container').each((i,e) => {
+            const parent = $(e).closest('.composite_component');
+            const option = parent.find('h4.component_section_title').text();
+            parent.append(`<span class="product-composite-nothanks">Continue without ${option}</span>`);
+            productOptionSkip = false;
+          });
+        }
+
+      }, 2000);
+    });
+
+    // PRODUCT: Composite Optional Dismiss Link Action
+    $(document).on('click', '.product-composite-nothanks', e => {
+      const $this = $(e.currentTarget);
+      $this.closest('.composite_component').find('.component_option_radio_buttons_container li:first-child .component_option_radio_button_select').trigger('click');
+      setTimeout(() => {
+        $this.closest('.composite_component').find('.composite_navigation.bottom .page_button.next').trigger('click');
+        $this.addClass('is-spent');
+        $('.summary_custom_populate').addClass('is-inactive');
+      }, 350);
+    });
+
+    // PRODUCT: Funnel Size Recommendation Toggle
+    $(document).on('click', '#funnel-weight-recommend-toggle', e => {
+      e.preventDefault();
+      $('#funnel-weight-recommend-table').toggle();
+    });
+
+    // PRODUCT: Populate Preview for Engraving Text
+    $(document).on('click', '.composite_component', e => {
+      const l1 = $('#engraving-line-1').val();
+      const l2 = $('#engraving-line-2').val();
+      const l3 = $('#engraving-line-3').val();
+      const l4 = $('#engraving-line-4').val();
+      const target = $('#engraving-line-1').closest('.component_content').data('product_id');
+      const lines = [l1,l2,l3,l4];
+      $(`#summary_custom_populate_${target}`).html(lines.join('<br />'));
+    });
+
+
     // See what ones are vestigial now
 
     // MODAL: List of Modal Triggers
@@ -345,28 +415,6 @@ export default {
 
 
 
-    // PRODUCT: Populate the Funnel Data and Recommendations
-    $(document).on('click', '#product-button-customize', () => {
-      if(petweight) {
-        $('#funnel-weight-recommend-value').text(petweight);
-        let sizeRec = null;
-        $('#funnel-weight-recommend-table tr:not(:first)').each((i,e) => {
-          const min = parseInt($(e).find('.pet-weight-min').text());
-          const max = parseInt($(e).find('.pet-weight-max').text());
-          const size = $(e).find('td:first-child').text();
-          if(petweight >= min && petweight <= max) {
-            sizeRec = size;
-          }
-        });
-        $('#recommend-pet-name').text(petname);
-        $('#recommend-pet-weight').text(petweight);
-        $('#recommend-pet-size').text(sizeRec);
-      }
-      // PRODUCT: Populate the Engraving Field
-      if(petname) {
-        $('#engraving-line-1').val(petname);
-      }
-    });
 
 
     // PRODUCT: Variation Image Placeholder Change
@@ -375,22 +423,6 @@ export default {
     });
     $(document).on('found_variation.first', (e,v) => {
       $('#variation_custom_preview').attr('src', v.image.full_src);
-    });
-
-    // PRODUCT: Funnel Size Recommendation Toggle
-    $(document).on('click', '#funnel-weight-recommend-toggle', e => {
-      e.preventDefault();
-      $('#funnel-weight-recommend-table').toggle();
-    });
-
-    // PRODUCT: Populate Preview for Engraving Text
-    $(document).on('click', '.composite_component', e => {
-      const l1 = $('#engraving-line-1').val();
-      const l2 = $('#engraving-line-2').val();
-      const l3 = $('#engraving-line-3').val();
-      const l4 = $('#engraving-line-4').val();
-      const target = $('#engraving-line-1').closest('.component_content').data('product_id');
-      $(`#summary_custom_populate_${target}`).html(`${l1}<br />${l2}<br />${l3}<br />${l4}`);
     });
 
     // PRODUCT: Re-Upload a Photo

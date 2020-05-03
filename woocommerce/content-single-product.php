@@ -56,10 +56,10 @@ $type = $product->get_type();
 
 			// Product Summary Column
 			$productName = $product->get_name();
-			$productPrice = $product->get_price();
 			echo '<div class="product-single-top-right">';
 				echo '<h1>' . $productName . '</h1>';
 				the_excerpt();
+				woocommerce_template_loop_price();
 				if($type == 'composite') {
 					echo '<button id="product-customize" type="button">Customize for Your Pet</button>';
 				} else {

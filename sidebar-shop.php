@@ -1,13 +1,14 @@
 <aside id="sidebar">
   <div id="widget-petinfo" class="widget">
     <div class="widget-inner">
-      <h3 class="widget-title">Your Pet</h3>
+      <h3 class="widget-title">About Your Pet</h3>
       <div id="pet-info">
         <div id="pet-name-display" class="pet-widget-name"></div>
         <div class="pet-widget-info"><span id="pet-type-display"></span>, <span id="pet-weight-display"></span>lbs</div>
         <a href="#edit">Edit Info</a>
       </div>
       <div id="pet-cta">
+        <p>Enter your pet’s information for a personalized shopping experience.</p>
         <a href="#find" class="cta-button cta-color-green">Enter Your Pet's Info</a>
       </div>
     </div>

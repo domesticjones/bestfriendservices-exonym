@@ -41,6 +41,7 @@
 
 #pet-info {
   position: relative;
+  padding-bottom: 2rem;
 
   a {
     display: block;
@@ -63,8 +64,25 @@
 }
 
 #pet-cta {
+  p {
+    font-family: $font-heading;
+    font-size: 1.25em;
+    color: $orchid;
+    padding-bottom: 1rem;
+  }
+
   .cta-button {
+    @include grid(space-between, center);
     margin-top: 0;
+    background-color: $orchid;
+    border-color: $orchid;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $violet;
+      border-color: $violet;
+    }
   }
 }
 
@@ -198,6 +216,10 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+}
+
+#widget-petinfo {
+  padding-bottom: 0;
 }
 
 #widget-search {

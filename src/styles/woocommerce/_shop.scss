@@ -6,6 +6,11 @@
     width: calc(33.333% - 1rem);
     text-align: center;
     margin-bottom: 2rem;
+    @include transition(all 120ms ease);
+
+    &:hover {
+      transform: scale(1.02);
+    }
 
     h2 {
       font-size: 1.5rem;
@@ -142,31 +147,50 @@
 .nav-pagination,
 .woocommerce-pagination {
   @include navMenu(horizontal);
+  @include grid(center, center);
 
   a,
   span {
     display: block;
-    padding: 0.25rem;
     width: 2rem;
-    border: 1px solid $grey-light;
+    line-height: 1;
     text-align: center;
-    color: $green;
+    color: $orchid;
     @include transition();
 
     &:hover {
-      background-color: $grey-light;
       color: $violet;
     }
   }
 
   span {
-    color: $grey;
+    color: $violet;
+  }
+
+  .prev,
+  .next {
+    background-color: $orchid;
+    color: $white;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5em;
+    @include fontBold();
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $white;
+      background-color: $violet;
+    }
   }
 }
 
 .woocommerce-pagination {
   @include grid(center, center);
-  margin-top: 3vw;
+  margin: 4vw 0;
 }
 
 .woocommerce-loop-product__link {
