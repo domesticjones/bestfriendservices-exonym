@@ -88,7 +88,9 @@ $type = $product->get_type();
 			echo '</div>';
 			echo wp_get_attachment_image($productInfoImages['side'], 'medium', false, array('class' => 'product-single-more-image-side'));
 		} else {
-			the_content();
+			echo '<div class="product-single-more-content-full">';
+				the_content();
+			echo '</div>';
 		}
 	echo '</div>';
 

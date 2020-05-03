@@ -305,7 +305,6 @@ form.woocommerce-checkout {
 .checkout_coupon {
   margin: 2rem 0;
   padding: 0.5rem 1rem;
-  border: 1px solid $grey;
   @include grid();
   display: flex !important;
 
@@ -318,19 +317,19 @@ form.woocommerce-checkout {
   @include grid(center, stretch, row, wrap)
   @include listStripped();
   padding: 0 1rem 1rem 1rem;
-  border: 1px solid $grey;
 
   .checkout-product {
-    @include grid(flex-start, center);
+    @include grid(flex-start, center, column);
     padding: 1rem 0;
     border-bottom: 1px solid $grey;
     width: 100%;
+    text-align: center;
 
     img {
       display: block;
       height: 4rem;
       width: auto;
-      margin-right: 1rem;
+      margin-bottom: 1rem;
     }
 
     p {
@@ -352,38 +351,24 @@ form.woocommerce-checkout {
       text-align: center;
       padding: 0.5em;
 
+      .checkout-cart-data {
+        padding-left: 0;
+      }
+
       img {
         display: block;
         margin: 0 auto;
       }
 
       h3 {
-        font-size: 0.75em;
+        font-size: 0.85em;
       }
 
       p {
-        font-size: 0.75em;
-        margin-top: 1em;
-
+        line-height: 1;
         &.price {
           display: none;
         }
-      }
-
-      dl {
-        font-size: 0.75em;
-        line-height: 1;
-      }
-
-      dt {
-        @include fontItalic();
-        color: $grey;
-        font-size: 0.75em;
-      }
-
-      dd {
-        margin-bottom: 0.5em;
-        @include fontBold();
       }
     }
   }
@@ -478,15 +463,29 @@ li.checkout-total {
 }
 
 .checkout-cart-data {
-  padding-left: 0.5em;
+  font-size: 0.75em;
 
   i,
   dt {
     display: block;
-    font-size: 0.75em;
     @include fontBold(false);
-    color: $grey;
+    color: $black;
     margin-top: 1em;
+    color: $grey;
+  }
+
+  dl {
+    line-height: 1;
+  }
+
+  dt {
+    @include fontItalic();
+    font-size: 0.75em;
+  }
+
+  dd {
+    margin-bottom: 0.5em;
+    @include fontBold();
   }
 
   p {
@@ -497,6 +496,8 @@ li.checkout-total {
 
   .price {
     margin-top: 1rem;
+    font-size: 1.25em;
+    color: $green;
   }
 }
 

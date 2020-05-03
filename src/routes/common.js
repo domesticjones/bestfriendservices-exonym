@@ -410,20 +410,7 @@ export default {
     exModal('options');
 
 
-    /* Look into these
 
-
-
-
-
-
-    // PRODUCT: Variation Image Placeholder Change
-    $('.single_variation_wrap').on('show_variation', (e,v) => {
-      $('#variation_custom_preview').attr('src', v.image.full_src);
-    });
-    $(document).on('found_variation.first', (e,v) => {
-      $('#variation_custom_preview').attr('src', v.image.full_src);
-    });
 
     // PRODUCT: Re-Upload a Photo
     $(document).on('click', '#photo-engrave', e => {
@@ -443,8 +430,6 @@ export default {
       });
     }
 
-    */
-
 
     // SHOP: Command Bar Widgets
     $('.widget-toggle').click(e => {
@@ -453,6 +438,5 @@ export default {
       $this.prev('.widget-inner').toggleClass('is-active');
       $this.toggleClass('is-active');
     });
-
   },
 };
