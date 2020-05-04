@@ -108,9 +108,9 @@ body.single-product {
   }
 
   .single_variation_wrap {
-    float: right;
+    float: left;
     width: 50%;
-    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .wcpa_form_outer {
@@ -119,7 +119,7 @@ body.single-product {
 
   #photo-engrave {
     @include grid(center, center);
-    float: left;
+    float: right;
     position: relative;
     width: 50%;
     min-height: 4rem;
