@@ -5,12 +5,20 @@
   $topsellersQueryArgs = array(
       'post_type' => 'product',
       'tax_query' => array(
+        'relation' => 'AND',
         array(
           'taxonomy' => 'product_cat',
           'field' => 'term_id',
           'terms' => $catExclude,
           'operator' => 'NOT IN',
         ),
+        array(
+      	  'taxonomy'         => 'product_visibility',
+      	  'terms'            => array('exclude-from-catalog', 'exclude-from-search'),
+      	  'field'            => 'name',
+      	  'operator'         => 'NOT IN',
+      	  'include_children' => false,
+      	),
       ),
       'posts_per_page' => 10,
       'meta_key' => 'total_sales',

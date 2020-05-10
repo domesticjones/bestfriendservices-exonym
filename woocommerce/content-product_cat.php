@@ -47,6 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	do_action( 'woocommerce_shop_loop_subcategory_title', $category );
 
+	echo '<button type="button" class="shop-cta">Shop Now</button>';
+
 	/**
 	 * woocommerce_after_subcategory_title hook.
 	 */
@@ -59,5 +61,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	do_action( 'woocommerce_after_subcategory', $category ); ?>
 
-  <button type="button" class="shop-cta">Shop Now</button>
 </li>

@@ -326,6 +326,17 @@ body.single-product {
     display: none;
   }
 
+  .component_description {
+    text-align: center;
+    padding: 1rem 2rem;
+    margin-bottom: 0;
+    @include fontItalic();
+
+    p {
+      padding-bottom: 0;
+    }
+  }
+
   .component_content {
     .component_section_title {
       display: block;

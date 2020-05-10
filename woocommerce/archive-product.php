@@ -20,13 +20,17 @@ defined( 'ABSPATH' ) || exit;
 get_header('shop');
 $shopPage = is_tax() ? 'product_cat_' . get_queried_object()->term_id : wc_get_page_id('shop');
 
-ex_wrap('start', 'woocommerce_heading', '', $shopPage);
-	echo '<h1 class="woocommerce-page-title">' . get_field('woocommerce_heading', $shopPage) . '</h1>';
-ex_wrap('end');
+
 
 
 $shopHeadGallery = get_field('woo_header_gallery', $shopPage);
-ex_shop_header($shopHeadGallery);
+if($shopHeadGallery) {
+	ex_shop_header($shopHeadGallery);
+} else {
+	ex_wrap('start', 'woocommerce_heading', '', $shopPage);
+		echo '<h1 class="woocommerce-page-title">' . get_field('woocommerce_heading', $shopPage) . '</h1>';
+	ex_wrap('end');
+}
 
 /**
  * Hook: woocommerce_before_main_content.
